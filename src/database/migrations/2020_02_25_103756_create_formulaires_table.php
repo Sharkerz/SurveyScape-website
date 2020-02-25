@@ -14,6 +14,7 @@ class CreateFormulairesTable extends Migration
     public function up()
     {
         Schema::create('formulaires', function (Blueprint $table) {
+            $table->engine = "InnoDB";
             $table->bigIncrements('id');
             $table->string('name', 100);
             $table->timestamp('open_on', 0)->nullable();
