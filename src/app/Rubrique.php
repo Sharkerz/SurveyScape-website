@@ -9,4 +9,9 @@ class Rubrique extends Model
     protected $fillable = [
         'name', 'formulaire_id'
     ];
+
+    public function formulaire()
+    {
+        return $this->belongsTo('App\Formulaire');
+    }
 }
