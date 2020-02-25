@@ -16,6 +16,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/test', function () {
+    return Formulaire::find(1)->rubriques[0]->Formulaire;
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
