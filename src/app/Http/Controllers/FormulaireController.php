@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\formulaire;
+use App\Formulaire;
 use Illuminate\Http\Request;
 
 class FormulaireController extends Controller
@@ -41,10 +41,10 @@ class FormulaireController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\formulaire  $formulaire
+     * @param  \App\Formulaire  $formulaire
      * @return \Illuminate\Http\Response
      */
-    public function show(formulaire $formulaire)
+    public function show(Formulaire $formulaire)
     {
         //
     }
@@ -52,10 +52,10 @@ class FormulaireController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\formulaire  $formulaire
+     * @param  \App\Formulaire  $formulaire
      * @return \Illuminate\Http\Response
      */
-    public function edit(formulaire $formulaire)
+    public function edit(Formulaire $formulaire)
     {
         //
     }
@@ -64,10 +64,10 @@ class FormulaireController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\formulaire  $formulaire
+     * @param  \App\Formulaire  $formulaire
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, formulaire $formulaire)
+    public function update(Request $request, Formulaire $formulaire)
     {
         //
     }
@@ -75,10 +75,10 @@ class FormulaireController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\formulaire  $formulaire
+     * @param  \App\Formulaire  $formulaire
      * @return \Illuminate\Http\Response
      */
-    public function destroy(formulaire $formulaire)
+    public function destroy(Formulaire $formulaire)
     {
         //
     }
