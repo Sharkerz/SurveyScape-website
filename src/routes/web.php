@@ -13,13 +13,14 @@
 
 use App\Formulaire;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 Route::get('/test', function () {
-    return Formulaire::find(1)->rubriques[0]->formulaire;
+    return Formulaire::find(2)->rubriques[0]->formulaire;
 });
 
 

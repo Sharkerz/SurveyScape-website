@@ -10,7 +10,7 @@ class Rubrique extends Model
         'name', 'formulaire_id'
     ];
 
-    public function Formulaire()
+    public function formulaire()
     {
         return $this->belongsTo('App\Formulaire');
     }
