@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    return Formulaire::find(1)->rubriques[0]->Formulaire;
+    return formulaire::find(1)->rubriques[0]->formulaire;
 });
 
 
