@@ -58,7 +58,6 @@ class FormulaireController extends Controller
      */
     public function show(Formulaire $formulaire)
     {
-        $formulaire = Formulaire::find($formulaire)->first();
         return view('formulaire.show', [
             'formulaire' => $formulaire
         ]);
@@ -87,7 +86,6 @@ class FormulaireController extends Controller
      */
     public function update(Request $request, Formulaire $formulaire)
     {
-        $formulaire = Formulaire::find($formulaire)->first();
         $formulaire->name = $request->name;
         $formulaire->open_on = $request->open_on;
         $formulaire->close_on = $request->close_on;

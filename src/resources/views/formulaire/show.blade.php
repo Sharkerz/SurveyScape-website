@@ -9,7 +9,6 @@
                 <div class="card-header">Formulaire : {{ $formulaire->name }} <button onclick="window.location.href='{{ route('formulaires.index') }}'" type="button" class="btn btn-primary">Retour</button></div>
 
                 <div class="card-body">
-                    {{ $formulaire->id }}
                     {{ $formulaire->name }}
                     {{ $formulaire->user->name }}
                     {{ $formulaire->open_on }}
