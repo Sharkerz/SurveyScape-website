@@ -35,3 +35,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/type_reponses', 'TypeReponseController');
     Route::resource('/questions', 'QuestionController');
 });
+
