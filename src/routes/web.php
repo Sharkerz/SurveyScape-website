@@ -27,3 +27,11 @@ Route::get('/test', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('/formulaires', 'FormulaireController');
+    Route::resource('/rubriques', 'RubriqueController');
+    Route::resource('/questions', 'QuestionController');
+    Route::resource('/type_reponses', 'TypeReponseController');
+    Route::resource('/questions', 'QuestionController');
+});
