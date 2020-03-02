@@ -14,7 +14,11 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        return view('formulaire.index');
+        $formulaires=Formulaire::all();
+        return view('formulaire.index', [
+                'formulaires' => $formulaires
+        ]);
+        
     }
 
     /**
