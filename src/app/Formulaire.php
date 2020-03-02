@@ -14,4 +14,9 @@ class Formulaire extends Model
     {
         return $this->hasMany('App\Rubrique');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
