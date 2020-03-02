@@ -18,12 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/test', function () {
-    return Formulaire::find(2)->rubriques[0]->formulaire;
-});
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
