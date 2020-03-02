@@ -47,6 +47,7 @@ class FormulaireController extends Controller
             "close_on" => $request->input('close_on'),
             "user_id" => Auth::user()->id,
         ]);
+        return Redirect::route('formulaires.index');
     }
 
     /**

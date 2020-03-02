@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Formulaire : {{ $formulaire->name }} <a href="{{ route('formulaires.index') }}">Retour</a></div>
+                <div class="card-header">Formulaire : {{ $formulaire->name }} <button onclick="window.location.href='{{ route('formulaires.index') }}'" type="button" class="btn btn-primary">Retour</button></div>
 
                 <div class="card-body">
                     {{ $formulaire->id }}
