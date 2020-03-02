@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Edition du formulaire : {{ $formulaire->name }}</h1> 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+            <div class="card-header">
+                <h1>Edition du formulaire : {{ $formulaire->name }}</h1>
+            </div>
                 <form action="{{ route('formulaires.update', ['formulaire' => $formulaire->id]) }}" method="post">
                     @csrf
                     @method('put')
