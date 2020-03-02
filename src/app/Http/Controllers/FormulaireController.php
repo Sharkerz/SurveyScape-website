@@ -31,6 +31,16 @@ class FormulaireController extends Controller
         return view('formulaire.create');
     }
 
+    public function insert(Request $request)
+    {
+        $name = $request->input('name');
+        $open_on = $request->input('open_on');
+        $close_on = $request->input('close_on');
+        $data=array('name'=>$name,"open_on"=>$open_on,"close_on"=>$close_on);
+        googleform::table('formulaires')->insert($data);
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *

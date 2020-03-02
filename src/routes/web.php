@@ -25,7 +25,7 @@ Route::get('/test', function () {
 
 
 Auth::routes();
-
+Route::post('create','FormulaireController@insert');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
