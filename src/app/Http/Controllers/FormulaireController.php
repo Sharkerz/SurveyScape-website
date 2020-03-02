@@ -102,6 +102,7 @@ class FormulaireController extends Controller
      */
     public function destroy(Formulaire $formulaire)
     {
-        //
+        $formulaire->delete();
+        return Redirect::route('formulaires.index');
     }
 }

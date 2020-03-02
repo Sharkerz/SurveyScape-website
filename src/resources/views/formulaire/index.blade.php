@@ -10,7 +10,7 @@
             <div class="card">
             <div class="card-header">
                 <h1>Formulaires</h1>
-                <button onclick="window.location.href='/formulaires/create'" id="btn-create" type="button" class="btn btn-success">Creer un formulaire</button>
+                <button onclick="window.location.href='/formulaires/create'" id="btn-create" type="button" class="btn btn-success">Créer un formulaire</button>
             </div>
                 <table>
                     <thead>

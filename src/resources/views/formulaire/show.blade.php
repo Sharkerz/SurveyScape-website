@@ -15,6 +15,11 @@
                     {{ $formulaire->close_on }}
 
                     <a href="{{ route('formulaires.edit', ['formulaire' => $formulaire->id]) }}">Modifier</a>
+                    <form action="{{ route('formulaires.destroy', ['formulaire' => $formulaire->id]) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <input class="btn btn-danger" type='submit' value="Supprimer">
+                    </form>
 
                 </div>
             </div>
