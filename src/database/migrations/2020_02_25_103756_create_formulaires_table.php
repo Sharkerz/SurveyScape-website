@@ -17,8 +17,8 @@ class CreateFormulairesTable extends Migration
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
             $table->string('name', 100);
-            $table->timestamp('open_on', 0)->nullable();
-            $table->timestamp('close_on', 0)->nullable();
+            $table->date('open_on', 0)->nullable();
+            $table->date('close_on', 0)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

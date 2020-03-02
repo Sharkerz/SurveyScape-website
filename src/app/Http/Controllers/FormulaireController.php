@@ -71,7 +71,6 @@ class FormulaireController extends Controller
      */
     public function edit(Formulaire $formulaire)
     {
-        $formulaire = Formulaire::find($formulaire)->first();
         return view('formulaire.edit', [
             'formulaire' => $formulaire
         ]);
