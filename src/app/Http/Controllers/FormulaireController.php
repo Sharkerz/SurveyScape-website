@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Formulaire;
 use Illuminate\Http\Request;
 use Auth;
+use Redirect;
 
 class FormulaireController extends Controller
 {
@@ -56,7 +57,10 @@ class FormulaireController extends Controller
      */
     public function show(Formulaire $formulaire)
     {
-        return view('formulaire.show');
+        $formulaire = Formulaire::find($formulaire)->first();
+        return view('formulaire.show', [
+            'formulaire' => $formulaire
+        ]);
     }
 
     /**
@@ -67,7 +71,10 @@ class FormulaireController extends Controller
      */
     public function edit(Formulaire $formulaire)
     {
-        return view('formulaire.edit');
+        $formulaire = Formulaire::find($formulaire)->first();
+        return view('formulaire.edit', [
+            'formulaire' => $formulaire
+        ]);
     }
 
     /**
@@ -79,7 +86,13 @@ class FormulaireController extends Controller
      */
     public function update(Request $request, Formulaire $formulaire)
     {
-        //
+        $formulaire = Formulaire::find($formulaire)->first();
+        $formulaire->name = $request->name;
+        $formulaire->open_on = $request->open_on;
+        $formulaire->close_on = $request->close_on;
+        $formulaire->save();
+
+        return Redirect::route('formulaires.show', ['formulaire' => $formulaire->id]);
     }
 
     /**

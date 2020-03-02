@@ -2,10 +2,25 @@
 
 @section('content')
 
-    <body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Formulaire {{ $formulaire->name }}</div>
 
-    <h1> show page </h1>
+                <div class="card-body">
+                    {{ $formulaire->id }}
+                    {{ $formulaire->name }}
+                    {{ $formulaire->user->name }}
+                    {{ $formulaire->open_on }}
+                    {{ $formulaire->close_on }}
 
-    </body>
+                    <a href="{{ route('formulaires.edit', ['formulaire' => $formulaire->id]) }}">Modifier</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection
