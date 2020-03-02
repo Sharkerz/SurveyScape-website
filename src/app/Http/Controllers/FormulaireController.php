@@ -14,7 +14,7 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        //
+        return view('formulaire.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class FormulaireController extends Controller
      */
     public function create()
     {
-        //
+        return view('formulaire.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class FormulaireController extends Controller
      */
     public function show(Formulaire $formulaire)
     {
-        //
+        return view('formulaire.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class FormulaireController extends Controller
      */
     public function edit(Formulaire $formulaire)
     {
-        //
+        return view('formulaire.edit');
     }
 
     /**
