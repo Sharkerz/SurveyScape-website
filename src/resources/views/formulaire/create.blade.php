@@ -10,11 +10,6 @@
 
     </form>
 
-<?php
-
-    echo $_POST['test'];
-
-?>
 
 
 </body>
