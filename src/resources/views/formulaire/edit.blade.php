@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Edition du formulaire :</h1> 
+<h1>Edition du formulaire : {{ $formulaire->name }}</h1> 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
