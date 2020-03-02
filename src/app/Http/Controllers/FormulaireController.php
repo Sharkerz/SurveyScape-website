@@ -58,6 +58,7 @@ class FormulaireController extends Controller
      */
     public function show(Formulaire $formulaire)
     {
+        $formulaire = Formulaire::find($formulaire)->first();
         return view('formulaire.show', [
             'formulaire' => $formulaire
         ]);
