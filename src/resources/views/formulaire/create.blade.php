@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <form action="/create" method="post">
+                <form action="{{ route('formulaires.store') }}" method="post">  
                     @csrf
                     <label for="NomFormulaire">Nom du Formulaire:</label>
                     <input label="Nom du Formulaire:" type="text" name="name" required></br>

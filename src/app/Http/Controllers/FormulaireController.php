@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Formulaire;
 use Illuminate\Http\Request;
+use Auth;
 
 class FormulaireController extends Controller
 {
@@ -31,16 +32,6 @@ class FormulaireController extends Controller
         return view('formulaire.create');
     }
 
-    public function insert(Request $request)
-    {
-        $name = $request->input('name');
-        $open_on = $request->input('open_on');
-        $close_on = $request->input('close_on');
-        $data=array('name'=>$name,"open_on"=>$open_on,"close_on"=>$close_on);
-        googleform::table('formulaires')->insert($data);
-    }
-
-
     /**
      * Store a newly created resource in storage.
      *
@@ -49,7 +40,12 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Formulaire::create([
+            "name" => $request->input('name'),
+            "open_on" => $request->input('open_on'),
+            "close_on" => $request->input('close_on'),
+            "user_id" => Auth::user()->id,
+        ]);
     }
 
     /**
