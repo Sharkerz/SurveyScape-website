@@ -9,4 +9,9 @@ class TypeReponse extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function reponse()
+    {
+        return $this->belongsTo('App\TypeReponse');
+    }
 }

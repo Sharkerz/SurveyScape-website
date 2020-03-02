@@ -14,4 +14,9 @@ class Rubrique extends Model
     {
         return $this->belongsTo('App\Formulaire');
     }
+
+    public function questions()
+    {
+        return $this->hasMany('App\Question');
+    }
 }
