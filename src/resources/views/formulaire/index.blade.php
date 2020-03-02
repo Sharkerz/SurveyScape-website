@@ -2,13 +2,17 @@
 
 @section('content')
 
+    <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-            <div class="card-header"><h1>Formulaires</h1></div>
-                <table>     
+            <div class="card-header">
+                <h1>Formulaires</h1>
+                <button onclick="window.location.href='/formulaires/create'" id="btn-create" type="button" class="btn btn-success">Creer un formulaire</button>
+            </div>
+                <table>
                     <thead>
                         <tr>
                             <th>Name</th>
