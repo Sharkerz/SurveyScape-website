@@ -16,7 +16,9 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        $formulaires=Formulaire::all();
+        $user = Auth::user();
+        $formulaires = Formulaire::all() -> where('user_id', $user->id);
+        //$formulaires=Formulaire::where();
         return view('formulaire.index', [
                 'formulaires' => $formulaires
         ]);
@@ -58,7 +60,6 @@ class FormulaireController extends Controller
      */
     public function show(Formulaire $formulaire)
     {
-        $formulaire = Formulaire::find($formulaire)->first();
         return view('formulaire.show', [
             'formulaire' => $formulaire
         ]);
