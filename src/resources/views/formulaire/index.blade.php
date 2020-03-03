@@ -35,7 +35,7 @@
 <script>
 $(document).ready(function() {
     fetch('http://localhost:8000/api/formulaires')
-        .then(data => { 
+        .then(data => {
             return data.json()
         })
         .then(data => {
@@ -45,7 +45,7 @@ $(document).ready(function() {
                 monhtml += `
                     <tr>
                         <td>` + formulaire.name + `</td>
-                        <td>` + formulaire.user + `</td>
+                        <td>` + formulaire.owner + `</td>
                         <td>` + formulaire.open_on + `</td>
                         <td>` + formulaire.close_on + `</td>
                         <td></td>

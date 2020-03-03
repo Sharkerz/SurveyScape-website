@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 use App\Formulaire;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Formulaire as FormulaireResource;
+use App\User;
 use Illuminate\Http\Request;
 
 class FormulaireController extends Controller
@@ -14,7 +16,7 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        return Formulaire::paginate(10);
+        return FormulaireResource::collection(Formulaire::paginate(15));
     }
 
     /**
