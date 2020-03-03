@@ -49,7 +49,6 @@ $(document).ready(function() {
                         <td>` + formulaire.open_on + `</td>
                         <td>` + formulaire.close_on + `</td>
                         <td> <a href="/formulaires/` + formulaire.id + `/edit">Modifier</a> </td>
-                        <td></td>
                     </tr>
                 `;
             });

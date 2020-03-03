@@ -18,7 +18,6 @@ class FormulaireController extends Controller
     {
         $user = Auth::user();
         $formulaires = Formulaire::all() -> where('user_id', $user->id);
-        //$formulaires=Formulaire::where();
         return view('formulaire.index', [
                 'formulaires' => $formulaires
         ]);
