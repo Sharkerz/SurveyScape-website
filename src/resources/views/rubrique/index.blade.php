@@ -22,7 +22,17 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="ListFormulaire">
+                    <tbody>
+
+                        @foreach($formulaires as $formulaire)
+                            <tr>
+                                <td>{{ $formulaire->name }}</td>
+                                <td>{{ $formulaire->user->name }}</td>
+                                <td>{{ $formulaire->open_on }}</td>
+                                <td>{{ $formulaire->close_on }}</td>
+                                <td><a href="{{ route('formulaires.show', ['formulaire' => $formulaire->id]) }}">Voir Plus</a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -30,32 +40,5 @@
     </div>
 </div>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
-<script>
-$(document).ready(function() {
-    fetch('http://localhost:8000/api/formulaires')
-        .then(data => { 
-            return data.json()
-        })
-        .then(data => {
-            var monhtml = "";
-            data.data.forEach(formulaire => {
-                console.log(formulaire.name);
-                monhtml += `
-                    <tr>
-                        <td>` + formulaire.name + `</td>
-                        <td>` + formulaire.user + `</td>
-                        <td>` + formulaire.open_on + `</td>
-                        <td>` + formulaire.close_on + `</td>
-                        <td></td>
-                    </tr>
-                `;
-            });
-            $("#ListFormulaire").html(monhtml);
-            console.log(monhtml);
-        });
-});
-</script>
 
 @endsection

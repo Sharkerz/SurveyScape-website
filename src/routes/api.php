@@ -17,9 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/exemple', function () {
-    return response()->json([
-        'name' => 'Abigail',
-        'state' => 'CA'
-    ]);
-});
+Route::apiResource('/formulaires', 'API\FormulaireController');

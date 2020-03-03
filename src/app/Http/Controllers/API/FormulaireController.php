@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Rubrique;
+namespace App\Http\Controllers\API;
+use App\Formulaire;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class RubriqueController extends Controller
+class FormulaireController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,7 @@ class RubriqueController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('rubrique.create');
+        return Formulaire::paginate(10);
     }
 
     /**
@@ -41,21 +31,10 @@ class RubriqueController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Rubrique  $rubrique
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Rubrique $rubrique)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Rubrique  $rubrique
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Rubrique $rubrique)
+    public function show($id)
     {
         //
     }
@@ -64,10 +43,10 @@ class RubriqueController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rubrique  $rubrique
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rubrique $rubrique)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +54,10 @@ class RubriqueController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Rubrique  $rubrique
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rubrique $rubrique)
+    public function destroy($id)
     {
         //
     }
