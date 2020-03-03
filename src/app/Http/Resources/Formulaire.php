@@ -17,9 +17,9 @@ class Formulaire extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'owner' => $this->user->name,
             'open_on' => $this->open_on,
             'close_on' => $this->close_on,
+            'owner' => ['name'=>$this->user->name,'id'=>$this->user->id],
         ];
     }
 }

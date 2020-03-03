@@ -45,7 +45,7 @@ $(document).ready(function() {
                 monhtml += `
                     <tr>
                         <td>` + formulaire.name + `</td>
-                        <td>` + formulaire.owner + `</td>
+                        <td>` + formulaire.owner.name + `</td>
                         <td>` + formulaire.open_on + `</td>
                         <td>` + formulaire.close_on + `</td>
                         <td></td>
