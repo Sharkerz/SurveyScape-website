@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Formulaire as FormulaireResource;
 use App\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class FormulaireController extends Controller
 {
@@ -16,7 +17,8 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        return FormulaireResource::collection(Formulaire::paginate(15));
+        $user = Auth::user();
+        return FormulaireResource::collection(Formulaire::where('user_id', $user->id)->paginate(15));
     }
 
     /**

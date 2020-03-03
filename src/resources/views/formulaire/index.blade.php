@@ -48,7 +48,12 @@ $(document).ready(function() {
                         <td>` + formulaire.owner.name + `</td>
                         <td>` + formulaire.open_on + `</td>
                         <td>` + formulaire.close_on + `</td>
+<<<<<<< HEAD
                         <td> <a href="/formulaires/` + formulaire.id + `/edit">Modifier</a> </td>
+=======
+                        <td> <a href="/formulaires/` + formulaire.id + `">Afficher</a> </td>
+                        <td></td>
+>>>>>>> 21dc247171249a1266d6e3d8dab8633a00445a62
                     </tr>
                 `;
             });
