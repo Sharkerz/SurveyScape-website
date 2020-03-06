@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 use App\Formulaire;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Formulaire as FormulaireResource;
-use App\User;
+
 use Illuminate\Http\Request;
 use Auth;
 
@@ -17,8 +17,8 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return FormulaireResource::collection(Formulaire::where('user_id', $user->id)->paginate(15));
+        $user = Auth::id();
+        return FormulaireResource::collection(Formulaire::where('user_id', $user)->paginate(15));
     }
 
     /**
