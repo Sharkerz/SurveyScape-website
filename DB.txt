@@ -2,6 +2,7 @@ Table : Formulaires
 - ID
 - Nom du questionnaire
 - ID du Créateur
+- public/privé
 - (Notifications ou non ?)
 
 Table :Rubriques
