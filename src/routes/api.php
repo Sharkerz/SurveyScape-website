@@ -17,5 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/formulaires', 'API\FormulaireController');
+
 Route::apiResource('/users', 'API\UserController');
+Route::apiResource('/formulaires', 'API\FormulaireController');
+
+Route::group(['middleware' => 'auth:api'], function () { 
+    Route::post('/register', 'Api\AuthController@register');
+    Route::post('/login', 'Api\AuthController@login');
+    
+}); 

@@ -17,7 +17,7 @@ class FormulaireController extends Controller
      */
     public function index()
     {
-        $user = Auth::id();
+        $user = auth('api')->guest();
         return FormulaireResource::collection(Formulaire::where('user_id', $user)->paginate(15));
     }
 
