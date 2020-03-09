@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Survey</title>
+        <title>Survey Scape</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,18 +81,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Survey
+                    Survey Scape
                 </div>
 
                 <div class="links">
                     <a href="{{ route('formulaires.index') }}">Vos Formulaires</a>
                     <a href="">Les Formulaires en ligne</a>
                     <a href="">3</a>
-                    <a href="">4</a>
-                    <a href="">5</a>
-                    <a href="">6</a>
-                    <a href="">7</a>
-                    <a href="https://github.com/Sharkerz/survey">GitHub</a>
+                    <a href="https://github.com/Sharkerz/survey" target="_blank">GitHub</a>
                 </div>
             </div>
         </div>
