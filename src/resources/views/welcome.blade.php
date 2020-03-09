@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Survey</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -70,10 +70,10 @@
                     @auth
                         <a href="{{ url('/home') }}">Profil</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Connexion</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Inscription</a>
                         @endif
                     @endauth
                 </div>
@@ -81,18 +81,18 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Survey
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('formulaires.index') }}">Formulaires</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ route('formulaires.index') }}">Vos Formulaires</a>
+                    <a href="">Les Formulaires en ligne</a>
+                    <a href="">3</a>
+                    <a href="">4</a>
+                    <a href="">5</a>
+                    <a href="">6</a>
+                    <a href="">7</a>
+                    <a href="https://github.com/Sharkerz/survey">GitHub</a>
                 </div>
             </div>
         </div>
