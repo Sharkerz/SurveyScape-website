@@ -12,7 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: black;
+                background-color: #859398;
+                background-image: radial-gradient(#859398, #283048);
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -61,6 +62,7 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
             #logo {
                 position: absolute;
                 top: 42%;
@@ -151,8 +153,8 @@
                 <div class="title m-b-md">
                     <svg 
                         id="logo"
-                        width="474" 
-                        height="69" 
+                        width="735" 
+                        height="107" 
                         viewBox="0 0 474 69" 
                         fill="none" 
                         xmlns="http://www.w3.org/2000/svg">
@@ -174,7 +176,6 @@
                 <div class="links">
                     <a href="{{ route('formulaires.index') }}">Vos Formulaires</a>
                     <a href="">Les Formulaires en ligne</a>
-                    <a href="">3</a>
                     <a href="https://github.com/Sharkerz/survey" target="_blank">GitHub</a>
                 </div>
             </div>
