@@ -39,15 +39,17 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 
     var form = new FormData();
     var token = "{{ Auth::user()->api_token }}";
     console.log(token);
     var settings = {
-        "url": "127.0.0.1:8000/api/formulaires",
+        "url": "/api/formulaires",
         "method": "GET",
         "timeout": 0,
+        "cache": false,
         "headers": {
             "Accept": "application/json",
             "Authorization": "Bearer " + token,
@@ -57,6 +59,7 @@
         "mimeType": "multipart/form-data",
         "contentType": false,
         "data": form,
+        "dataType": "json",
         success: function (data) {
             console.log(data);
         }
