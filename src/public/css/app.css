@@ -76,16 +76,14 @@ body {
 }
 
 #bas { 
-  position: fixed; 
-  top: 1%;
-  left: 0.5%;
+  position: relative; 
   animation: anim 1s;
 }
 
 
 @keyframes anim {
   from {left: -2000px;}
-  to {left: 10px;}
+  to {left: 0px;}
 } 
 
 [tabindex="-1"]:focus:not(:focus-visible) {
