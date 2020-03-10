@@ -75,6 +75,19 @@ body {
   background-color: #f8fafc;
 }
 
+#bas { 
+  position: fixed; 
+  top: 1%;
+  left: 0.5%;
+  animation: anim 1s;
+}
+
+
+@keyframes anim {
+  from {left: -2000px;}
+  to {left: 10px;}
+} 
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }

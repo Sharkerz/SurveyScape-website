@@ -15,10 +15,10 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Owner</th>
-                            <th>Open date</th>
-                            <th>End date</th>
+                            <th>Nom</th>
+                            <th>Propriétaire</th>
+                            <th>Date de début</th>
+                            <th>Date de fin</th>
                             <th>Action</th>
                         </tr>
                     </thead>
