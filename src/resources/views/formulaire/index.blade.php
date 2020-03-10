@@ -40,29 +40,29 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
 <script>
-$(document).ready(function() {
-    fetch('http://localhost:8000/api/formulaires')
-        .then(data => {
-            return data.json()
-        })
-        .then(data => {
-            var monhtml = "";
-            data.data.forEach(formulaire => {
-                console.log(formulaire.name);
-                monhtml += `
-                    <tr>
-                        <td>` + formulaire.name + `</td>
-                        <td>` + formulaire.owner.name + `</td>
-                        <td>` + formulaire.open_on + `</td>
-                        <td>` + formulaire.close_on + `</td>
-                        <td> <a href="/formulaires/` + formulaire.id + `">Afficher</a> </td>
-                    </tr>
-                `;
-            });
-            $("#ListFormulaire").html(monhtml);
-            console.log(monhtml);
-        });
-});
+
+    var form = new FormData();
+    var token = "{{ Auth::user()->api_token }}";
+    console.log(token);
+    var settings = {
+        "url": "127.0.0.1:8000/api/formulaires",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Accept": "application/json",
+            "Authorization": "Bearer " + token,
+            "Content-Type": "multipart/form-data; boundary=--------------------------859678193489068141715509"
+        },
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "data": form,
+        success: function (data) {
+            console.log(data);
+        }
+    };
+    $.ajax(settings)
+
 </script>
 
 @endsection

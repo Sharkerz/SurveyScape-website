@@ -75,26 +75,26 @@
         </div>
     </div>
 </div>
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
-                            <script>
-                                $("#form-register").submit(function(event) {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+<script>
+    $("#form-register").submit(function(event) {
 
-                                    /* stop form from submitting normally */
-                                    event.preventDefault();
+        /* stop form from submitting normally */
+        event.preventDefault();
 
-                                    /* get the action attribute from the <form action=""> element */
-                                    var $form = $( this ),url = $form.attr( 'action' );
+        /* get the action attribute from the <form action=""> element */
+        var $form = $( this ),url = $form.attr( 'action' );
 
 
-                                    /* Send the data using post with element id name and name2*/
-                                    var posting = $.post( url, { name: $('#name').val(), email: $('#email').val(), password: $('#password').val(), password_confirmation: $('#password-confirm').val() });
-                                });
+        /* Send the data using post with element id name and name2*/
+        var posting = $.post( url, { name: $('#name').val(), email: $('#email').val(), password: $('#password').val(), password_confirmation: $('#password-confirm').val() });
+    });
 
-                                /* Alerts the results */
-                                posting.done(function( data ) {
-                                    alert('test');
-                                });
-                                });
+    /* Alerts the results */
+    posting.done(function( data ) {
+        alert('test');
+    });
+
 
                     </script>
 @endsection
