@@ -73,6 +73,14 @@ body {
   color: #212529;
   text-align: left;
   background-color: #f8fafc;
+  background-image: radial-gradient(#859398, #283048);
+}
+
+.div-blanche {
+  width: 50%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #bas { 
