@@ -65,6 +65,7 @@ section {
 }
 
 body {
+  height: 100vh;
   margin: 0;
   font-family: "Nunito", sans-serif;
   font-size: 0.9rem;
@@ -73,14 +74,17 @@ body {
   color: #212529;
   text-align: left;
   background-color: #f8fafc;
-  background-image: radial-gradient(#859398, #283048);
+  background-color:#EAF1F7;
 }
 
 .div-blanche {
-  width: 50%;
+  width: 70%;
+  height: 100vh;
   background-color: white;
+  margin-top: 2%;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 40px;
 }
 
 #bas { 
@@ -4985,6 +4989,7 @@ input[type=button].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  margin-top: 5%;
 }
 
 .card > hr {
