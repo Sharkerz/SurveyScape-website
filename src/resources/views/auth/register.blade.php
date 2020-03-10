@@ -7,24 +7,18 @@
             <div class="card">
                 <div class="card-header">{{ __('auth.Register') }}</div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <div class="card-body">
                     <form id="form-register" action="/api/register" method="post">
                         @csrf
-=======
 <div class="div-blanche">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('auth.Register') }}</div>
->>>>>>> 00e3d368b036fe481bcb20b692d294ae6687cb3c
-=======
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
->>>>>>> 978b04ae81188602944555d144aff07441d23178
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('auth.Name') }}</label>
@@ -76,8 +70,6 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary" id="btn-submit">
@@ -109,18 +101,6 @@
 
                     </script>
 
-=======
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('auth.Register') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
->>>>>>> 00e3d368b036fe481bcb20b692d294ae6687cb3c
-=======
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -129,7 +109,6 @@
                             </div>
                         </div>
                     </form>
->>>>>>> 978b04ae81188602944555d144aff07441d23178
                 </div>
             </div>
         </div>
