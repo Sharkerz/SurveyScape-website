@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'api_token',
     ];
 
     /**
@@ -42,7 +42,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
-    
+
     public function formulaires()
     {
         return $this->hasMany('App\Formulaire');

@@ -21,8 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('/users', 'API\UserController');
 Route::apiResource('/formulaires', 'API\FormulaireController');
 
-Route::group(['middleware' => 'auth:api'], function () { 
-    Route::post('/register', 'Api\AuthController@register');
-    Route::post('/login', 'Api\AuthController@login');
-    
-}); 
+Route::post('/register', 'Api\AuthController@register');
+Route::post('/login', 'Api\AuthController@login');
+
+Route::group(['middleware' => 'auth:api'], function () {
+
+
+});

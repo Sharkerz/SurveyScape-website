@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('auth.Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form id="form-login" action="{{ route('login') }}" method="post">
                         @csrf
 
                         <div class="form-group row">
@@ -65,6 +65,30 @@
                             </div>
                         </div>
                     </form>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+                    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+                    <script type='text/javascript'>
+                        /* attach a submit handler to the form */
+                        $("#form-loggin").submit(function(event) {
+
+                            /* stop form from submitting normally */
+                            event.preventDefault();
+
+                            /* get the action attribute from the <form action=""> element */
+                            var $form = $( this ),
+                                url = $form.attr( 'action' );
+
+
+                            /* Send the data using post with element id name and name2*/
+                            var posting = $.post( url, { email: $('#email').val(), password: $('#password').val() } );
+
+                            /* Alerts the results */
+                            posting.done(function( data ) {
+                                alert('tesrt');
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </div>

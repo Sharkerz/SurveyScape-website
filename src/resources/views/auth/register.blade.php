@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('auth.Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form id="form-register" action="/api/register" method="post">
                         @csrf
 
                         <div class="form-group row">
@@ -63,12 +63,35 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="btn-submit">
                                     {{ __('auth.Register') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+                    <script>
+                        $("#form-register").submit(function(event) {
+
+                            /* stop form from submitting normally */
+                            event.preventDefault();
+
+                            /* get the action attribute from the <form action=""> element */
+                            var $form = $( this ),url = $form.attr( 'action' );
+
+
+                            /* Send the data using post with element id name and name2*/
+                            var posting = $.post( url, { name: $('#name').val(), email: $('#email').val(), password: $('#password').val(), password_confirmation: $('#password-confirm').val() });
+                        });
+
+                        /* Alerts the results */
+                        posting.done(function( data ) {
+                            alert('test');
+                        });
+                        });
+
+                    </script>
+
                 </div>
             </div>
         </div>
