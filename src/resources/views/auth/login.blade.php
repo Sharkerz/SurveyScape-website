@@ -2,16 +2,6 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('auth.Login') }}</div>
-
-                <div class="card-body">
-                    <form id="form-login" action="{{ route('login') }}" method="post">
-                        @csrf
-
 <div class="div-blanche">
     <div class="container">
         <div class="row justify-content-center">
