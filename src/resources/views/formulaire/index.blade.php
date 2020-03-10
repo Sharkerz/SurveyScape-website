@@ -44,7 +44,6 @@
 
     var form = new FormData();
     var token = "{{ Auth::user()->api_token }}";
-    console.log(token);
     var settings = {
         "url": "/api/formulaires",
         "method": "GET",
@@ -61,10 +60,26 @@
         "data": form,
         "dataType": "json",
         success: function (data) {
-            console.log(data);
+            return data;
         }
     };
     $.ajax(settings)
+        .then(data => {
+            var monhtml = "";
+            data.data.forEach(formulaire => {
+                monhtml += `
+                    <tr>
+                        <td>` + formulaire.id + `</td>
+                        <td>` + formulaire.name + `</td>
+                        <td>` + formulaire.user + `</td>
+                        <td>` + formulaire.open_on + `</td>
+                        <td>` + formulaire.close_on + `</td>
+                        <td></td>
+                    </tr>
+                `;
+            });
+            $("#ListFormulaire").html(monhtml);
+        });
 
 </script>
 
