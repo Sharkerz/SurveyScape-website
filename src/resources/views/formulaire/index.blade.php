@@ -69,7 +69,6 @@
             data.data.forEach(formulaire => {
                 monhtml += `
                     <tr>
-                        <td>` + formulaire.id + `</td>
                         <td>` + formulaire.name + `</td>
                         <td>` + formulaire.user + `</td>
                         <td>` + formulaire.open_on + `</td>
