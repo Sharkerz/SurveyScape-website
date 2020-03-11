@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('auth.Register') }}</div>
                         <div class="card-body">
-                            <form id="form-register" action="/api/register" method="post">
+                            <form id="form-register" action="/api/register">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('auth.Name') }}</label>
@@ -75,51 +75,42 @@
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-      $(document).ready(function()
-    {
+
     $("#form-register").submit(function(event) {
-        
-        /* stop form from submitting normally */
+
         event.preventDefault();
+        var form = new FormData();
+        form.append("name", $('#name').val());
+        form.append("email", $('#email').val());
+        form.append("password", $('#password').val());
+        form.append("password_confirmation", $('#password-confirm').val());
 
-        /* get the action attribute from the <form action=""> element */
-        var $form = $( this ),url = $form.attr( 'action' );
-        console.log($('#name').val());
-
-        var formdata = $('#form-register').serialize();
         var settings = {
-        "url": "/api/register",
-        "method": "POST",
-        "timeout": 0,
-        "cache": false,
-        "headers": {
-            "Accept": "application/json",
-        },
-        "processData": false,
-        "mimeType": "multipart/form-data",
-        "contentType": false,
-        "data": formdata,
-        "dataType": "json",
-        success: function (data) {
-            return data;
+            "url": "/api/register",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Accept": "application/json"
+            },
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "cache": false,
+            "data": form,
+            "dataType": "json",
+            error: function(){
+                alert('error');
+            },
+            success: function () {
+                window.location.href = "/";
             }
         };
-        
-        $.ajax(settings)
-    }),
 
-
-        /* Send the data using post with element id name and name2*/
-       // var posting = $.post( url, { name: $('#name').val(), email: $('#email').val(), password: $('#password').val(), password_confirmation: $('#password-confirm').val() });
-   // });
-
-    /* Alerts the results */
-  /*  posting.done(function( data ) {
-        alert('test');*/
+        $.ajax(settings).done(function (response) {
+        });
     });
 
-
-                    </script>
+</script>
 @endsection
