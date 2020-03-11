@@ -26,7 +26,7 @@ class AuthController extends Controller
          $user->api_token = $accessToken;
          $user->save();
 
-        return Redirect::route('login');
+         return Redirect::route('formulaires.index');
     }
 
 

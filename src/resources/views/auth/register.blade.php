@@ -62,7 +62,7 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary" id="btn-submit">
+                                        <button class="btn btn-primary" id="btn-submit" action="{{ route('formulaires.index') }}">
                                             {{ __('auth.Register') }}
                                         </button>
                                     </div>
@@ -77,22 +77,47 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
 <script>
+      $(document).ready(function()
+    {
     $("#form-register").submit(function(event) {
-
+        
         /* stop form from submitting normally */
         event.preventDefault();
 
         /* get the action attribute from the <form action=""> element */
         var $form = $( this ),url = $form.attr( 'action' );
+        console.log($('#name').val());
+
+        var formdata = $('#form-register').serialize();
+        var settings = {
+        "url": "/api/register",
+        "method": "POST",
+        "timeout": 0,
+        "cache": false,
+        "headers": {
+            "Accept": "application/json",
+        },
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "data": formdata,
+        "dataType": "json",
+        success: function (data) {
+            return data;
+            }
+        };
+        
+        $.ajax(settings)
+    }),
 
 
         /* Send the data using post with element id name and name2*/
-        var posting = $.post( url, { name: $('#name').val(), email: $('#email').val(), password: $('#password').val(), password_confirmation: $('#password-confirm').val() });
-    });
+       // var posting = $.post( url, { name: $('#name').val(), email: $('#email').val(), password: $('#password').val(), password_confirmation: $('#password-confirm').val() });
+   // });
 
     /* Alerts the results */
-    posting.done(function( data ) {
-        alert('test');
+  /*  posting.done(function( data ) {
+        alert('test');*/
     });
 
 
