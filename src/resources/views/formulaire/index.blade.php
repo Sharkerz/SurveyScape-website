@@ -67,7 +67,6 @@
         .then(data => {
             var monhtml = "";
             data.data.forEach(formulaire => {
-                console.log(formulaire.owner.name);
                 monhtml += `
                     <tr>
                         <td>` + formulaire.name + `</td>
