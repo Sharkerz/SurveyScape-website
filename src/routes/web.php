@@ -22,7 +22,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::post('profil_updateAvatar', 'ProfilController@update_avatar')->name('update_avatar');
+
     Route::resource('/formulaires', 'FormulaireController');
     Route::resource('/rubriques', 'RubriqueController');
     Route::resource('/questions', 'QuestionController');
