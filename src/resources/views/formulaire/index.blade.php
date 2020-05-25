@@ -20,7 +20,7 @@
                 <div class="card">
                     <table>
                         <thead>
-                            <tr>
+                            <tr class="forms">
                                 <th>Nom</th>
                                 <th>Propriétaire</th>
                                 <th>Date de début</th>
