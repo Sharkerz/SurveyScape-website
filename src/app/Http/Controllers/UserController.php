@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Image;
 use Illuminate\Http\Request;
 
@@ -133,5 +134,30 @@ class UserController extends Controller
             $user->save();
         }
         return back();
+    }
+
+    public function update_password(Request $request) {
+        if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
+            // Le mot de passe est incorrect
+            return redirect()->back()->with("error","Le mot de passe que vous avez entré n'est pas correct.");
+        }
+
+        if(strcmp($request->get('current_password'), $request->get('password')) == 0){
+            //Le nouveau mot de passe est identique a l'ancien
+            return redirect()->back()->with("error","Votre nouveau mot de passe ne peut être identique à l'ancien.");
+        }
+
+        $validatedData = $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        //Changement du mot de passe
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('password'));
+        $user->save();
+
+        return redirect()->back()->with("success","Mot de passe modifié avec succès");
+
     }
 }

@@ -26,6 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function () {
 
     Route::post('profil_updateAvatar', 'UserController@update_avatar')->name('update_avatar');
+    Route::patch('profil_updatePassword', 'UserController@update_password')->name('update_password');
 
     Route::resource('/formulaires', 'FormulaireController');
     Route::resource('/rubriques', 'RubriqueController');

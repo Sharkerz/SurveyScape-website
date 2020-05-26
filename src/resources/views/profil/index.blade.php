@@ -22,7 +22,6 @@
         @csrf
     </form>
 
-
     <div class="row">
         <!-- Photo de profil -->
         <div class="col-sm">
@@ -59,6 +58,11 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#modifier" role="tab" aria-controls="profile" aria-selected="false">
                         Modifier
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#modif_mdp" role="tab" aria-controls="profile" aria-selected="false">
+                        Mot de passe
                     </a>
                 </li>
                 <li class="nav-item">
@@ -162,6 +166,53 @@
                     </form>
                 </div>
 
+                <!-- mot de passe tab -->
+                <div class="tab-pane fade" id="modif_mdp" role="tabpanel" aria-labelledby="profile-tab">
+                    <br>
+                    <form method="post" action="{{ route('update_password') }}">
+                    {{ csrf_field() }}
+                    {{ method_field('patch') }}
+
+                        <!-- mot de passe actuel -->
+                        <div class="row" id="form_profil">
+                            <div class="col">
+                                <p class="profil_bold"> Mot de passe actuel</p>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="password" name="current_password" required/>
+
+                            </div>
+                        </div>
+
+                        <!-- nouveau mot de passe -->
+                        <div class="row" id="form_profil">
+                            <div class="col">
+                                <p class="profil_bold">Nouveau mot de passe</p>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="password" name="password" required/>
+                            </div>
+                        </div>
+
+                        <!-- confirmer nouveau mot de passe -->
+                        <div class="row" id="form_profil">
+                            <div class="col">
+                                <p class="profil_bold">Confirmer le mot de passe</p>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" type="password" name="password_confirmation" required/>
+                            </div>
+                        </div>
+
+                        <!-- Bouton Confirmer les modifications -->
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary" id="btn_confirm">Confirmer</button>
+                        </div>
+
+                    </form>
+                </div>
+
+
                 <!-- Api tab -->
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <br>
@@ -173,6 +224,18 @@
             </div>
         </div>
     </div>
+
+    <!-- Alertes -->
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
 </div>
 
