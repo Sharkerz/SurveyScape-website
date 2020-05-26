@@ -1,0 +1,62 @@
+#contain_profil {
+    background-color: white;
+    padding: 25px;
+}
+/* =============== */
+/* btn deconnexion */
+/* =============== */
+#profil_bar {
+    float: right;
+}
+
+.btn_profil {
+    margin-right: 7px;
+    margin-left: 3px;
+}
+
+/* Titre profil */
+#profil_name {
+    position: absolute;
+    bottom: 0;
+    font-size: 2.6vw;
+    margin-bottom: 0;
+}
+
+/* Photo de profil */
+#avatar {
+    margin-left: 30px;
+    height: 15vw;
+    width: 15vw;
+}
+
+/* ============== */
+/* Nav et contenu */
+/* ======== ======*/
+
+#nav_profil {
+    font-size: 1.1vw;
+}
+
+.profil_bold {
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+#form_profil {
+    margin-top: 3px;
+}
+
+#div_change_avatar > * {
+    margin-top: 10px;
+    margin-left: 3.8vw;
+}
+
+#btn_submit_avatar {
+    margin-left: 4vw;
+    font-size: 1.1vw;
+}
+
+#btn_confirm {
+    margin-top: 1vw;
+    font-size: 1.1vw;
+}

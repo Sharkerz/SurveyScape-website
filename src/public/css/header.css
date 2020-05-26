@@ -1,0 +1,14 @@
+
+/*=======
+  Avatar
+========*/
+#avatar_header {
+    height: 3vw;
+    width: 3vw;
+    border-radius:50%;
+}
+
+#avatar_header:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}

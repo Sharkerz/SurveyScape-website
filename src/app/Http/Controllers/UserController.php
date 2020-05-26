@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\profil;
-use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 use Image;
+use Illuminate\Http\Request;
 
-class ProfilController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,8 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        return view('profil.index');
+        $user = Auth::user();
+        return view('profil.index', compact('user'));
     }
 
     /**
@@ -57,7 +58,7 @@ class ProfilController extends Controller
      * @param  \App\profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function edit(profil $profil)
+    public function edit(User $user)
     {
         //
     }
@@ -65,13 +66,49 @@ class ProfilController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\profil  $profil
+     * @param \Illuminate\Http\Request $request
+     * @param User $user
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function update(Request $request, profil $profil)
+    public function update(Request $request, User $user)
     {
-        //
+        $user = Auth::user();
+
+        // Si l'email ne change pas
+        if(Auth::user()->email == request('email')) {
+
+            $this->validate(request(), [
+                'name' => 'required',
+                'password' => 'required|min:6'
+            ]);
+
+            $user->name = request('name');
+            $user->password = bcrypt(request('password'));
+
+            $user->save();
+
+            return back();
+
+        }
+        // Si l'email change
+        else{
+
+            $this->validate(request(), [
+                'name' => 'required',
+                'email' => 'required|email|unique:users',
+                'password' => 'required|min:6|confirmed'
+            ]);
+
+            $user->name = request('name');
+            $user->email = request('email');
+            $user->password = bcrypt(request('password'));
+
+            $user->save();
+
+            return back();
+
+        }
     }
 
     /**
@@ -95,6 +132,6 @@ class ProfilController extends Controller
             $user->avatar = $filename;
             $user->save();
         }
-        return view('profil.index');
+        return back();
     }
 }
