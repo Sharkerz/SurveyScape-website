@@ -20,6 +20,7 @@ class CreateFormulairesTable extends Migration
             $table->date('open_on', 0)->nullable();
             $table->date('close_on', 0)->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->string('image')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

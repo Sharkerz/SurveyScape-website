@@ -2,35 +2,29 @@
 
 @section('content')
 
+@php
+    //Import de class Formulaire
+    use App\Formulaire;
+@endphp
 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
-<div class="row justify-content-center">
-    <h1 class="titre">Vos Formulaires</h1>
-</div>
-
-<div class="div-blanche">
-    <div class="container">
-        <div class="row justify-content-center">
-            <button onclick="window.location.href='/formulaires/create'" id="btn-create" type="button" class="btn btn-success bouton-creation">Créer un formulaire</button>
-        </div>
+<div class="New_Forms">
+    <div id="Create_Forms">
+        <h2>Créer un  Formulaire</h2>
     </div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <table>
-                        <thead>
-                            <tr class="forms">
-                                <th>Nom</th>
-                                <th>Propriétaire</th>
-                                <th>Date de début</th>
-                                <th>Date de fin</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ListFormulaire">
-                        </tbody>
-                    </table>
+    <button onclick="window.location.href='/formulaires/create'" id="Create_Form" id="btn-create" type="button" class="btn btn-success bouton-creation">Créer un formulaire</button>
+</div>
+    
+
+
+
+<div class="-blanche">
+    
+    <div class="DashboardCard_Container">
+        <h2>Vos Formulaires</h2>
+        <div class="roter">
+            <div class="md-8">
+                <div id="ListFormulaire">
                 </div>
             </div>
         </div>
@@ -67,15 +61,16 @@
         .then(data => {
             var monhtml = "";
             data.data.forEach(formulaire => {
-                monhtml += `
-                    <tr>
-                        <td>` + formulaire.name + `</td>
-                        <td>` + formulaire.owner.name + `</td>
-                        <td>` + formulaire.open_on + `</td>
-                        <td>` + formulaire.close_on + `</td>
-                        <td></td>
-                    </tr>
-                `;
+                monhtml += `<div class="Formulaire">
+                <div class="image_Formulaire">
+                <img alt="Image_Formulaire" src="/Images/Formulaire/`+formulaire.image+`" class="image">
+                </div>
+                <div class="info_Formulaire">
+                <h2>`+ formulaire.name + `</h2>
+                <h6>Ouvre le:`+ formulaire.open_on + `</h6>
+                <h6>Ferme le:`+ formulaire.close_on + `</h6>
+                </div>
+                </div>`;
             });
             $("#ListFormulaire").html(monhtml);
         });

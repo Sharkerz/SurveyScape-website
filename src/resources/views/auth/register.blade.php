@@ -104,7 +104,7 @@
                 alert('error');
             },
             success: function () {
-                window.location.href = "/";
+                window.location.href = "/login";
             }
         };
 

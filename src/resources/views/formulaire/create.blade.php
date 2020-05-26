@@ -2,27 +2,27 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-            <div class="card-header">
-                <h1>Création d'un Formulaire</h1>
-            </div>
-                <form action="{{ route('formulaires.store') }}" method="post">  
-                    @csrf
-                    <label for="NomFormulaire">Nom du Formulaire:</label>
-                    <input label="Nom du Formulaire:" type="text" name="name" required></br>
-                    <label for="NomFormulaire">Début de la publication:</label>
-                    <input type="date" id="start" name="open_on" value="null" min="2020-01-01"></br>
-                    <label for="NomFormulaire">Fin de la publication:</label>
-                    <input type="date" id="start" name="close_on" value="null" min="2020-01-01">
-                    <input type="submit">
-                </form>
+<link href="{{ asset('css/index.css') }}" rel="stylesheet">
 
-            </div>
+<div class="container">
+   
+    <h1>Création d'un Formulaire</h1>
+    <form enctype="multipart/form-data" action="{{ route('formulaires.store') }}" method="post">  
+        @csrf
+        <div class="Name_Form">
+        <textarea class="NomFormulaire"  required name="name" data-rows="1" tabindex="0" placeholder="Nom du Formulaire"></textarea>
         </div>
-    </div>
+        <label>Mettre une image en bannière: </label>
+        <input type="file" name="image">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <br>
+        <label for="NomFormulaire">Début de la publication:</label>
+        <input type="date" id="start" name="open_on" value="null" min="2020-01-01"></br>
+        <label for="NomFormulaire">Fin de la publication:</label>
+        <input type="date" id="start" name="close_on" value="null" min="2020-01-01">
+        <input type="submit">
+    </form>
+
 </div>
 @endsection
 

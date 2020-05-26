@@ -19,6 +19,7 @@ class Formulaire extends JsonResource
             'name' => $this->name,
             'open_on' => $this->open_on,
             'close_on' => $this->close_on,
+            'image' =>$this->image,
             'owner' => ['name'=>$this->user->name,'id'=>$this->user->id],
         ];
     }

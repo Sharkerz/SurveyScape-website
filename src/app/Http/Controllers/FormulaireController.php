@@ -6,6 +6,7 @@ use App\Formulaire;
 use Illuminate\Http\Request;
 use Auth;
 use Redirect;
+use Image;
 
 class FormulaireController extends Controller
 {
@@ -42,12 +43,23 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('image')){
+            $image = $request->file('image');
+            $filename = time(). '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(200, 200)->save(public_path('/Images/Formulaire/' . $filename));
+            $image = $filename;
+        }
+        else{
+            $image = null;
+        }
         Formulaire::create([
             "name" => $request->input('name'),
             "open_on" => $request->input('open_on'),
             "close_on" => $request->input('close_on'),
             "user_id" => Auth::user()->id,
+            "image" =>$image,
         ]);
+       
         return Redirect::route('formulaires.index');
     }
 
