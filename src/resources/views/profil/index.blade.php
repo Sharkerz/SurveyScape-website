@@ -220,7 +220,6 @@
                     Soon
                 </div>
 
-
             </div>
         </div>
     </div>

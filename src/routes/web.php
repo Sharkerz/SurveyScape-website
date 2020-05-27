@@ -34,5 +34,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/type_reponses', 'TypeReponseController');
     Route::resource('/questions', 'QuestionController');
     Route::resource('/profil', 'UserController');
+    Route::get('/accueil', 'AccueilController@index')->name('accueil');
 });
 

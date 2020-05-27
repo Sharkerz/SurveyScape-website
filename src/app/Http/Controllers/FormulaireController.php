@@ -20,9 +20,9 @@ class FormulaireController extends Controller
         $user_id = Auth::id();
         $formulaires = Formulaire::all() -> where('user_id', $user_id);
         return view('formulaire.index', [
-                'formulaires' => $formulaires
+            'formulaires' => $formulaires
         ]);
-        
+
     }
 
     /**
@@ -59,7 +59,7 @@ class FormulaireController extends Controller
             "user_id" => Auth::user()->id,
             "image" =>$image,
         ]);
-       
+
         return Redirect::route('formulaires.index');
     }
 
