@@ -28,7 +28,7 @@
             id="bas"
             width="280" 
             height="38" 
-            viewBox="0 0 1416 316" 
+            viewBox="430 0 1416 316" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg">
                 <rect width="1416" height="316" fill="white"/>
