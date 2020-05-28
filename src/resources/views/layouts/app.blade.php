@@ -19,6 +19,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/card-notifs.css') }}" rel="stylesheet">
+
+    <!-- JQuery et Ajax-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Icones materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -63,6 +72,9 @@
                         <a class="link_header" href="{{ route('formulaires.index') }}">
                             Mes formulaires
                         </a>
+                        <a class="link_header" href="{{ route('Amis.index') }}">
+                            Mes amis
+                        </a>
                     </ul>
 
                 </div>
@@ -80,7 +92,16 @@
                         </li>
                     @endif
                 @else
+
+                    <div class="btn-group">
+                        <i class="material-icons nav-link" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
+                        <div class="dropdown-menu dropdown-menu-left" id="list_notif">
+                            <h6 class="dropdown-header">Demandes d'amis</h6>
+                        </div>
+                    </div>
+
                     <img id="avatar_header" src="/avatar/{{ Auth::user()->avatar }}" onclick="window.location='{{ route("profil.index") }}'">
+
                 @endguest
             </ul>
         </nav>
@@ -89,5 +110,9 @@
             @yield('content')
         </main>
     </div>
+
+<!-- Script notifications -->
+<script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
+
 </body>
 </html>
