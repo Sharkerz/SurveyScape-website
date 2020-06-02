@@ -1,0 +1,63 @@
+#btn-create {
+    float: right;
+}
+
+.DashboardCard_Container{
+    margin-left: 10%;
+    margin-right: 10%;
+}.info_Formulaire{
+    margin-bottom: 0px;
+    border-top:1px solid white;
+    background-color: #ffffff;
+    vertical-align: bottom;
+}
+
+.image_Formulaire{
+    width: 200px;
+    height: 200px;
+}
+.Formulaire{
+    background-color: #EAEAEA;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    margin-right : 50px;
+    margin-top: 50px;
+}
+
+.New_Forms{
+    background-color:#EAEAEA;
+    height: 120px;
+}
+
+.Formulaire:hover{
+    opacity: 70%;
+    cursor: pointer;
+}
+
+#Create_Forms{
+    margin-left: 10%;
+    text-align: top;
+}
+#Create_Form{
+    margin-left:10%;    
+}
+
+.Name_Form{
+    width: 600px;
+    height: 100px;
+    background-color: #ffffff;
+    margin-bottom:  10px;
+    border-radius: 10px;
+    border-top: 10px solid blue;
+}
+.NomFormulaire{
+    width: inherit;
+    margin-top: 5px;
+    height: 80px;
+    border: none;
+    resize : none;
+    border-radius: 10px;
+    font-size: 2.7rem;
+    outline:none;
+}

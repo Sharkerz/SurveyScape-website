@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link href="{{ asset('css/index.css') }}" rel="stylesheet">
+<link href="{{ asset('css/create_form.css') }}" rel="stylesheet">
 
 <div class="container">
    
