@@ -97,13 +97,13 @@ body {
 
 #bas {
   position: relative;
-  animation: anim 1s;
+  animation: anim 0.6s;
 }
 
 
 @keyframes anim {
-  from {left: -2000px;}
-  to {left: 0px;}
+  from {left: -1000px;}
+  to {left: -0px;}
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -4550,7 +4550,7 @@ input[type=button].btn-block {
 }
 
 .navbar {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -4573,7 +4573,7 @@ input[type=button].btn-block {
 
 .navbar-brand {
   display: inline-block;
-  padding-top: 0.32rem;
+  /*padding-top: 0.32rem;*/
   padding-bottom: 0.32rem;
   margin-right: 1rem;
   font-size: 1.125rem;

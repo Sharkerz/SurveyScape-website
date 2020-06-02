@@ -3,12 +3,51 @@
   Avatar
 ========*/
 #avatar_header {
-    height: 3vw;
-    width: 3vw;
+    width: 55px;
+    height: 55px;
     border-radius:50%;
+    user-select:none;
 }
 
 #avatar_header:hover {
     opacity: 0.6;
     cursor: pointer;
+}
+
+
+/*=======
+  Liens
+========*/
+
+.link_header {
+    color: #5a6268;
+    margin-right: 3vw;
+    font-size: 1.6vw;
+}
+
+.link_header:hover {
+    text-decoration: none;
+    color: #5a6268;
+    opacity: 0.7;
+}
+
+/* Icone notifications */
+
+#icon_notif {
+    user-select:none;
+    font-size: 3.5rem;
+    color: #8E8E8E;
+    margin-top: -8px;
+    padding-bottom: 0;
+}
+
+#icon_notif:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#navbarDropdown {
+    font-size: 1.2rem;
+    color: #1b1e21;
+    font-weight: 500;
 }

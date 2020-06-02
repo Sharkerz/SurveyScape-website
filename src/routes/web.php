@@ -12,6 +12,7 @@
 */
 
 use App\Formulaire;
+use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
@@ -34,5 +35,25 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/type_reponses', 'TypeReponseController');
     Route::resource('/questions', 'QuestionController');
     Route::resource('/profil', 'UserController');
+    Route::resource('/Amis', 'AmisController');
+    Route::get('/accueil', 'AccueilController@index')->name('accueil');
+
+
+    /* Amis */
+
+
+    /* Accepter et refuser demandes d'amis */
+    Route::post('/accepterAmi', 'AmisController@accepter')->name('accepterAmi');
+    Route::post('/refuserAmi', 'AmisController@refuser')->name('refuserAmi');
+
+    /* Ajax supprimer amis */
+    Route::post('/Delete_friend', 'AmisController@delete_friend')->name('Delete_friend');
+
+    /* Ajax indicateur Notifications */
+    Route::get('/notifications-push', 'NotificationspushController@notifpush')->name('notifications-push');
+
+    /* Ajax liste notifications demande d'amis */
+    Route::get('/notifications', 'NotificationspushController@notifications')->name('notifications');
+
 });
 
