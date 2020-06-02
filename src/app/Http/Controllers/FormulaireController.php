@@ -50,7 +50,7 @@ class FormulaireController extends Controller
             $image = $filename;
         }
         else{
-            $image = null;
+            $image ="default.png";
         }
         Formulaire::create([
             "name" => $request->input('name'),

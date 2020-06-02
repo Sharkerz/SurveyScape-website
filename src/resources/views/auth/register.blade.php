@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('auth.Register') }}</div>
                         <div class="card-body">
-                            <form id="form-register" action="/api/register">
+                            <form id="form-register" action="/api/register" method="post">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('auth.Name') }}</label>
