@@ -28,6 +28,38 @@
     <!-- Icones materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Dark mode -->
+    <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>
+
+    <script type="text/javascript">
+
+        if(localStorage.getItem("text") == "brightness_3") {
+            DarkReader.disable()
+        } else if(localStorage.getItem("text") == "wb_sunny") {
+            DarkReader.enable()
+        }
+
+        $(document).ready(function() {
+            $('#sun').click(function(){
+                if($('#sun').text() == 'brightness_3') {
+                    DarkReader.enable()
+                    $('#sun').text('wb_sunny');
+                    localStorage.setItem("text","wb_sunny");
+                } else if($('#sun').text() == 'wb_sunny') {
+                    DarkReader.disable()
+                    $('#sun').text('brightness_3');
+                    localStorage.setItem("text","brightness_3");
+                }
+            });
+
+            $('#sun').on('click', function() {
+                localStorage.input = $(this).text();
+            });
+
+        });
+
+    </script>
+
 </head>
 <body>
     <div id="app">
@@ -91,9 +123,10 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('auth.Register') }}</a>
                         </li>
                     @endif
-                @else
+                @else 
 
                     <div class="btn-group">
+                        <i id="sun" class="material-icons icone_darktheme nav-link"></i>
                         <i class="material-icons nav-link" id="icon_notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">notifications_none</i>
                         <div class="dropdown-menu dropdown-menu-left" id="list_notif">
                             <h6 class="dropdown-header">Demandes d'amis</h6>
@@ -113,6 +146,13 @@
 
 <!-- Script notifications -->
 <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
+
+<script type="text/javascript">
+        $('#sun').text(localStorage.getItem("text"));
+        if(localStorage.getItem("text") == null){
+            $('#sun').text("brightness_3");
+        }
+</script>
 
 </body>
 </html>
