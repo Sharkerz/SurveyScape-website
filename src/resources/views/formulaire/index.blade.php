@@ -14,21 +14,15 @@
     </div>
     <button onclick="window.location.href='/formulaires/create'" id="Create_Form" id="btn-create" type="button" class="btn btn-success bouton-creation">Créer un formulaire</button>
 </div>
-    
+
 
 
 
 
 <div class="-blanche">
-    
+
     <div class="DashboardCard_Container">
         <h2>Vos Formulaires</h2>
-        <div id="Add_Form">
-            <div id="Add_Question"><i class="material-icons"  id="btn-task" id="icon_notif">add_circle_outline</i></div>
-            <div id="Privacy"><i class="material-icons"  id="btn-task" id="icon_notif">lock</i></div>
-            <div id="Add_Banniere"><i class="material-icons"  id="btn-task" id="icon_notif">image</i></div>
-            <div id="Add_Dates"><i class="material-icons"  id="btn-task" id="icon_notif">event</i></div>
-        </div>
         <div class="roter">
             <div class="md-8">
                 <div id="ListFormulaire">
@@ -36,7 +30,7 @@
             </div>
         </div>
     </div>
-   
+
 </div>
 
 
