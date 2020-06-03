@@ -16,11 +16,9 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('rubrique_id');
-            $table->foreign('rubrique_id')->references('id')->on('rubriques');
             $table->string('name',250);
-            $table->unsignedBigInteger('type_reponse_id');
-            $table->foreign('type_reponse_id')->references('id')->on('type_reponses');
+            $table->unsignedBigInteger('formulaire_id');
+            $table->foreign('formulaire_id')->references('id')->on('formulaires');
             $table->timestamps();
         });
     }

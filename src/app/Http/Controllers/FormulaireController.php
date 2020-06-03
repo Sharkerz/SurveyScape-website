@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Formulaire;
+use App\Question;
 use Illuminate\Http\Request;
 use Auth;
 use Redirect;
@@ -59,6 +60,13 @@ class FormulaireController extends Controller
             "user_id" => Auth::user()->id,
             "image" =>$image,
         ]);
+        /*$id_formulaire = Formulaire::where('name','=',$request->input('name'))
+                        ->first('id');
+        var_dump($id_formulaire->id);
+        Question::create([
+            "name" => $request->input('name'),
+            "formulaire_id" => $id_formulaire->id,
+        ]);*/
 
         return Redirect::route('formulaires.index');
     }
@@ -82,11 +90,15 @@ class FormulaireController extends Controller
      * @param  \App\Formulaire  $formulaire
      * @return \Illuminate\Http\Response
      */
-    public function edit(Formulaire $formulaire)
+    public function edit(Request $request)
     {
-        return view('formulaire.edit', [
-            'formulaire' => $formulaire
-        ]);
+        if ($request->ajax()) {
+            $id_form = $request->input('formulaire');
+       
+            return response()->json(['id_form'=>$id_form], 200);
+        };
+        abort(404);   
+       
     }
 
     /**

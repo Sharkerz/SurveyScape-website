@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
             <div class="card-header">
-                <h1>Edition du formulaire : {{ $formulaire->name }}</h1>
+                <h1>Edition du formulaire : </h1>
             </div>
                 <form action="{{ route('formulaires.update', ['formulaire' => $formulaire->id]) }}" method="post">
                     @csrf

@@ -70,7 +70,7 @@
             var monhtml = "";
             data.data.forEach(formulaire => {
                 if(formulaire.close_on !=null && formulaire.open_on !=null){
-                    monhtml += `<div class="Formulaire">
+                    monhtml += `<div class="Formulaire" id="`+formulaire.id+`">
                 <div class="image_Formulaire">
                 <img alt="Image_Formulaire" src="/Images/Formulaire/`+formulaire.image+`" class="image">
                 </div>
@@ -79,13 +79,10 @@
                 <h6>Ouvre le:`+ formulaire.open_on + `</h6>
                 <h6>Ferme le:`+ formulaire.close_on + `</h6>
                 </div>
-                <form class="id_form">
-                    <input id="Form_id" value="`+formulaire.id+`" type="hidden" >
-                </form>
                 </div>`;
                 }
                 else{
-                    monhtml += `<div class="Formulaire">
+                    monhtml += `<div class="Formulaire" id="`+formulaire.id+`">
                 <div class="image_Formulaire">
                 <img alt="Image_Formulaire" src="/Images/Formulaire/`+formulaire.image+`" class="image">
                 </div>
@@ -94,9 +91,6 @@
                 <h6>Modifier le:`+ formulaire.updated_at + `</h6>
                 <h6>Créer le:`+ formulaire.created_at + `</h6>
                 </div>
-                <form class="id_form">
-                    <input id="Form_id" value="`+formulaire.id+`" type="hidden" >
-                </form>
                 </div>`;
                 }
             });
