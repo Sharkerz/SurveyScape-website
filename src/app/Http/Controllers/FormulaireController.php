@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\QuestionChoixMultiple;
 use App\Formulaire;
 use App\Question;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class FormulaireController extends Controller
         return view('formulaire.create');
     }
 
-  
+
     /**
      * Store a newly created resource in storage.
      *
@@ -45,10 +46,10 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
-        function startsWith($string, $startString) { 
-            $len = strlen($startString); 
-            return (substr($string, 0, $len) === $startString); 
-        } 
+        function startsWith($string, $startString) {
+            $len = strlen($startString);
+            return (substr($string, 0, $len) === $startString);
+        }
 
         if ($request->hasFile('image')){
             $image = $request->file('image');
@@ -58,7 +59,7 @@ class FormulaireController extends Controller
         }
         else{
             $image ="default.png";
-            
+
         }
         $inputs = $request->input();
 
@@ -79,7 +80,7 @@ class FormulaireController extends Controller
 
         $id_form = Formulaire::where('name', '=', $request->input('name'))
                 ->first();
-            
+
             $search = 'type';
 
         foreach($inputs as $input=>$value){
@@ -97,7 +98,7 @@ class FormulaireController extends Controller
                     "questions_id" =>$id_question->id,
                 ]);
             }
-            
+
         };
 
         return Redirect::route('formulaires.index');
@@ -126,11 +127,11 @@ class FormulaireController extends Controller
     {
         if ($request->ajax()) {
             $id_form = $request->input('formulaire');
-       
+
             return response()->json(['id_form'=>$id_form], 200);
         };
-        abort(404);   
-       
+        abort(404);
+
     }
 
     /**
