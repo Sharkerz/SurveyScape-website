@@ -46,6 +46,19 @@
     opacity: 0.7;
 }
 
+#sun {
+    user-select:none;
+    font-size: 3.5rem;
+    color: #8E8E8E;
+    margin-top: -8px;
+    padding-bottom: 0;
+}
+
+#sun:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
 #navbarDropdown {
     font-size: 1.2rem;
     color: #1b1e21;
