@@ -51,7 +51,7 @@
 
                         <!-- Case reponses questions -->
                         <div class="multipleChoice">
-                            <input class="nb_choice" name="nb_choice" type="hidden" value="2"> <!-- Nombre de choix -->
+                            <input class="nb_choice" name="nb_choice" type="hidden" value="1"> <!-- Nombre de choix -->
                             <div class="choices">
                                 <div class="row">
                                     <div class="col-5">
