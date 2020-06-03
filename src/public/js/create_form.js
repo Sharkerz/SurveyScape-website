@@ -29,7 +29,7 @@ Choix type de question
 
 $(document).on("change", "select.form-control.select_type", function (e) {
     var choice = $(this)[0].value;
-    var div_question = $(this).closest(".div_question")[0].children[1].children[0];
+    var div_question = $(this).closest(".div_question")[0].children[1];
     /* Question à choix multiple */
     if(choice === "Choix multiples") {
         n_multiple = 2;

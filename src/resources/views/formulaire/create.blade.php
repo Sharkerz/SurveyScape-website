@@ -28,12 +28,11 @@
         <input type="date" id="start" name="open_on" value="null" min="2020-01-01"></br>
         <label for="NomFormulaire">Fin de la publication:</label>
         <input type="date" id="start" name="close_on" value="null" min="2020-01-01">
-    </form>
+        <br><input type="submit">
 
     <div id="questions">
         <div class="div_question">
             <input type='hidden' value='1'>
-                <form name="quest_1">
                     <div class="body_question">
                         <!-- Ligne titre + choix type -->
                         <div class="row">
@@ -42,7 +41,7 @@
                             </div>
                             <div class="col"></div>
                             <div class="col-3">
-                                <select class="form-control select_type">
+                                <select class="form-control select_type" name="type_question">
                                     <option value="Choix multiples"> Choix multiples</option>
                                     <option value="Texte"> Texte</option>
                                     <option>Soon</option>
@@ -65,10 +64,9 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit">
-                </form>
         </div>
     </div>
+</form>
 
 <script type="text/javascript" src="{{ URL::asset('js/create_form.js') }}"></script>
 
