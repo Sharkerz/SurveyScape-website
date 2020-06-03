@@ -6,8 +6,6 @@ $(document).ready(function () {
 
 $(".add_option").click(function () {
 
-    $(this).parents().get(1).children[0].
-
     $(this).parents().get(1).children[0].innerHTML += '                <div class="row">\n' +
         '                    <div class="col-5">\n' +
         '                        <input type="text" class="form-control" placeholder="Choix ' + n_multiple + '" required>\n' +
