@@ -1,0 +1,72 @@
+.DashboardCard_Container{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.New_Forms{
+    background-color: #ffffff;
+}
+#Create_Forms{
+    margin-left: 10%;
+    text-align: top;
+}
+#Create_Form{
+    margin-left:10%;    
+}
+.info_Formulaire{
+    margin-bottom: 0px;
+    border-top:1px solid white;
+    background-color: #ffffff;
+    vertical-align: bottom;
+}
+
+.image_Formulaire{
+    width: 200px;
+    height: 200px;
+}
+.Formulaire{
+    background-color: #EAEAEA;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    margin-right : 70px;
+    margin-top: 140px;
+}
+
+.Formulaire:hover{
+    opacity: 70%;
+    cursor: pointer;
+}
+
+/* Div pour la création de Formulaire
+A mettre dans create_form.css*/
+#Add_Form{
+    position: fixed;
+    top:20%;
+    left: 80%;
+    background-color: white;
+    border-radius: 3mm;
+    width: 50px;
+    height: 200px;
+    
+}
+
+.material-icons{
+    font-size: 50px;
+}
+
+#Add_Question:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+#Privacy:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+#Add_Banniere:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+#Add_Dates:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
