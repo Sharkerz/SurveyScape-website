@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Formulaire;
+use App\Question;
+use App\QuestionChoixMultiple;
 use Illuminate\Http\Request;
 use Auth;
 use Redirect;
@@ -35,6 +37,7 @@ class FormulaireController extends Controller
         return view('formulaire.create');
     }
 
+  
     /**
      * Store a newly created resource in storage.
      *
@@ -43,6 +46,11 @@ class FormulaireController extends Controller
      */
     public function store(Request $request)
     {
+        function startsWith($string, $startString) { 
+            $len = strlen($startString); 
+            return (substr($string, 0, $len) === $startString); 
+        } 
+
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time(). '.' . $image->getClientOriginalExtension();
@@ -51,7 +59,10 @@ class FormulaireController extends Controller
         }
         else{
             $image ="default.png";
+            
         }
+        $inputs = $request->input();
+
         Formulaire::create([
             "name" => $request->input('name'),
             "open_on" => $request->input('open_on'),
@@ -59,6 +70,29 @@ class FormulaireController extends Controller
             "user_id" => Auth::user()->id,
             "image" =>$image,
         ]);
+
+        $id_form = Formulaire::where('name', '=', $request->input('name'))
+                ->first();
+            
+            $search = 'type';
+
+        foreach($inputs as $input=>$value){
+            if(startsWith($input,"q") == true){
+                Question::create([
+                    "name" =>$value,
+                    "formulaire_id" =>$id_form->id,
+                ]);
+                $id_question = Question::where('name', '=', $value)
+                ->first();
+            }
+            elseif(preg_match("/^[0-9]/", $input )) {
+                QuestionChoixMultiple::create([
+                    "name" =>$value,
+                    "questions_id" =>$id_question->id,
+                ]);
+            }
+            
+        };
 
         return Redirect::route('formulaires.index');
     }
