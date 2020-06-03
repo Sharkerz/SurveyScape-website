@@ -32,10 +32,10 @@
                 </div>
                 <div class="col"></div>
                 <div class="col-3">
-                    <select class="form-control">
-                        <option>Choix multiples</option>
-                        <option>Texte</option>
-                        <option>jsp²</option>
+                    <select class="form-control select_type">
+                        <option value="Choix multiples"> Choix multiples</option>
+                        <option value="Texte"> Texte</option>
+                        <option>Soon</option>
                     </select>
                 </div>
             </div>
