@@ -37,11 +37,11 @@
                         <!-- Ligne titre + choix type -->
                         <div class="row">
                             <div class="col-6">
-                                <input type="text" class="form-control title_question" name="question" placeholder="Question" required>
+                                <input type="text" class="form-control title_question" name="q1" placeholder="Question 1" required>
                             </div>
                             <div class="col"></div>
                             <div class="col-3">
-                                <select class="form-control select_type" name="type_question">
+                                <select class="form-control select_type" name="type_q1">
                                     <option value="Choix multiples"> Choix multiples</option>
                                     <option value="Texte"> Texte</option>
                                     <option>Soon</option>

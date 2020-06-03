@@ -119,11 +119,11 @@ function addQuestions() {
         "                        <!-- Ligne titre + choix type -->\n" +
         "                        <div class=\"row\">\n" +
         "                            <div class=\"col-6\">\n" +
-        "                                <input type=\"text\" class=\"form-control title_question\" name=\"question\" placeholder=\"Question\" required>\n" +
+        "                                <input type=\"text\" class=\"form-control title_question\" name=\"q" + nb_question + "\" placeholder=\"Question " + nb_question + "\" required>\n" +
         "                            </div>\n" +
         "                            <div class=\"col\"></div>\n" +
         "                            <div class=\"col-3\">\n" +
-        "                                <select class=\"form-control select_type\">\n" +
+        "                                <select class=\"form-control select_type\" name='type_q" + nb_question + "'>\n" +
         "                                    <option value=\"Choix multiples\"> Choix multiples</option>\n" +
         "                                    <option value=\"Texte\"> Texte</option>\n" +
         "                                    <option>Soon</option>\n" +
