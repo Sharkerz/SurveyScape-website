@@ -28,7 +28,7 @@
         <input type="date" id="start" name="open_on" value="null" min="2020-01-01"></br>
         <label for="NomFormulaire">Fin de la publication:</label>
         <input type="date" id="start" name="close_on" value="null" min="2020-01-01">
-        <input type="submit">
+        <input type="submit" class="btn_submit">
     </form>
 
     <div id="questions">
