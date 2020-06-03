@@ -41,7 +41,7 @@
                             </div>
                             <div class="col"></div>
                             <div class="col-3">
-                                <select class="form-control select_type" name="type_q1">
+                                <select class="form-control select_type" name="typeQ1">
                                     <option value="Choix multiples"> Choix multiples</option>
                                     <option value="Texte"> Texte</option>
                                     <option>Soon</option>

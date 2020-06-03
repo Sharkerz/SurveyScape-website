@@ -123,7 +123,7 @@ function addQuestions() {
         "                            </div>\n" +
         "                            <div class=\"col\"></div>\n" +
         "                            <div class=\"col-3\">\n" +
-        "                                <select class=\"form-control select_type\" name='type_q" + nb_question + "'>\n" +
+        "                                <select class=\"form-control select_type\" name='typeQ" + nb_question + "'>\n" +
         "                                    <option value=\"Choix multiples\"> Choix multiples</option>\n" +
         "                                    <option value=\"Texte\"> Texte</option>\n" +
         "                                    <option>Soon</option>\n" +
