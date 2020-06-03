@@ -7,16 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     protected $fillable = [
-        'rubrique_id', 'name'
+        'formulaire_id', 'name'
     ];
 
-    public function rubrique()
+    public function formulaire()
     {
-        return $this->belongsTo('App\Rubrique');
+        return $this->belongsTo('App\Formulaire');
     }
 
-    public function TypeReponse()
-    {
-        return $this->belongsTo('App\TypeReponse');
-    }
 }
