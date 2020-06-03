@@ -33,6 +33,7 @@
 
     <div id="questions">
         <div class="div_question">
+            <input type='hidden' value='1'>
                 <form name="quest_1">
                     <div class="body_question">
                         <!-- Ligne titre + choix type -->
@@ -52,6 +53,7 @@
 
                         <!-- Case reponses questions -->
                         <div class="multipleChoice">
+                            <input class="nb_choice" type="hidden" value="2"> <!-- Nombre de choix -->
                             <div class="choices">
                                 <div class="row">
                                     <div class="col-5">

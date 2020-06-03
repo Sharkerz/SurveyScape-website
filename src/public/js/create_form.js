@@ -5,21 +5,21 @@ Options des questions
 ================= */
 
 /* Question choix multiples */
-    n_multiple = 2;
 
 $(document).on("click", "i.material-icons.add_option", function () {
-
+    var nb_choice = $(this).closest(".multipleChoice")[0].children[0];
+    var num_question = $(this).closest(".div_question")[0].children[0];
     // Laisser le texte dans les options précédantes a l'ajout d'une option
     var value_options = Array.prototype.slice.call($(this).parents().get(1).children[0].children);
     value_options.forEach(child => child.children[0].children[0].setAttribute("value", child.children[0].children[0].value));
 
     // Ajout d'une option
-    $(this).parents().get(1).children[0].innerHTML += '                <div class="row">\n' +
+    $(this).parents().get(1).children[1].innerHTML += '                <div class="row">\n' +
         '                    <div class="col-5">\n' +
-        '                        <input type="text" class="form-control" placeholder="Choix ' + n_multiple + '" required>\n' +
+        '                        <input name="' + num_question.value + '-' + nb_choice.value + '" type="text" class="form-control" placeholder="Choix ' + Number(nb_choice.value) + '" required>\n' +
         '                    </div>\n' +
         '                </div>';
-    n_multiple++;
+    nb_choice.setAttribute("value", Number(nb_choice.value)+1);
 });
 
 
@@ -29,8 +29,7 @@ Choix type de question
 
 $(document).on("change", "select.form-control.select_type", function (e) {
     var choice = $(this)[0].value;
-    var div_question = $(this).closest(".div_question")[0].children[0].children[0];
-    console.log(div_question)
+    var div_question = $(this).closest(".div_question")[0].children[1].children[0];
     /* Question à choix multiple */
     if(choice === "Choix multiples") {
         n_multiple = 2;
@@ -53,6 +52,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '\n' +
             '                        <!-- Case reponses questions -->\n' +
             '                        <div class="multipleChoice">\n' +
+            '<input class="nb_choice" type="hidden" value="2"> <!-- Nombre de choix -->\n' +
             '                            <div class="choices">\n' +
             '                                <div class="row">\n' +
             '                                    <div class="col-5">\n' +
@@ -112,6 +112,7 @@ $("#Add_Question").click(function () {
 function addQuestions() {
     nb_question++;
     $("#questions").append("        <div class=\"div_question\">\n" +
+        " <input type='hidden' value='" + nb_question + "'>\n" +
         "                <form name=\"quest_" + nb_question + "\">\n" +
         "                    <div class=\"body_question\">\n" +
         "                        <!-- Ligne titre + choix type -->\n" +
@@ -131,10 +132,11 @@ function addQuestions() {
         "\n" +
         "                        <!-- Case reponses questions -->\n" +
         "                        <div class=\"multipleChoice\">\n" +
+        "<input class=\"nb_choice\" type=\"hidden\" value=\"2\"> <!-- Nombre de choix -->\n" +
         "                            <div class=\"choices\">\n" +
         "                                <div class=\"row\">\n" +
         "                                    <div class=\"col-5\">\n" +
-        "                                        <input type=\"text\" class=\"form-control\" placeholder=\"Choix 1\" required>\n" +
+        "                                        <input name=\"" + nb_question + "-1\" type=\"text\" class=\"form-control\" placeholder=\"Choix 1\" required>\n" +
         "                                    </div>\n" +
         "                                </div>\n" +
         "                            </div>\n" +
