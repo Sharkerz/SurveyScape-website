@@ -123,15 +123,13 @@ class FormulaireController extends Controller
      * @param  \App\Formulaire  $formulaire
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit($id)
     {
-        if ($request->ajax()) {
-            $id_form = $request->input('formulaire');
+        $formulaire = Formulaire::find($id);
 
-            return response()->json(['id_form'=>$id_form], 200);
-        };
-        abort(404);
-
+        return view('formulaire.edit', [
+            'formulaire' => $formulaire
+        ]);
     }
 
     /**
