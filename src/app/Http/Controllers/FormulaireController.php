@@ -93,7 +93,7 @@ class FormulaireController extends Controller
                 ->first();
             }
             elseif(preg_match("/^[0-9]/", $input )) {
-                QuestionChoixMultiple::create([
+                QuestionChoixmultiple::create([
                     "name" =>$value,
                     "questions_id" =>$id_question->id,
                 ]);
