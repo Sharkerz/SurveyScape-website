@@ -82,8 +82,8 @@
                 </div>
                 <div class="info_Formulaire">
                 <h2>`+ formulaire.name + `</h2>
-                <h6>Modifier le:`+ formulaire.updated_at + `</h6>
-                <h6>Créer le:`+ formulaire.created_at + `</h6>
+                <h6>Modifié le:`+ formulaire.updated_at + `</h6>
+                <h6>Crée le:`+ formulaire.created_at + `</h6>
                 </div>
                 </div>`;
                 }

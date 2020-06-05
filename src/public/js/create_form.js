@@ -32,6 +32,7 @@ Choix type de question
 $(document).on("change", "select.form-control.select_type", function (e) {
     var choice = $(this)[0].value;
     var div_question = $(this).closest(".div_question")[0].children[1];
+    var ordre_question = $(this).closest(".div_question")[0].children[0].value;
     /* Question à choix multiple */
     if(choice === "Choix multiples") {
         n_multiple = 2;
@@ -44,7 +45,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                            </div>\n' +
             '                            <div class="col"></div>\n' +
             '                            <div class="col-3">\n' +
-            '                                <select class="form-control select_type">\n' +
+            '                                <select class="form-control select_type" name="typeQ' + ordre_question + '">\n' +
             '                                    <option value="Choix multiples"> Choix multiples</option>\n' +
             '                                    <option value="Texte"> Texte</option>\n' +
             '                                    <option>Soon</option>\n' +
@@ -77,7 +78,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '                </div>\n' +
         '                <div class="col"></div>\n' +
         '                <div class="col-3">\n' +
-        '                    <select class="form-control select_type">\n' +
+        '                    <select class="form-control select_type" name="typeQ' + ordre_question + '">\n' +
         '                        <option value="Texte"> Texte</option>\n' +
         '                        <option value="Choix multiples"> Choix multiples</option>\n' +
         '                        <option>Soon</option>\n' +

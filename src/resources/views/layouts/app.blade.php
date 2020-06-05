@@ -123,7 +123,7 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('auth.Register') }}</a>
                         </li>
                     @endif
-                @else 
+                @else
 
                     <div class="btn-group">
                         <i id="sun" class="material-icons icone_darktheme nav-link"></i>
