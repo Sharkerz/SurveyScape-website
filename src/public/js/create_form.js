@@ -8,7 +8,6 @@ Options des questions
 
 $(document).on("click", "i.material-icons.add_option", function () {
     //Nombre de choix actuellement
-
     var nb_choices = $(this).closest(".multipleChoice")[0].children[1].children.length+1;
 
     //Id de la question
@@ -156,5 +155,23 @@ function addQuestions(nb_question) {
         "        </div>");
 }
 
+
+/* ================
+Fonctionnalités div en haut pour la creation du formulaire
+================= */
+
+// Affichage choix date de debut et de fin du formulaire
+$("#enableDate").change(function () {
+    var checkbox = $("#enableDate")[0];
+    // Si c'est coché
+    if (checkbox.checked) {
+        $("#div_Date")[0].removeAttribute("hidden");
+    }
+    else {
+        $("#div_Date")[0].setAttribute("hidden", true);
+        $("#start_date")[0].value = null;
+        $("#end_date")[0].value = null;
+    }
+})
 
 });

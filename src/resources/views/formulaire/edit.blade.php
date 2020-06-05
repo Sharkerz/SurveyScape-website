@@ -16,19 +16,39 @@
 
     <form action="{{ route('update_form') }}" method="post">
             @csrf
-        <div class="Name_Form">
-            <textarea class="NomFormulaire"  required name="name" data-rows="1" tabindex="0" >{{$formulaire->name}}</textarea>
+
+        <div id="div_infos">
+            <div class="Name_Form">
+                <input class="NomFormulaire" type="text"  required name="name" data-rows="1" tabindex="0" placeholder="Nom du Formulaire">
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <label>Mettre une image en bannière: </label>
+                    <input type="file" name="image">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="enableDate">
+                        <label class="form-check-label" for="enableDate">
+                            Définir une date de début et de fin
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6"></div>
+                <div id="div_Date" class="col" hidden>
+                    <label for="NomFormulaire">Début de la publication:</label>
+                    <input type="date" id="start_date" name="open_on" value="null" min="2020-01-01"></br>
+                    <label for="NomFormulaire">Fin de la publication:</label>
+                    <input type="date" id="end_date" name="close_on" value="null" min="2020-01-01">
+                </div>
+            </div>
         </div>
-            <label>Mettre une image en bannière: </label>
-            <input type="file" name="image">
-            <input type="hidden" name="id"  value="{{$formulaire->id}}" >
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <br>
-            <label for="NomFormulaire">Début de la publication:</label>
-            <input type="date" id="start" name="open_on" value="null" min="2020-01-01"></br>
-            <label for="NomFormulaire">Fin de la publication:</label>
-            <input type="date" id="start" name="close_on" value="null" min="2020-01-01">
-        <br><input type="submit">
+
     <div id="questions">
     @foreach($questions as $question)
         <div class="div_question">
@@ -48,22 +68,22 @@
                                         <option value="Texte"> Texte</option>
                                         <option>Soon</option>
                                     </select>
-                                   
+
                                 </div>
-                                
+
                             </div>
                             <div class="multipleChoice">
                                         <input class="nb_choice" name="nb_choice" type="hidden" value="1"> <!-- Nombre de choix -->
                                         <div class="choices">
-                                        @foreach($choix_question_multiples as $choix_question_multiple)       
+                                        @foreach($choix_question_multiples as $choix_question_multiple)
                                             @foreach($choix_question_multiple as $choix_question)
                                             @if($choix_question->questions_id== $question->id)
                                             <div class="row">
-                                                <div class="col-5"> 
-                                                <input type="hidden" name="choix_question{{$choix_question->id}}"  value="{{$choix_question->id}}" >                                                  
-                                                    <input type="text" name="{{$question->id}}-{{$choix_question->id}}" class="form-control" value="{{$choix_question->name}}" required>                              
+                                                <div class="col-5">
+                                                <input type="hidden" name="choix_question{{$choix_question->id}}"  value="{{$choix_question->id}}" >
+                                                    <input type="text" name="{{$question->id}}-{{$choix_question->id}}" class="form-control" value="{{$choix_question->name}}" required>
                                                 </div>
-                                                
+
                                             </div>
                                             @endif
                                             @endforeach
@@ -81,12 +101,12 @@
                                     <select class="form-control select_type" name="typeq{{$question->id}}">
                                         <option value="Texte"selected> {{$question->type_question}}</option>
                                         <option value="Choix multiples"> Choix multiples</option>
-                                        
+
                                         <option>Soon</option>
                                     </select>
-                                   
+
                                 </div>
-                                
+
                             </div>
                                     <div class="multipleChoice">
                             <input class="nb_choice" name="nb_choice" type="hidden" value="1">
@@ -96,14 +116,19 @@
                                         <input type="text" name="1-{{$question->id}}" class="form-control" placeholder="Reponse" required disabled>
                                     </div>
                                 </div>
-                        
+
 </div>
 </div>
                             @endif
-                            
+
             </div>
         @endforeach
     </div>
+
+    <div class="col" id="submit_form">
+        <br><button type="submit" class="btn btn-primary btn-lg">Publier</button>
+    </div>
+
     </form>
 
 </div>

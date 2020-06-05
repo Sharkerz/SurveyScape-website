@@ -31,19 +31,22 @@
                 </div>
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
+                        <input class="form-check-input" type="checkbox" id="enableDate">
+                        <label class="form-check-label" for="enableDate">
                             Définir une date de début et de fin
                         </label>
                     </div>
                 </div>
             </div>
 
-            <div hidden>
-                <label for="NomFormulaire">Début de la publication:</label>
-                <input type="date" id="start" name="open_on" value="null" min="2020-01-01"></br>
-                <label for="NomFormulaire">Fin de la publication:</label>
-                <input type="date" id="start" name="close_on" value="null" min="2020-01-01">
+            <div class="row">
+                <div class="col-6"></div>
+                <div id="div_Date" class="col" hidden>
+                    <label for="NomFormulaire">Début de la publication:</label>
+                    <input type="date" id="start_date" name="open_on" value="null" min="2020-01-01"></br>
+                    <label for="NomFormulaire">Fin de la publication:</label>
+                    <input type="date" id="end_date" name="close_on" value="null" min="2020-01-01">
+                </div>
             </div>
         </div>
 
@@ -84,9 +87,10 @@
                     </div>
         </div>
     </div>
-        <div class="col" id="submit_form">
-            <br><button type="submit" class="btn btn-primary btn-lg">Publier</button>
-        </div>
+
+    <div class="col" id="submit_form">
+        <br><button type="submit" class="btn btn-primary btn-lg">Publier</button>
+    </div>
 
 </form>
 
