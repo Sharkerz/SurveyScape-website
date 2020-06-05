@@ -7,21 +7,26 @@ Options des questions
 /* Question choix multiples */
 
 $(document).on("click", "i.material-icons.add_option", function () {
-    var nb_choice = $(this).closest(".multipleChoice")[0].children[0];
+    //Nombre de choix actuellement
+    var nb_choices = $(this).closest(".multipleChoice")[0].children[1].children.length;
+    //Si on crée le formulaire, il faut ajouter 1 pour avoir le bon nombre de questions
+    if (window.location.href.indexOf("create") > -1) {
+        nb_choices+=1;
+    }
+
+    //Id de la question
     var num_question = $(this).closest(".div_question")[0].children[0];
+
     // Laisser le texte dans les options précédantes a l'ajout d'une option
     var value_options = Array.prototype.slice.call($(this).parents().get(1).children[1].children);
     value_options.forEach(child => child.children[0].children[0].setAttribute("value", child.children[0].children[0].value));
 
-    var nb_choice_count =  Number(nb_choice.value)+1;
-
     // Ajout d'une option
     $(this).parents().get(1).children[1].innerHTML += '                <div class="row">\n' +
         '                    <div class="col-5">\n' +
-        '                        <input name="' + num_question.value + '-' + nb_choice_count + '" type="text" class="form-control" placeholder="Choix ' + nb_choice_count + '" required>\n' +
+        '                        <input name="' + num_question.value + '-' + nb_choices + '" type="text" class="form-control" placeholder="Choix ' + nb_choices + '" required>\n' +
         '                    </div>\n' +
         '                </div>';
-    nb_choice.setAttribute("value", Number(nb_choice.value)+1);
 });
 
 
@@ -106,14 +111,23 @@ $(document).on("change", "select.form-control.select_type", function (e) {
 /* ================
 Ajouter une question
 ================= */
-var nb_question = 1;
+
 
 $("#Add_Question").click(function () {
-   addQuestions();
+
+    //Nombre de questions actuellement
+    var nb_question = $("#questions")[0].children.length;
+
+    //Si on crée le formulaire, il faut ajouter 1 pour avoir le bon nombre de questions
+    if (window.location.href.indexOf("create") > -1) {
+        nb_question+=1;
+    }
+
+    addQuestions(nb_question);
 });
 
-function addQuestions() {
-    nb_question++;
+function addQuestions(nb_question) {
+
     $("#questions").append("        <div class=\"div_question\">\n" +
         " <input type='hidden' value='" + nb_question + "'>\n" +
         "                    <div class=\"body_question\">\n" +
@@ -149,5 +163,6 @@ function addQuestions() {
         "                    </div>\n" +
         "        </div>");
 }
+
 
 });
