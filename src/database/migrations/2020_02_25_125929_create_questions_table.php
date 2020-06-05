@@ -17,6 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
             $table->string('name',250);
+            $table->string('type_question',250)->nullable();
             $table->unsignedBigInteger('formulaire_id');
             $table->foreign('formulaire_id')->references('id')->on('formulaires');
             $table->timestamps();

@@ -62,7 +62,6 @@ class FormulaireController extends Controller
 
         }
         $inputs = $request->input();
-
         Formulaire::create([
             "name" => $request->input('name'),
             "open_on" => $request->input('open_on'),
@@ -70,19 +69,11 @@ class FormulaireController extends Controller
             "user_id" => Auth::user()->id,
             "image" =>$image,
         ]);
-        /*$id_formulaire = Formulaire::where('name','=',$request->input('name'))
-                        ->first('id');
-        var_dump($id_formulaire->id);
-        Question::create([
-            "name" => $request->input('name'),
-            "formulaire_id" => $id_formulaire->id,
-        ]);*/
 
         $id_form = Formulaire::where('name', '=', $request->input('name'))
                 ->first();
 
-            $search = 'type';
-
+        dd($inputs);
         foreach($inputs as $input=>$value){
             if(startsWith($input,"q") == true){
                 Question::create([
@@ -91,6 +82,7 @@ class FormulaireController extends Controller
                 ]);
                 $id_question = Question::where('name', '=', $value)
                 ->first();
+                $question = $input;
             }
             elseif(preg_match("/^[0-9]/", $input )) {
                 QuestionChoixmultiple::create([
@@ -98,6 +90,14 @@ class FormulaireController extends Controller
                     "questions_id" =>$id_question->id,
                 ]);
             }
+            if(isset($question)){
+                if(preg_match("/^type+$question/", $input )) {
+                    Question::where('id', $id_question->id)
+                    ->update(['type_question' => $value]);
+                    
+                }
+            };
+            
 
         };
 
@@ -126,9 +126,18 @@ class FormulaireController extends Controller
     public function edit($id)
     {
         $formulaire = Formulaire::find($id);
-
+        $questions = Question::all() -> where('formulaire_id', $formulaire->id);
+        $choix_question=[];
+        foreach($questions as $question){
+            $question->id;
+            $id_de_la_question = $question->id;
+            $choix_question_multiples = QuestionChoixMultiple::all() -> where('questions_id', $id_de_la_question);
+            array_push($choix_question,$choix_question_multiples);
+        }
         return view('formulaire.edit', [
-            'formulaire' => $formulaire
+            'formulaire' => $formulaire,
+            'questions'=>$questions,
+            'choix_question_multiples' =>$choix_question,
         ]);
     }
 
