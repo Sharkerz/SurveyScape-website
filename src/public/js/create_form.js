@@ -79,11 +79,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '            <!-- Ligne titre + choix type -->\n' +
         '            <div class="row">\n' +
         '                <div class="col-6">\n' +
-<<<<<<< HEAD
         '                    <input type="text" class="form-control title_question" name="q' + ordre_question + '" placeholder="Question ' + ordre_question + '" required>\n' +
-=======
-        '                    <input type="text" class="form-control title_question" name="q'+ ordre_question+'" placeholder="Question" required>\n' +
->>>>>>> 4a4a8746d4ba09e4d538ada6704f04b86dafd983
         '                </div>\n' +
         '                <div class="col"></div>\n' +
         '                <div class="col-3">\n' +
