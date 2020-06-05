@@ -46,7 +46,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                        <!-- Ligne titre + choix type -->\n' +
             '                        <div class="row">\n' +
             '                            <div class="col-6">\n' +
-            '                                <input type="text" class="form-control title_question" name="question" placeholder="Question ' + ordre_question + '" required>\n' +
+            '                                <input type="text" class="form-control title_question" name="q' + ordre_question + '" placeholder="Question ' + ordre_question + '" required>\n' +
             '                            </div>\n' +
             '                            <div class="col"></div>\n' +
             '                            <div class="col-3">\n' +
@@ -64,7 +64,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                            <div class="choices">\n' +
             '                                <div class="row">\n' +
             '                                    <div class="col-5">\n' +
-            '                                        <input type="text" class="form-control" placeholder="Choix 1" required>\n' +
+            '                                        <input type="text" class="form-control" placeholder="Choix 1" name="' + ordre_question + '-1" required>\n' +
             '                                    </div>\n' +
             '                                </div>\n' +
             '                            </div>\n' +
@@ -79,7 +79,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '            <!-- Ligne titre + choix type -->\n' +
         '            <div class="row">\n' +
         '                <div class="col-6">\n' +
-        '                    <input type="text" class="form-control title_question" name="question" placeholder="Question ' + ordre_question + '" required>\n' +
+        '                    <input type="text" class="form-control title_question" name="q' + ordre_question + '" placeholder="Question ' + ordre_question + '" required>\n' +
         '                </div>\n' +
         '                <div class="col"></div>\n' +
         '                <div class="col-3">\n' +
