@@ -2,7 +2,14 @@
 
 @section('content')
 
+<link href="{{ asset('css/index_form.css') }}" rel="stylesheet">
+<div id="Modify_Form">
+    <i class="material-icons"  id="btn-task" id="icon_notif">create</i>
+</div>
 <div class="container">
+
+<h1>{{ $formulaire->name }}</h1>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -14,7 +21,7 @@
                     {{ $formulaire->open_on }}
                     {{ $formulaire->close_on }}
 
-                    <a href="{{ route('formulaires.edit', ['formulaire' => $formulaire->id]) }}">Modifier</a>
+                    
                     <form action="{{ route('formulaires.destroy', ['formulaire' => $formulaire->id]) }}" method="post">
                         @csrf
                         @method('delete')
@@ -28,3 +35,9 @@
 </div>
 
 @endsection
+<script>
+    var id_form = '{{$formulaire->id}}' ;
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('js/Formulaire.js') }}"></script>

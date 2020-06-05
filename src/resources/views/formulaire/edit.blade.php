@@ -1,27 +1,115 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-            <div class="card-header">
-                <h1>Edition du formulaire : </h1>
-            </div>
-                <form action="{{ route('formulaires.update', ['formulaire' => $formulaire->id]) }}" method="post">
-                    @csrf
-                    @method('put')
-                    <label for="NomFormulaire">Nom du Formulaire:</label>
-                    <input type="text" name="name" value="{{ $formulaire->name }}"  ></br>
-                    <label for="NomFormulaire">Début de la publication:</label>
-                    <input type="date" name="open_on" value="{{ $formulaire->open_on }}"  min="2020-01-01"></br>
-                    <label for="NomFormulaire">Fin de la publication:</label>
-                    <input type="date" name="close_on" value="{{ $formulaire->close_on }}" min="2020-01-01"></br>
-                    <input type='submit' value="Modifier">
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
+@section('content')
+<link href="{{ asset('css/create_form.css') }}" rel="stylesheet">
+
+<div class="container">
+    <div id="Add_Form">
+        <div id="Add_Question"><i class="material-icons"  id="btn-task" id="icon_notif">add_circle_outline</i></div>
+        <div id="Privacy"><i class="material-icons"  id="btn-task" id="icon_notif">lock</i></div>
+        <div id="Add_Banniere"><i class="material-icons"  id="btn-task" id="icon_notif">image</i></div>
+        <div id="Add_Dates"><i class="material-icons"  id="btn-task" id="icon_notif">event</i></div>
+    </div>
+
+    <h1>Edition du formulaire : </h1>
+
+    <form action="{{ route('formulaires.update', ['formulaire' => $formulaire->id]) }}" method="post">
+            @csrf
+        <div class="Name_Form">
+            <textarea class="NomFormulaire"  required name="name" data-rows="1" tabindex="0" >{{$formulaire->name}}</textarea>
+        </div>
+            <label>Mettre une image en bannière: </label>
+            <input type="file" name="image">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <br>
+            <label for="NomFormulaire">Début de la publication:</label>
+            <input type="date" id="start" name="open_on" value="null" min="2020-01-01"></br>
+            <label for="NomFormulaire">Fin de la publication:</label>
+            <input type="date" id="start" name="close_on" value="null" min="2020-01-01">
+        <br><input type="submit">
+    <div id="questions">
+    @foreach($questions as $question)
+        <div class="div_question">
+                <input type='hidden' value='1'>
+                        <div class="body_question">
+                            <!-- Ligne titre + choix type -->
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="form-control title_question" name="q1" value="{{$question->name}}" required>
+                                </div>
+                                @if($question->type_question == "Choix multiples")
+                                <div class="col"></div>
+                                <div class="col-3">
+                                    <select class="form-control select_type" name="typeq1">
+                                        <default value="$question->type_question">$question->type_question</default>
+                                        <option value="Choix multiples"> Choix multiples</option>
+                                        <option value="Texte"> Texte</option>
+                                        <option>Soon</option>
+                                    </select>
+                                   
+                                </div>
+                                
+                            </div>
+                            <div class="multipleChoice">
+                                        <input class="nb_choice" name="nb_choice" type="hidden" value="1"> <!-- Nombre de choix -->
+                                        <div class="choices">
+                                            <div class="row">
+                                                <div class="col-5">
+                                                
+                                                @foreach($choix_question_multiples as $choix_question_multiple)
+                                                    
+                                                    @foreach($choix_question_multiple as $choix_question)
+                                                    @if($choix_question->questions_id== $question->id)
+                                                    <input type="text" name="1-" class="form-control" value="{{$choix_question->name}}" required>
+                                                    @endif
+                                                    @endforeach
+                                                    @endforeach
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <i class="material-icons add_option">add</i>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                                <!-- @if($question->type_question == "Texte")
+                                <div class="col"></div>
+                                <div class="col-3">
+                                    <select class="form-control select_type" name="typeq1">
+                                        <default value="$question->type_question">$question->type_question</default>
+                                        <option value="Choix multiples"> Choix multiples</option>
+                                        <option value="Texte"> Texte</option>
+                                        <option>Soon</option>
+                                    </select>
+                                   
+                                </div>
+                                
+                            </div>
+                                    <div class="multipleChoice">
+                            <input class="nb_choice" name="nb_choice" type="hidden" value="1">  Nombre de choix 
+                            <div class="choices">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <input type="text" name="1-1" class="form-control" placeholder="Choix 1" required disabled>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="row">
+                                    <i class="material-icons add_option">add</i>
+                                </div>
+                            </div>
+</div>
+</div>
+                            @endif
+                            -->
+            </div>
+        @endforeach
+    </div>
+    </form>
+
+</div>
+<script type="text/javascript" src="{{ URL::asset('js/create_form.js') }}"></script>
 @endsection

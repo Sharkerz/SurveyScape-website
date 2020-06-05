@@ -3,7 +3,7 @@
 @section('content')
 
 <link href="{{ asset('css/create_form.css') }}" rel="stylesheet">
-<link href="{{ asset('css/index_form.css') }}" rel="stylesheet">
+
 
 <div class="container">
 
@@ -41,7 +41,7 @@
                             </div>
                             <div class="col"></div>
                             <div class="col-3">
-                                <select class="form-control select_type" name="typeQ1">
+                                <select class="form-control select_type" name="typeq1">
                                     <option value="Choix multiples"> Choix multiples</option>
                                     <option value="Texte"> Texte</option>
                                     <option>Soon</option>
