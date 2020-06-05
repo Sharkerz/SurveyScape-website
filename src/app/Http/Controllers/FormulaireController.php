@@ -62,6 +62,7 @@ class FormulaireController extends Controller
 
         }
         $inputs = $request->input();
+      
         Formulaire::create([
             "name" => $request->input('name'),
             "open_on" => $request->input('open_on'),
@@ -82,10 +83,18 @@ class FormulaireController extends Controller
                 $id_question = Question::where('name', '=', $value)
                 ->first();
                 $question = $input;
-                $type_question = $value;
             }
-            elseif(isset($type_question) =="Choix multiples"){
-                if(preg_match("/^[0-9]/", $input )) {
+            if(isset($question)){
+                if(preg_match("/^type+$question/", $input )) {
+                    Question::where('id', $id_question->id)
+                    ->update(['type_question' => $value]);
+                    $type_question=$value;
+                    
+                }
+            }
+
+            if(isset($type_question) =="Choix multiples"){
+                            if(preg_match("/^[0-9]/", $input )) {
                     QuestionChoixmultiple::create([
                         "name" =>$value,
                         "questions_id" =>$id_question->id,
@@ -93,14 +102,7 @@ class FormulaireController extends Controller
                 }
             }
             
-            if(isset($question)){
-                if(preg_match("/^type+$question/", $input )) {
-                    Question::where('id', $id_question->id)
-                    ->update(['type_question' => $value]);
-                    
-                }
-            };
-            
+           
 
         };
 
@@ -174,7 +176,7 @@ class FormulaireController extends Controller
 
         }
          $inputs = $request->input();
-         dd($inputs);
+     
          Formulaire::where('id', $request->input('id'))
          ->update([  
             "name" => $request->input('name'),
@@ -188,36 +190,48 @@ class FormulaireController extends Controller
             foreach($inputs as $input=>$value){
                 if(preg_match("/^id_q/", $input )) {
                     $id_de_la_question = $value;
-                   
+                  
                 }
                 
                 if(preg_match("/^q/", $input )){
                     Question::where('id', '=', $id_de_la_question)
                     ->update([
                         "name" =>$value,
-                        
                     ]);
                     
                     $question = $input;
                 }
-                elseif(isset($type_question) =="Choix multiples"){
-                    if(preg_match("/^[0-9]/", $input )) {
-                        QuestionChoixmultiple::create([
-                            "name" =>$value,
-                            "questions_id" =>$id_de_la_question,
-                        ]);
-                    }
-                }
-                
                 if(isset($question)){
                     if(preg_match("/^type+$question/", $input )) {
                         Question::where('id', $id_de_la_question)
                         ->update(['type_question' => $value]);
-                        
+                        $type_question=$value;
                     }
-                };
+                }
+                if(isset($type_question) =="Choix multiples"){
+                    if(preg_match("/^choix_question/", $input )){
+                        $id_choix_question = $value;
+                    }
+                    if(preg_match("/^[0-9]/", $input )) {
+                        if (isset($id_choix_question)){
+                            QuestionChoixmultiple::where('id', '=', $id_choix_question)
+                                ->update([
+                                "name" =>$value,
+                            ]);
+                            unset($id_choix_question);
+                        }
+                        else{
+                            if(preg_match("/^[0-9]/", $input )) {
+                                QuestionChoixmultiple::create([
+                                    "name" =>$value,
+                                    "questions_id" =>$id_de_la_question,
+                                ]);
+                            }
+                        }
+                    }
                 
-    
+              
+                }
             };
             return Redirect::route('formulaires.index');
     }
