@@ -41,11 +41,11 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                        <!-- Ligne titre + choix type -->\n' +
             '                        <div class="row">\n' +
             '                            <div class="col-6">\n' +
-            '                                <input type="text" class="form-control title_question" name="question" placeholder="Question" required>\n' +
+            '                                <input type="text" class="form-control title_question" name="q' + ordre_question + '" placeholder="Question" required>\n' +
             '                            </div>\n' +
             '                            <div class="col"></div>\n' +
             '                            <div class="col-3">\n' +
-            '                                <select class="form-control select_type" name="typeQ' + ordre_question + '">\n' +
+            '                                <select class="form-control select_type" name="typeq' + ordre_question + '">\n' +
             '                                    <option value="Choix multiples"> Choix multiples</option>\n' +
             '                                    <option value="Texte"> Texte</option>\n' +
             '                                    <option>Soon</option>\n' +
@@ -74,11 +74,11 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '            <!-- Ligne titre + choix type -->\n' +
         '            <div class="row">\n' +
         '                <div class="col-6">\n' +
-        '                    <input type="text" class="form-control title_question" name="question" placeholder="Question" required>\n' +
+        '                    <input type="text" class="form-control title_question" name="q'+ ordre_question+'" placeholder="Question" required>\n' +
         '                </div>\n' +
         '                <div class="col"></div>\n' +
         '                <div class="col-3">\n' +
-        '                    <select class="form-control select_type" name="typeQ' + ordre_question + '">\n' +
+        '                    <select class="form-control select_type" name="typeq' + ordre_question + '">\n' +
         '                        <option value="Texte"> Texte</option>\n' +
         '                        <option value="Choix multiples"> Choix multiples</option>\n' +
         '                        <option>Soon</option>\n' +

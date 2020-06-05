@@ -14,13 +14,14 @@
 
     <h1>Edition du formulaire : </h1>
 
-    <form action="{{ route('formulaires.update', ['formulaire' => $formulaire->id]) }}" method="post">
+    <form action="{{ route('update_form') }}" method="post">
             @csrf
         <div class="Name_Form">
             <textarea class="NomFormulaire"  required name="name" data-rows="1" tabindex="0" >{{$formulaire->name}}</textarea>
         </div>
             <label>Mettre une image en bannière: </label>
             <input type="file" name="image">
+            <input type="hidden" name="id"  value="{{$formulaire->id}}" >
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <br>
             <label for="NomFormulaire">Début de la publication:</label>
@@ -36,14 +37,14 @@
                             <!-- Ligne titre + choix type -->
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" class="form-control title_question" name="q1" value="{{$question->name}}" required>
+                                    <input type="hidden" name="id_q{{$question->id}}"  value="{{$question->id}}" >
+                                    <input type="text" class="form-control title_question" name="q{{$question->id}}" value="{{$question->name}}" required>
                                 </div>
                                 @if($question->type_question == "Choix multiples")
                                 <div class="col"></div>
                                 <div class="col-3">
-                                    <select class="form-control select_type" name="typeq1">
-                                        <default value="$question->type_question">$question->type_question</default>
-                                        <option value="Choix multiples"> Choix multiples</option>
+                                    <select class="form-control select_type" name="typeq{{$question->id}}">
+                                    <option value="Texte"selected> {{$question->type_question}}</option>
                                         <option value="Texte"> Texte</option>
                                         <option>Soon</option>
                                     </select>
@@ -75,13 +76,13 @@
                                     </div>
                                 </div>
                                 @endif
-                                <!-- @if($question->type_question == "Texte")
+                                @if($question->type_question == "Texte")
                                 <div class="col"></div>
                                 <div class="col-3">
-                                    <select class="form-control select_type" name="typeq1">
-                                        <default value="$question->type_question">$question->type_question</default>
+                                    <select class="form-control select_type" name="typeq{{$question->id}}">
+                                        <option value="Texte"selected> {{$question->type_question}}</option>
                                         <option value="Choix multiples"> Choix multiples</option>
-                                        <option value="Texte"> Texte</option>
+                                        
                                         <option>Soon</option>
                                     </select>
                                    
@@ -89,22 +90,18 @@
                                 
                             </div>
                                     <div class="multipleChoice">
-                            <input class="nb_choice" name="nb_choice" type="hidden" value="1">  Nombre de choix 
+                            <input class="nb_choice" name="nb_choice" type="hidden" value="1">
                             <div class="choices">
                                 <div class="row">
                                     <div class="col-5">
-                                        <input type="text" name="1-1" class="form-control" placeholder="Choix 1" required disabled>
+                                        <input type="text" name="1-1" class="form-control" placeholder="Reponse" required disabled>
                                     </div>
                                 </div>
-                            </div>
-                                <div class="row">
-                                    <i class="material-icons add_option">add</i>
-                                </div>
-                            </div>
+                        
 </div>
 </div>
                             @endif
-                            -->
+                            
             </div>
         @endforeach
     </div>
