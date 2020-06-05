@@ -41,7 +41,7 @@
                             </div>
                             <div class="col"></div>
                             <div class="col-3">
-                                <select class="form-control select_type" name="typeQ1">
+                                <select class="form-control select_type" name="typeq1">
                                     <option value="Choix multiples"> Choix multiples</option>
                                     <option value="Texte"> Texte</option>
                                     <option>Soon</option>
@@ -53,7 +53,7 @@
                         <div class="multipleChoice">
                             <input class="nb_choice" name="nb_choice" type="hidden" value="1"> <!-- Nombre de choix -->
                             <div class="choices">
-                                <div class="row">
+                                <div class="row" id="choices">
                                     <div class="col-5">
                                         <input type="text" name="1-1" class="form-control" placeholder="Choix 1" required>
                                     </div>
