@@ -72,8 +72,7 @@ class FormulaireController extends Controller
 
         $id_form = Formulaire::where('name', '=', $request->input('name'))
                 ->first();
-
-        dd($inputs);
+      
         foreach($inputs as $input=>$value){
             if(startsWith($input,"q") == true){
                 Question::create([
@@ -83,13 +82,17 @@ class FormulaireController extends Controller
                 $id_question = Question::where('name', '=', $value)
                 ->first();
                 $question = $input;
+                $type_question = $value;
             }
-            elseif(preg_match("/^[0-9]/", $input )) {
-                QuestionChoixmultiple::create([
-                    "name" =>$value,
-                    "questions_id" =>$id_question->id,
-                ]);
+            elseif(isset($type_question) =="Choix multiples"){
+                if(preg_match("/^[0-9]/", $input )) {
+                    QuestionChoixmultiple::create([
+                        "name" =>$value,
+                        "questions_id" =>$id_question->id,
+                    ]);
+                }
             }
+            
             if(isset($question)){
                 if(preg_match("/^type+$question/", $input )) {
                     Question::where('id', $id_question->id)
@@ -142,23 +145,6 @@ class FormulaireController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Formulaire  $formulaire
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Formulaire $formulaire)
-    {
-        $formulaire->name = $request->name;
-        $formulaire->open_on = $request->open_on;
-        $formulaire->close_on = $request->close_on;
-        $formulaire->save();
-
-        return Redirect::route('formulaires.show', ['formulaire' => $formulaire->id]);
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Formulaire  $formulaire
@@ -169,4 +155,71 @@ class FormulaireController extends Controller
         $formulaire->delete();
         return Redirect::route('formulaires.index');
     }
+
+    public function startsWith($string, $startString) {
+        $len = strlen($startString);
+        return (substr($string, 0, $len) === $startString);
+    }
+
+    public function update_form(Request $request){
+     
+        if ($request->hasFile('image')){
+            $image = $request->file('image');
+            $filename = time(). '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(200, 200)->save(public_path('/Images/Formulaire/' . $filename));
+            $image = $filename;
+        }
+        else{
+            $image ="default.png";
+
+        }
+         $inputs = $request->input();
+         dd($inputs);
+         Formulaire::where('id', $request->input('id'))
+         ->update([  
+            "name" => $request->input('name'),
+            "open_on" => $request->input('open_on'),
+            "close_on" => $request->input('close_on'),
+            "image" =>$image,]);
+
+            $id_form = Formulaire::where('name', '=', $request->input('name'))
+                ->first();
+
+            foreach($inputs as $input=>$value){
+                if(preg_match("/^id_q/", $input )) {
+                    $id_de_la_question = $value;
+                   
+                }
+                
+                if(preg_match("/^q/", $input )){
+                    Question::where('id', '=', $id_de_la_question)
+                    ->update([
+                        "name" =>$value,
+                        
+                    ]);
+                    
+                    $question = $input;
+                }
+                elseif(isset($type_question) =="Choix multiples"){
+                    if(preg_match("/^[0-9]/", $input )) {
+                        QuestionChoixmultiple::create([
+                            "name" =>$value,
+                            "questions_id" =>$id_de_la_question,
+                        ]);
+                    }
+                }
+                
+                if(isset($question)){
+                    if(preg_match("/^type+$question/", $input )) {
+                        Question::where('id', $id_de_la_question)
+                        ->update(['type_question' => $value]);
+                        
+                    }
+                };
+                
+    
+            };
+            return Redirect::route('formulaires.index');
+    }
+    
 }
