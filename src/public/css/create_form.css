@@ -3,22 +3,25 @@
 }
 
 .Name_Form{
-    width: 600px;
+    width: 100%;
     height: 100px;
     background-color: #ffffff;
     margin-bottom:  10px;
     border-radius: 10px;
     border-top: 10px solid blue;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .NomFormulaire{
-    width: inherit;
     margin-top: 5px;
     height: 80px;
     border: none;
     resize : none;
     border-radius: 10px;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     outline:none;
+    width: 100%;
 }
 
 .div_question {
@@ -26,11 +29,13 @@
     width: 100%;
     padding: 5px;
     border-radius: 8px;
+    margin-top: 1rem;
 }
 
 .title_question {
     background-color: rgba(211,216,204,0.15);
     margin-left: 2px;
+    margin-bottom: 5px;
 }
 
 .add_option {
@@ -45,7 +50,7 @@
 #Add_Form{
     position: fixed;
     top:20%;
-    left: 80%;
+    right: 14%;
     background-color: white;
     border-radius: 3mm;
     width: 50px;
@@ -75,5 +80,12 @@
     cursor: pointer;
 }
 
+#submit_form {
+    text-align: center;
+}
 
+#div_infos {
+    background-color: white;
+    border-radius: 5mm;
+}
 
