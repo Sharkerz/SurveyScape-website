@@ -8,7 +8,11 @@ Options des questions
 
 $(document).on("click", "i.material-icons.add_option", function () {
     //Nombre de choix actuellement
-    var nb_choices = $(this).closest(".multipleChoice")[0].children[1].children.length+1;
+    var nb_choices = $(this).closest(".multipleChoice")[0].children[1].children.length;
+    //Si on crée le formulaire, il faut ajouter 1 pour avoir le bon nombre de questions
+    if (window.location.href.indexOf("create") > -1) {
+        nb_choices+=1;
+    }
 
     //Id de la question
     var num_question = $(this).closest(".div_question")[0].children[0];
@@ -108,12 +112,18 @@ $(document).on("change", "select.form-control.select_type", function (e) {
 Ajouter une question
 ================= */
 
+
 $("#Add_Question").click(function () {
 
     //Nombre de questions actuellement
-    var nb_question = $("#questions")[0].children.length+1;
+    var nb_question = $("#questions")[0].children.length;
 
-   addQuestions(nb_question);
+    //Si on crée le formulaire, il faut ajouter 1 pour avoir le bon nombre de questions
+    if (window.location.href.indexOf("create") > -1) {
+        nb_question+=1;
+    }
+
+    addQuestions(nb_question);
 });
 
 function addQuestions(nb_question) {
@@ -153,5 +163,6 @@ function addQuestions(nb_question) {
         "                    </div>\n" +
         "        </div>");
 }
+
 
 });
