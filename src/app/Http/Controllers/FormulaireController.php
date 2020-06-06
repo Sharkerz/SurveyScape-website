@@ -164,7 +164,7 @@ class FormulaireController extends Controller
     }
 
     public function update_form(Request $request){
-     
+    //Mise à jour des données en rapport avec le formulaire
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time(). '.' . $image->getClientOriginalExtension();
@@ -176,7 +176,7 @@ class FormulaireController extends Controller
 
         }
          $inputs = $request->input();
-        //dd($inputs);
+        //Mise à jour du formulaire
          Formulaire::where('id', $request->input('id'))
          ->update([  
             "name" => $request->input('name'),
@@ -192,24 +192,21 @@ class FormulaireController extends Controller
                     $id_de_la_question = $value;
                   
                 }
+                //Modification des question si elle existe deja
                 if(preg_match("/^q/", $input )){
-                    //dd($id_de_la_question);
                     if(Question::find($id_de_la_question)){
-                        //dd($id_de_la_question);
                         Question::where('id', '=', $id_de_la_question)
                         ->update([
                         "name" =>$value,
                         ]);
                         $question = $input;
-                        //dd($question);
                     }
+                    //Ajout de question si elle existe pas encore
                     else{
-                        //dd($id_de_la_question);
                         Question::create([
                             "name" =>$value,
                             "formulaire_id" =>$id_form->id,
                         ]);
-                        //dd($value);
                         $id_question = Question::where('name', '=', $value)
                         ->first();
                         
@@ -217,8 +214,8 @@ class FormulaireController extends Controller
                     
                    
                 }
+                //Modification du type de question utiliser pour les questions a choix multiples
                 if(isset($question)){
-                    //dd($input);
                     if(preg_match("/^type+$question/", $input )) {
                         Question::where('id', $id_de_la_question)
                         ->update(['type_question' => $value]);
@@ -242,6 +239,7 @@ class FormulaireController extends Controller
                     elseif(isset($id_question)){
                         $id_choix_question_new = $id_question->id;
                     }
+                    //Modification des choix de question multiple
                     if(preg_match("/^[0-9]/", $input )) {
                         if (isset($id_choix_question)){
                             QuestionChoixmultiple::where('id', '=', $id_choix_question)
@@ -250,6 +248,7 @@ class FormulaireController extends Controller
                             ]);
                             unset($id_choix_question);
                         }
+                        //Ajout de choix dans les questions multiple si il le faut
                         else{
                             if(preg_match("/^[0-9]/", $input )) {
                                 QuestionChoixmultiple::create([

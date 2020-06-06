@@ -19,7 +19,8 @@
 
         <div id="div_infos">
             <div class="Name_Form">
-                <input class="NomFormulaire" type="text"  required name="name" data-rows="1" tabindex="0" placeholder="Nom du Formulaire">
+                <input type="hidden" name="id" value="{{$formulaire->id}}">
+                <input class="NomFormulaire" type="text"  required name="name" data-rows="1" tabindex="0" placeholder="{{$formulaire->name}}">
             </div>
             <hr>
             <div class="row persoL1">
