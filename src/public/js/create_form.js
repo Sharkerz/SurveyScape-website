@@ -172,6 +172,27 @@ $("#enableDate").change(function () {
         $("#start_date")[0].value = null;
         $("#end_date")[0].value = null;
     }
+});
+
+
+/* ================
+Animation au clic d'une question
+================= */
+var older_selected;
+$(document).on("click", ".div_question", function () {
+    if (older_selected !== undefined) {
+        older_selected.css("border-left", "1.4px solid #E7E7E7");
+    }
+    older_selected = $(this);
+    $(this).css("border-left", "4px solid blue");
+})
+
+/* ================
+Animation hover icone
+================= */
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
 })
 
 });

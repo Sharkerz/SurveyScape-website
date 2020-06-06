@@ -1,5 +1,12 @@
-#btn-create {
-    float: right;
+/*
+Div personnalisation du formulaire
+ */
+#div_infos {
+    background-color: white;
+    border-radius: 5mm;
+    border-bottom: 1.4px solid #E7E7E7;
+    border-left: 1.4px solid #E7E7E7;
+    border-right: 1.4px solid #E7E7E7;
 }
 
 .Name_Form{
@@ -8,7 +15,7 @@
     background-color: #ffffff;
     margin-bottom:  10px;
     border-radius: 10px;
-    border-top: 10px solid blue;
+    border-top: 6px solid blue;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -24,11 +31,21 @@
     width: 100%;
 }
 
+.persoL1 {
+    padding: 6px;
+}
+
+
+/*
+Questions
+ */
+
 .div_question {
     background-color: white;
     width: 100%;
     padding: 5px;
     border-radius: 8px;
+    border: 1.4px solid #E7E7E7;
     margin-top: 1rem;
 }
 
@@ -41,11 +58,20 @@
 .add_option {
     margin-left: 20px;
     font-size: 2.4rem;
+    color: #4B4B4B;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
 }
 
 .add_option:hover {
     cursor: pointer;
 }
+
+/*
+Div ajout questions
+*/
 
 #Add_Form{
     position: fixed;
@@ -55,10 +81,8 @@
     border-radius: 3mm;
     width: 50px;
     height: 200px;
-
 }
 
-/* bare droite fixed */
 .material-icons{
     font-size: 50px;
 }
@@ -84,8 +108,7 @@
     text-align: center;
 }
 
-#div_infos {
-    background-color: white;
-    border-radius: 5mm;
+#btn-create {
+    float: right;
 }
 

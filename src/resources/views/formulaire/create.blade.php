@@ -8,9 +8,9 @@
 <div class="container">
 
     <div id="Add_Form">
-        <div id="Add_Question"><i class="material-icons"  id="btn-task" >add_circle_outline</i></div>
-        <div id="Privacy"><i class="material-icons"  id="btn-task" >lock</i></div>
-        <div id="Add_Banniere"><i class="material-icons"  id="btn-task" >image</i></div>
+        <div id="Add_Question"><i class="material-icons"  id="btn-task" data-toggle="tooltip" data-placement="right" title="Ajouter une question" >add_circle_outline</i></div>
+        <div id="Privacy"><i class="material-icons"  id="btn-task" data-toggle="tooltip" data-placement="right" title="Rendre le formulaire public" >lock</i></div>
+        <div id="Add_Banniere"><i class="material-icons"  id="btn-task" data-toggle="tooltip" data-placement="right" title="Personnaliser le fond" >image</i></div>
         <div id="Add_Dates"><i class="material-icons"  id="btn-task" >event</i></div>
     </div>
 
@@ -23,7 +23,7 @@
                 <input class="NomFormulaire" type="text"  required name="name" data-rows="1" tabindex="0" placeholder="Nom du Formulaire">
             </div>
             <hr>
-            <div class="row">
+            <div class="row persoL1">
                 <div class="col">
                     <label>Mettre une image en bannière: </label>
                     <input type="file" name="image">
