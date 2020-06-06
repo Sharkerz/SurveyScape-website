@@ -7,6 +7,7 @@ Options des questions
 /* Question choix multiples */
 
 $(document).on("click", "i.material-icons.add_option", function () {
+
     //Nombre de choix actuellement
     var nb_choices = $(this).closest(".multipleChoice")[0].children[1].children.length+1;
 
@@ -17,12 +18,18 @@ $(document).on("click", "i.material-icons.add_option", function () {
     var value_options = Array.prototype.slice.call($(this).parents().get(1).children[1].children);
     value_options.forEach(child => child.children[0].children[0].setAttribute("value", child.children[0].children[0].value));
 
+
     // Ajout d'une option
     $(this).parents().get(1).children[1].innerHTML += '                <div class="row">\n' +
         '                    <div class="col-5">\n' +
         '                        <input name="' + num_question.value + '-' + nb_choices + '" type="text" class="form-control" placeholder="Choix ' + nb_choices + '" required>\n' +
         '                    </div>\n' +
+        '                   <div class="col">\n' +
+        '                       <i class="material-icons delete_choice">clear</i>\n' +
+        '                   </div>\n' +
         '                </div>';
+
+
 });
 
 
@@ -63,6 +70,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                                    <div class="col-5">\n' +
             '                                        <input type="text" class="form-control" placeholder="Choix 1" name="' + ordre_question + '-1" required>\n' +
             '                                    </div>\n' +
+            '                                    <br><br>\n' +
             '                                </div>\n' +
             '                            </div>\n' +
             '                            <div class="row">\n' +
@@ -101,7 +109,6 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '            </div>\n' +
         '        </div>';
     }
-
     e.preventDefault();
 });
 
@@ -148,6 +155,7 @@ function addQuestions(nb_question) {
         "                                    <div class=\"col-5\">\n" +
         "                                        <input name=\"" + nb_question + "-1\" type=\"text\" class=\"form-control\" placeholder=\"Choix 1\" required>\n" +
         "                                    </div>\n" +
+        '                                    <br><br>\n' +
         "                                </div>\n" +
         "                            </div>\n" +
         "                            <div class=\"row\">\n" +
@@ -232,5 +240,15 @@ $('#btn-lock').click(function privatelock() {
         $("#private_value")[0].value = "1";
     }
 });
+
+/* ================
+Suppression choix questions multiples
+================= */
+
+$(document).on("click", ".delete_choice", function () {
+    var choice_selected = $(this)[0].closest(".row");
+
+    choice_selected.remove();
+})
 
 });

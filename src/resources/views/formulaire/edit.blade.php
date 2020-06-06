@@ -119,6 +119,7 @@
                                     <div class="col-5">
                                         <input type="text" name="1-{{$question->id}}" class="form-control" placeholder="Reponse" required disabled>
                                     </div>
+                                    <br><br>
                                 </div>
                             </div>
 </div>
