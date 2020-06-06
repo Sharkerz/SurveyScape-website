@@ -69,11 +69,10 @@ class FormulaireController extends Controller
             "close_on" => $request->input('close_on'),
             "user_id" => Auth::user()->id,
             "image" =>$image,
-            "private" => $request->input('private'),
         ]);
 
         $id_form = Formulaire::where('name', '=', $request->input('name'))
-                ->first();
+            ->first();
 
         foreach($inputs as $input=>$value){
             if(startsWith($input,"q") == true){
@@ -82,20 +81,20 @@ class FormulaireController extends Controller
                     "formulaire_id" =>$id_form->id,
                 ]);
                 $id_question = Question::where('name', '=', $value)
-                ->first();
+                    ->first();
                 $question = $input;
             }
             if(isset($question)){
                 if(preg_match("/^type+$question/", $input )) {
                     Question::where('id', $id_question->id)
-                    ->update(['type_question' => $value]);
+                        ->update(['type_question' => $value]);
                     $type_question=$value;
 
                 }
             }
 
             if(isset($type_question) =="Choix multiples"){
-                            if(preg_match("/^[0-9]/", $input )) {
+                if(preg_match("/^[0-9]/", $input )) {
                     QuestionChoixmultiple::create([
                         "name" =>$value,
                         "questions_id" =>$id_question->id,
@@ -165,7 +164,7 @@ class FormulaireController extends Controller
     }
 
     public function update_form(Request $request){
-
+        //Mise à jour des données en rapport avec le formulaire
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time(). '.' . $image->getClientOriginalExtension();
@@ -176,66 +175,97 @@ class FormulaireController extends Controller
             $image ="default.png";
 
         }
-         $inputs = $request->input();
+        $inputs = $request->input();
+        //Mise à jour du formulaire
+        Formulaire::where('id', $request->input('id'))
+            ->update([
+                "name" => $request->input('name'),
+                "open_on" => $request->input('open_on'),
+                "close_on" => $request->input('close_on'),
+                "image" =>$image,]);
 
-         Formulaire::where('id', $request->input('id'))
-         ->update([
-            "name" => $request->input('name'),
-            "open_on" => $request->input('open_on'),
-            "close_on" => $request->input('close_on'),
-            "image" =>$image,
-            "private" => $request->input('private')]);
+        $id_form = Formulaire::where('name', '=', $request->input('name'))
+            ->first();
 
-            $id_form = Formulaire::where('name', '=', $request->input('name'))
-                ->first();
+        foreach($inputs as $input=>$value){
+            if(preg_match("/^id_q/", $input )) {
+                $id_de_la_question = $value;
 
-            foreach($inputs as $input=>$value){
-                if(preg_match("/^id_q/", $input )) {
-                    $id_de_la_question = $value;
-
-                }
-
-                if(preg_match("/^q/", $input )){
+            }
+            //Modification des question si elle existe deja
+            if(preg_match("/^q/", $input )){
+                if(Question::find($id_de_la_question)){
                     Question::where('id', '=', $id_de_la_question)
-                    ->update([
-                        "name" =>$value,
-                    ]);
-
+                        ->update([
+                            "name" =>$value,
+                        ]);
                     $question = $input;
                 }
-                if(isset($question)){
-                    if(preg_match("/^type+$question/", $input )) {
-                        Question::where('id', $id_de_la_question)
-                        ->update(['type_question' => $value]);
-                        $type_question=$value;
-                    }
+                //Ajout de question si elle existe pas encore
+                else{
+                    Question::create([
+                        "name" =>$value,
+                        "formulaire_id" =>$id_form->id,
+                    ]);
+                    $id_question = Question::where('name', '=', $value)
+                        ->first();
+
                 }
-                if(isset($type_question) =="Choix multiples"){
-                    if(preg_match("/^choix_question/", $input )){
-                        $id_choix_question = $value;
-                    }
-                    if(preg_match("/^[0-9]/", $input )) {
-                        if (isset($id_choix_question)){
-                            QuestionChoixmultiple::where('id', '=', $id_choix_question)
-                                ->update([
+
+
+            }
+            //Modification du type de question utiliser pour les questions a choix multiples
+            if(isset($question)){
+                if(preg_match("/^type+$question/", $input )) {
+                    Question::where('id', $id_de_la_question)
+                        ->update(['type_question' => $value]);
+                    $type_question=$value;
+                }
+            }
+            elseif(isset($id_question)){
+                if(preg_match("/^type/", $input )) {
+                    Question::where('id', $id_question->id)
+                        ->update(['type_question' => $value]);
+                    $type_question=$value;
+                    unset($id_question);
+                }
+
+
+            }
+            if(isset($type_question) =="Choix multiples"){
+                if(preg_match("/^choix_question/", $input )){
+                    $id_choix_question = $value;
+                }
+                elseif(isset($id_question)){
+                    $id_choix_question_new = $id_question->id;
+                }
+                //Modification des choix de question multiple
+                if(preg_match("/^[0-9]/", $input )) {
+                    if (isset($id_choix_question)){
+                        QuestionChoixmultiple::where('id', '=', $id_choix_question)
+                            ->update([
                                 "name" =>$value,
                             ]);
-                            unset($id_choix_question);
-                        }
-                        else{
-                            if(preg_match("/^[0-9]/", $input )) {
-                                QuestionChoixmultiple::create([
-                                    "name" =>$value,
-                                    "questions_id" =>$id_de_la_question,
-                                ]);
-                            }
+                        unset($id_choix_question);
+                    }
+                    //Ajout de choix dans les questions multiple si il le faut
+                    else{
+                        if(preg_match("/^[0-9]/", $input )) {
+                            QuestionChoixmultiple::create([
+                                "name" =>$value,
+                                "questions_id" =>$id_choix_question_new,
+                            ]);
+                            unset($id_de_la_question);
+
                         }
                     }
-
-
                 }
-            };
-            return Redirect::route('formulaires.index');
+
+                unset($question);
+
+            }
+        };
+        return Redirect::route('formulaires.index');
     }
 
 }
