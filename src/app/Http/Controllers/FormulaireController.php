@@ -176,7 +176,7 @@ class FormulaireController extends Controller
 
         }
          $inputs = $request->input();
-     
+        //dd($inputs);
          Formulaire::where('id', $request->input('id'))
          ->update([  
             "name" => $request->input('name'),
@@ -192,25 +192,55 @@ class FormulaireController extends Controller
                     $id_de_la_question = $value;
                   
                 }
-                
                 if(preg_match("/^q/", $input )){
-                    Question::where('id', '=', $id_de_la_question)
-                    ->update([
+                    //dd($id_de_la_question);
+                    if(Question::find($id_de_la_question)){
+                        //dd($id_de_la_question);
+                        Question::where('id', '=', $id_de_la_question)
+                        ->update([
                         "name" =>$value,
-                    ]);
+                        ]);
+                        $question = $input;
+                        //dd($question);
+                    }
+                    else{
+                        //dd($id_de_la_question);
+                        Question::create([
+                            "name" =>$value,
+                            "formulaire_id" =>$id_form->id,
+                        ]);
+                        //dd($value);
+                        $id_question = Question::where('name', '=', $value)
+                        ->first();
+                        
+                    }
                     
-                    $question = $input;
+                   
                 }
                 if(isset($question)){
+                    //dd($input);
                     if(preg_match("/^type+$question/", $input )) {
                         Question::where('id', $id_de_la_question)
                         ->update(['type_question' => $value]);
                         $type_question=$value;
                     }
                 }
+                elseif(isset($id_question)){
+                    if(preg_match("/^type/", $input )) {
+                        Question::where('id', $id_question->id)
+                        ->update(['type_question' => $value]);
+                        $type_question=$value;
+                        unset($id_question);
+                    }
+                    
+                       
+                }
                 if(isset($type_question) =="Choix multiples"){
                     if(preg_match("/^choix_question/", $input )){
                         $id_choix_question = $value;
+                    }
+                    elseif(isset($id_question)){
+                        $id_choix_question_new = $id_question->id;
                     }
                     if(preg_match("/^[0-9]/", $input )) {
                         if (isset($id_choix_question)){
@@ -224,13 +254,16 @@ class FormulaireController extends Controller
                             if(preg_match("/^[0-9]/", $input )) {
                                 QuestionChoixmultiple::create([
                                     "name" =>$value,
-                                    "questions_id" =>$id_de_la_question,
+                                    "questions_id" =>$id_choix_question_new,
                                 ]);
+                                unset($id_de_la_question);
+                                
                             }
                         }
                     }
                 
-              
+                unset($question);
+                
                 }
             };
             return Redirect::route('formulaires.index');

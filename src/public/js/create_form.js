@@ -42,6 +42,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                        <!-- Ligne titre + choix type -->\n' +
             '                        <div class="row">\n' +
             '                            <div class="col-6">\n' +
+            '                                <input type="hidden" id="id_question" name="id_q'+ ordre_question+ '"  value="'+ordre_question+'" ></input>\n' +
             '                                <input type="text" class="form-control title_question" name="q' + ordre_question + '" placeholder="Question ' + ordre_question + '" required>\n' +
             '                            </div>\n' +
             '                            <div class="col"></div>\n' +
@@ -75,6 +76,7 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '            <!-- Ligne titre + choix type -->\n' +
         '            <div class="row">\n' +
         '                <div class="col-6">\n' +
+        '                                <input type="hidden" id="id_question" name="id_q'+ ordre_question+ '"  value="'+ordre_question+'" ></input>\n' +
         '                    <input type="text" class="form-control title_question" name="q' + ordre_question + '" placeholder="Question ' + ordre_question + '" required>\n' +
         '                </div>\n' +
         '                <div class="col"></div>\n' +
@@ -125,6 +127,7 @@ function addQuestions(nb_question) {
         "                        <!-- Ligne titre + choix type -->\n" +
         "                        <div class=\"row\">\n" +
         "                            <div class=\"col-6\">\n" +
+        '                                <input type="hidden" id="id_question" name="id_q'+ nb_question+ '"  value="'+nb_question+'" ></input>\n' +
         "                                <input type=\"text\" class=\"form-control title_question\" name=\"q" + nb_question + "\" placeholder=\"Question " + nb_question + "\" required>\n" +
         "                            </div>\n" +
         "                            <div class=\"col\"></div>\n" +

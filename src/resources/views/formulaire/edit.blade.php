@@ -96,7 +96,7 @@
                                         <input type="text" name="1-{{$question->id}}" class="form-control" placeholder="Reponse" required disabled>
                                     </div>
                                 </div>
-                        
+                            </div>                    
 </div>
 </div>
                             @endif
