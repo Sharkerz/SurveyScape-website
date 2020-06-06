@@ -42,12 +42,14 @@
         $(document).ready(function() {
             $('#sun').click(function(){
                 if($('#sun').text() == 'brightness_3') {
+                    document.body.style.backgroundImage = "none";
                     DarkReader.enable()
                     $('#sun').text('wb_sunny');
                     localStorage.setItem("text","wb_sunny");
                 } else if($('#sun').text() == 'wb_sunny') {
                     DarkReader.disable()
                     $('#sun').text('brightness_3');
+                    document.body.style.backgroundImage = "url(../background.png)";
                     localStorage.setItem("text","brightness_3");
                 }
             });
@@ -151,6 +153,7 @@
         $('#sun').text(localStorage.getItem("text"));
         if(localStorage.getItem("text") == null){
             $('#sun').text("brightness_3");
+            document.body.style.backgroundImage = "url(../background.png)";
         }
 </script>
 
