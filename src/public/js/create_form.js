@@ -159,4 +159,43 @@ function addQuestions(nb_question) {
 }
 
 
+/* ================
+Fonctionnalités div en haut pour la creation du formulaire
+================= */
+
+// Affichage choix date de debut et de fin du formulaire
+$("#enableDate").change(function () {
+    var checkbox = $("#enableDate")[0];
+    // Si c'est coché
+    if (checkbox.checked) {
+        $("#div_Date")[0].removeAttribute("hidden");
+    }
+    else {
+        $("#div_Date")[0].setAttribute("hidden", true);
+        $("#start_date")[0].value = null;
+        $("#end_date")[0].value = null;
+    }
+});
+
+
+/* ================
+Animation au clic d'une question
+================= */
+var older_selected;
+$(document).on("click", ".div_question", function () {
+    if (older_selected !== undefined) {
+        older_selected.css("border-left", "1.4px solid #E7E7E7");
+    }
+    older_selected = $(this);
+    $(this).css("border-left", "4px solid blue");
+})
+
+/* ================
+Animation hover icone
+================= */
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
 });
