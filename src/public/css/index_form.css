@@ -29,44 +29,20 @@
     height: 200px;
     display: inline-block;
     margin-right : 70px;
-    margin-top: 140px;
+    margin-bottom: 140px;
 }
 
 .Formulaire:hover{
     opacity: 70%;
     cursor: pointer;
 }
-
-/* Div pour la création de Formulaire
-A mettre dans create_form.css*/
-#Add_Form{
-    position: fixed;
-    top:20%;
-    left: 80%;
-    background-color: white;
-    border-radius: 3mm;
-    width: 50px;
-    height: 200px;
-    
-}
-
+/*Css pour la partie show du formulaire*/
 .material-icons{
     font-size: 50px;
 }
-
-#Add_Question:hover {
-    opacity: 70%;
-    cursor: pointer;
-}
-#Privacy:hover {
-    opacity: 70%;
-    cursor: pointer;
-}
-#Add_Banniere:hover {
-    opacity: 70%;
-    cursor: pointer;
-}
-#Add_Dates:hover {
-    opacity: 70%;
+#Modify_Form{
+    width: 50px;
+    height: 50px;
+    margin-left: 95%;
     cursor: pointer;
 }

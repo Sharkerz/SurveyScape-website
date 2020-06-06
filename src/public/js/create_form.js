@@ -7,21 +7,29 @@ Options des questions
 /* Question choix multiples */
 
 $(document).on("click", "i.material-icons.add_option", function () {
-    var nb_choice = $(this).closest(".multipleChoice")[0].children[0];
+
+    //Nombre de choix actuellement
+    var nb_choices = $(this).closest(".multipleChoice")[0].children[1].children.length+1;
+
+    //Id de la question
     var num_question = $(this).closest(".div_question")[0].children[0];
+
     // Laisser le texte dans les options précédantes a l'ajout d'une option
     var value_options = Array.prototype.slice.call($(this).parents().get(1).children[1].children);
     value_options.forEach(child => child.children[0].children[0].setAttribute("value", child.children[0].children[0].value));
 
-    var nb_choice_count =  Number(nb_choice.value)+1;
 
     // Ajout d'une option
     $(this).parents().get(1).children[1].innerHTML += '                <div class="row">\n' +
         '                    <div class="col-5">\n' +
-        '                        <input name="' + num_question.value + '-' + nb_choice_count + '" type="text" class="form-control" placeholder="Choix ' + nb_choice_count + '" required>\n' +
+        '                        <input name="' + num_question.value + '-' + nb_choices + '" type="text" class="form-control" placeholder="Choix ' + nb_choices + '" required>\n' +
         '                    </div>\n' +
+        '                   <div class="col">\n' +
+        '                       <i class="material-icons delete_choice">clear</i>\n' +
+        '                   </div>\n' +
         '                </div>';
-    nb_choice.setAttribute("value", Number(nb_choice.value)+1);
+
+
 });
 
 
@@ -32,6 +40,7 @@ Choix type de question
 $(document).on("change", "select.form-control.select_type", function (e) {
     var choice = $(this)[0].value;
     var div_question = $(this).closest(".div_question")[0].children[1];
+    var ordre_question = $(this).closest(".div_question")[0].children[0].value;
     /* Question à choix multiple */
     if(choice === "Choix multiples") {
         n_multiple = 2;
@@ -40,11 +49,12 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                        <!-- Ligne titre + choix type -->\n' +
             '                        <div class="row">\n' +
             '                            <div class="col-6">\n' +
-            '                                <input type="text" class="form-control title_question" name="question" placeholder="Question" required>\n' +
+            '                                <input type="hidden" id="id_question" name="id_q'+ ordre_question+ '"  value="'+ordre_question+'" ></input>\n' +
+            '                                <input type="text" class="form-control title_question" name="q' + ordre_question + '" placeholder="Question ' + ordre_question + '" required>\n' +
             '                            </div>\n' +
             '                            <div class="col"></div>\n' +
             '                            <div class="col-3">\n' +
-            '                                <select class="form-control select_type">\n' +
+            '                                <select class="form-control select_type" name="typeq' + ordre_question + '">\n' +
             '                                    <option value="Choix multiples"> Choix multiples</option>\n' +
             '                                    <option value="Texte"> Texte</option>\n' +
             '                                    <option>Soon</option>\n' +
@@ -58,8 +68,9 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                            <div class="choices">\n' +
             '                                <div class="row">\n' +
             '                                    <div class="col-5">\n' +
-            '                                        <input type="text" class="form-control" placeholder="Choix 1" required>\n' +
+            '                                        <input type="text" class="form-control" placeholder="Choix 1" name="' + ordre_question + '-1" required>\n' +
             '                                    </div>\n' +
+            '                                    <br><br>\n' +
             '                                </div>\n' +
             '                            </div>\n' +
             '                            <div class="row">\n' +
@@ -73,11 +84,12 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '            <!-- Ligne titre + choix type -->\n' +
         '            <div class="row">\n' +
         '                <div class="col-6">\n' +
-        '                    <input type="text" class="form-control title_question" name="question" placeholder="Question" required>\n' +
+        '                                <input type="hidden" id="id_question" name="id_q'+ ordre_question+ '"  value="'+ordre_question+'" ></input>\n' +
+        '                    <input type="text" class="form-control title_question" name="q' + ordre_question + '" placeholder="Question ' + ordre_question + '" required>\n' +
         '                </div>\n' +
         '                <div class="col"></div>\n' +
         '                <div class="col-3">\n' +
-        '                    <select class="form-control select_type">\n' +
+        '                    <select class="form-control select_type" name="typeq' + ordre_question + '">\n' +
         '                        <option value="Texte"> Texte</option>\n' +
         '                        <option value="Choix multiples"> Choix multiples</option>\n' +
         '                        <option>Soon</option>\n' +
@@ -97,7 +109,6 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '            </div>\n' +
         '        </div>';
     }
-
     e.preventDefault();
 });
 
@@ -105,25 +116,30 @@ $(document).on("change", "select.form-control.select_type", function (e) {
 /* ================
 Ajouter une question
 ================= */
-var nb_question = 1;
+
 
 $("#Add_Question").click(function () {
-   addQuestions();
+
+    //Nombre de questions actuellement
+    var nb_question = $("#questions")[0].children.length+1;
+
+    addQuestions(nb_question);
 });
 
-function addQuestions() {
-    nb_question++;
+function addQuestions(nb_question) {
+
     $("#questions").append("        <div class=\"div_question\">\n" +
         " <input type='hidden' value='" + nb_question + "'>\n" +
         "                    <div class=\"body_question\">\n" +
         "                        <!-- Ligne titre + choix type -->\n" +
         "                        <div class=\"row\">\n" +
         "                            <div class=\"col-6\">\n" +
+        '                                <input type="hidden" id="id_question" name="id_q'+ nb_question+ '"  value="'+nb_question+'" ></input>\n' +
         "                                <input type=\"text\" class=\"form-control title_question\" name=\"q" + nb_question + "\" placeholder=\"Question " + nb_question + "\" required>\n" +
         "                            </div>\n" +
         "                            <div class=\"col\"></div>\n" +
         "                            <div class=\"col-3\">\n" +
-        "                                <select class=\"form-control select_type\" name='typeQ" + nb_question + "'>\n" +
+        "                                <select class=\"form-control select_type\" name='typeq" + nb_question + "'>\n" +
         "                                    <option value=\"Choix multiples\"> Choix multiples</option>\n" +
         "                                    <option value=\"Texte\"> Texte</option>\n" +
         "                                    <option>Soon</option>\n" +
@@ -139,6 +155,7 @@ function addQuestions() {
         "                                    <div class=\"col-5\">\n" +
         "                                        <input name=\"" + nb_question + "-1\" type=\"text\" class=\"form-control\" placeholder=\"Choix 1\" required>\n" +
         "                                    </div>\n" +
+        '                                    <br><br>\n' +
         "                                </div>\n" +
         "                            </div>\n" +
         "                            <div class=\"row\">\n" +
@@ -148,5 +165,90 @@ function addQuestions() {
         "                    </div>\n" +
         "        </div>");
 }
+
+
+/* ================
+Fonctionnalités div en haut pour la creation du formulaire
+================= */
+
+// Affichage choix date de debut et de fin du formulaire
+$("#enableDate").change(function () {
+    var checkbox = $("#enableDate")[0];
+    // Si c'est coché
+    if (checkbox.checked) {
+        $("#div_Date")[0].removeAttribute("hidden");
+    }
+    else {
+        $("#div_Date")[0].setAttribute("hidden", true);
+        $("#start_date")[0].value = null;
+        $("#end_date")[0].value = null;
+    }
+});
+
+
+/* ================
+Animation au clic d'une question
+================= */
+var older_selected;
+$(document).on("click", ".div_question", function () {
+    if (older_selected !== undefined) {
+        older_selected.css("border-left", "1.4px solid #E7E7E7");
+    }
+    older_selected = $(this);
+    $(this).css("border-left", "4px solid blue");
+});
+
+/* ================
+Animation hover icone
+================= */
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+
+/* ================
+Bouton public/privé
+================= */
+checkLock();
+
+function checkLock() {
+    var current = $("#private_value")[0];
+    var icon = $("#btn-lock")[0];
+
+    if(current.value === "0") {
+        icon.innerText = "lock_open";
+        icon.setAttribute("data-original-title", "Rendre le formulaire privée");
+    }
+    else if (current.value === "1") {
+        icon.innerText = "lock";
+        icon.setAttribute("data-original-title", "Rendre le formulaire public");
+    }
+
+}
+
+$('#btn-lock').click(function privatelock() {
+    var current = $(this)[0].innerText;
+
+    if (current === "lock") {
+        $(this)[0].innerText = "lock_open";
+        $(this)[0].setAttribute("data-original-title", "Rendre le formulaire privée");
+        $("#private_value")[0].value = "0";
+    }
+    else if (current === "lock_open") {
+        $(this)[0].innerText = "lock";
+        $(this)[0].setAttribute("data-original-title", "Rendre le formulaire public");
+        $("#private_value")[0].value = "1";
+    }
+});
+
+/* ================
+Suppression choix questions multiples
+================= */
+
+$(document).on("click", ".delete_choice", function () {
+    var choice_selected = $(this)[0].closest(".row");
+
+    choice_selected.remove();
+})
 
 });

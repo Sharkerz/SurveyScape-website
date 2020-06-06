@@ -22,6 +22,7 @@ class CreateFormulairesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('image')->default('default.png');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->boolean('private');
             $table->timestamps();
         });
     }

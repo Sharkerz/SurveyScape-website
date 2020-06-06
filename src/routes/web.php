@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/profil', 'UserController');
     Route::resource('/Amis', 'AmisController');
     Route::get('/accueil', 'AccueilController@index')->name('accueil');
+    Route::post('/update_form', 'FormulaireController@update_form')->name('update_form');
 
 
     /* Amis */
@@ -55,7 +56,6 @@ Route::group(['middleware' => ['auth']], function () {
     /* Ajax liste notifications demande d'amis */
     Route::get('/notifications', 'NotificationspushController@notifications')->name('notifications');
 
-    /* Ajax edit Formulaire*/
-    Route::post('/edit_Formulaire', 'FormulaireController@edit')->name('edit_Formulaire');
+   
 });
 

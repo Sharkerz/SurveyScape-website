@@ -1,59 +1,104 @@
-#btn-create {
-    float: right;
+/*
+Div personnalisation du formulaire
+ */
+#div_infos {
+    background-color: white;
+    border-radius: 5mm;
+    border-bottom: 1.4px solid #E7E7E7;
+    border-left: 1.4px solid #E7E7E7;
+    border-right: 1.4px solid #E7E7E7;
 }
 
 .Name_Form{
-    width: 600px;
+    width: 100%;
     height: 100px;
     background-color: #ffffff;
     margin-bottom:  10px;
     border-radius: 10px;
-    border-top: 10px solid blue;
+    border-top: 6px solid blue;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .NomFormulaire{
-    width: inherit;
     margin-top: 5px;
     height: 80px;
     border: none;
     resize : none;
     border-radius: 10px;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     outline:none;
+    width: 100%;
 }
+
+.persoL1 {
+    padding: 6px;
+}
+
+
+/*
+Questions
+ */
 
 .div_question {
     background-color: white;
     width: 100%;
     padding: 5px;
     border-radius: 8px;
+    border: 1.4px solid #E7E7E7;
+    margin-top: 1rem;
 }
 
 .title_question {
     background-color: rgba(211,216,204,0.15);
     margin-left: 2px;
+    margin-bottom: 5px;
 }
 
 .add_option {
     margin-left: 20px;
     font-size: 2.4rem;
+    color: #4B4B4B;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
 }
 
 .add_option:hover {
     cursor: pointer;
 }
 
+.delete_choice {
+    margin-top: -2px;
+    margin-left: -1.4rem;
+    font-size: 2.7rem !important;
+    color: #B6B6B6;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
+}
+
+.delete_choice:hover{
+    cursor: pointer;
+    color: #8B8B8B;
+}
+
+/*
+Div ajout questions
+*/
+
 #Add_Form{
     position: fixed;
     top:20%;
-    left: 80%;
+    right: 14%;
     background-color: white;
     border-radius: 3mm;
     width: 50px;
     height: 200px;
-
 }
 
-/* bare droite fixed */
 .material-icons{
     font-size: 50px;
 }
@@ -75,5 +120,11 @@
     cursor: pointer;
 }
 
+#submit_form {
+    text-align: center;
+}
 
+#btn-create {
+    float: right;
+}
 
