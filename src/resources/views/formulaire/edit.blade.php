@@ -6,10 +6,10 @@
 
 <div class="container">
     <div id="Add_Form">
-        <div id="Add_Question"><i class="material-icons"  id="btn-task" id="icon_notif">add_circle_outline</i></div>
-        <div id="Privacy"><i class="material-icons"  id="btn-task" id="icon_notif">lock</i></div>
-        <div id="Add_Banniere"><i class="material-icons"  id="btn-task" id="icon_notif">image</i></div>
-        <div id="Add_Dates"><i class="material-icons"  id="btn-task" id="icon_notif">event</i></div>
+        <div id="Add_Question"><i class="material-icons"  id="btn-task" data-toggle="tooltip" data-placement="right" title="Ajouter une question" >add_circle_outline</i></div>
+        <div id="Privacy"><i class="material-icons"  id="btn-task" data-toggle="tooltip" data-placement="right" title="Rendre le formulaire public" >lock</i></div>
+        <div id="Add_Banniere"><i class="material-icons"  id="btn-task" data-toggle="tooltip" data-placement="right" title="Personnaliser le fond" >image</i></div>
+        <div id="Add_Dates"><i class="material-icons"  id="btn-task" >event</i></div>
     </div>
 
     <h1>Edition du formulaire : </h1>
