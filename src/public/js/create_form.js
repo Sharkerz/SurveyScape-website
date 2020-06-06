@@ -18,6 +18,14 @@ $(document).on("click", "i.material-icons.add_option", function () {
     var value_options = Array.prototype.slice.call($(this).parents().get(1).children[1].children);
     value_options.forEach(child => child.children[0].children[0].setAttribute("value", child.children[0].children[0].value));
 
+    var i = 1;
+    value_options.forEach(child => {
+
+        var choice = child.children[0].children[0];
+        choice.setAttribute("placeholder", "Choix " + i);
+        choice.setAttribute("name", num_question.value + '-' + i);
+        i++;
+    });
 
     // Ajout d'une option
     $(this).parents().get(1).children[1].innerHTML += '                <div class="row">\n' +
@@ -246,9 +254,34 @@ Suppression choix questions multiples
 ================= */
 
 $(document).on("click", ".delete_choice", function () {
+
+    function getSecondPart(str) {
+        return str.split('-')[1];
+    }
+
     var choice_selected = $(this)[0].closest(".row");
+    var name = getSecondPart(choice_selected.children[0].children[0].name);
+
+
+    var value_options = Array.prototype.slice.call($(this).closest(".choices")[0].children);
+    var num_question = choice_selected.closest(".div_question").children[0];
 
     choice_selected.remove();
+
+    var i = 1;
+    value_options.forEach(child => {
+        var choice = child.children[0].children[0];
+        if( i >= name) {
+            choice.setAttribute("placeholder", "Choix " + (i-1));
+            choice.setAttribute("name", num_question.value + '-' + (i-1));
+        }
+        else {
+            choice.setAttribute("placeholder", "Choix " + i);
+            choice.setAttribute("name", num_question.value + '-' + i);
+        }
+
+        i++;
+    });
 })
 
 });
