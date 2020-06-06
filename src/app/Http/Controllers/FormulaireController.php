@@ -69,6 +69,7 @@ class FormulaireController extends Controller
             "close_on" => $request->input('close_on'),
             "user_id" => Auth::user()->id,
             "image" =>$image,
+            "private" => $request->input('private'),
         ]);
 
         $id_form = Formulaire::where('name', '=', $request->input('name'))
@@ -182,7 +183,8 @@ class FormulaireController extends Controller
                 "name" => $request->input('name'),
                 "open_on" => $request->input('open_on'),
                 "close_on" => $request->input('close_on'),
-                "image" =>$image,]);
+                "image" =>$image,
+                "private" => $request->input('private')]);
 
         $id_form = Formulaire::where('name', '=', $request->input('name'))
             ->first();
