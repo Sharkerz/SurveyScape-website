@@ -185,7 +185,7 @@ $(document).on("click", ".div_question", function () {
     }
     older_selected = $(this);
     $(this).css("border-left", "4px solid blue");
-})
+});
 
 /* ================
 Animation hover icone
@@ -193,6 +193,41 @@ Animation hover icone
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-})
+});
+
+/* ================
+Bouton public/privé
+================= */
+checkLock();
+
+function checkLock() {
+    var current = $("#private_value")[0];
+    var icon = $("#btn-lock")[0];
+
+    if(current.value === "0") {
+        icon.innerText = "lock_open";
+        icon.setAttribute("data-original-title", "Rendre le formulaire privée");
+    }
+    else if (current.value === "1") {
+        icon.innerText = "lock";
+        icon.setAttribute("data-original-title", "Rendre le formulaire public");
+    }
+
+}
+
+$('#btn-lock').click(function privatelock() {
+    var current = $(this)[0].innerText;
+
+    if (current === "lock") {
+        $(this)[0].innerText = "lock_open";
+        $(this)[0].setAttribute("data-original-title", "Rendre le formulaire privée");
+        $("#private_value")[0].value = "0";
+    }
+    else if (current === "lock_open") {
+        $(this)[0].innerText = "lock";
+        $(this)[0].setAttribute("data-original-title", "Rendre le formulaire public");
+        $("#private_value")[0].value = "1";
+    }
+});
 
 });

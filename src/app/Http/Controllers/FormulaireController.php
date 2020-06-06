@@ -62,18 +62,19 @@ class FormulaireController extends Controller
 
         }
         $inputs = $request->input();
-      
+
         Formulaire::create([
             "name" => $request->input('name'),
             "open_on" => $request->input('open_on'),
             "close_on" => $request->input('close_on'),
             "user_id" => Auth::user()->id,
             "image" =>$image,
+            "private" => $request->input('private'),
         ]);
 
         $id_form = Formulaire::where('name', '=', $request->input('name'))
                 ->first();
-      
+
         foreach($inputs as $input=>$value){
             if(startsWith($input,"q") == true){
                 Question::create([
@@ -89,7 +90,7 @@ class FormulaireController extends Controller
                     Question::where('id', $id_question->id)
                     ->update(['type_question' => $value]);
                     $type_question=$value;
-                    
+
                 }
             }
 
@@ -101,8 +102,8 @@ class FormulaireController extends Controller
                     ]);
                 }
             }
-            
-           
+
+
 
         };
 
@@ -164,7 +165,7 @@ class FormulaireController extends Controller
     }
 
     public function update_form(Request $request){
-     
+
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time(). '.' . $image->getClientOriginalExtension();
@@ -176,13 +177,14 @@ class FormulaireController extends Controller
 
         }
          $inputs = $request->input();
-     
+
          Formulaire::where('id', $request->input('id'))
-         ->update([  
+         ->update([
             "name" => $request->input('name'),
             "open_on" => $request->input('open_on'),
             "close_on" => $request->input('close_on'),
-            "image" =>$image,]);
+            "image" =>$image,
+            "private" => $request->input('private')]);
 
             $id_form = Formulaire::where('name', '=', $request->input('name'))
                 ->first();
@@ -190,15 +192,15 @@ class FormulaireController extends Controller
             foreach($inputs as $input=>$value){
                 if(preg_match("/^id_q/", $input )) {
                     $id_de_la_question = $value;
-                  
+
                 }
-                
+
                 if(preg_match("/^q/", $input )){
                     Question::where('id', '=', $id_de_la_question)
                     ->update([
                         "name" =>$value,
                     ]);
-                    
+
                     $question = $input;
                 }
                 if(isset($question)){
@@ -229,11 +231,11 @@ class FormulaireController extends Controller
                             }
                         }
                     }
-                
-              
+
+
                 }
             };
             return Redirect::route('formulaires.index');
     }
-    
+
 }

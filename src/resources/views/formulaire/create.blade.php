@@ -8,15 +8,18 @@
 <div class="container">
 
     <div id="Add_Form">
-        <div id="Add_Question"><i class="material-icons"  id="btn-task" data-toggle="tooltip" data-placement="right" title="Ajouter une question" >add_circle_outline</i></div>
-        <div id="Privacy"><i class="material-icons"  id="btn-task" data-toggle="tooltip" data-placement="right" title="Rendre le formulaire public" >lock</i></div>
-        <div id="Add_Banniere"><i class="material-icons"  id="btn-task" data-toggle="tooltip" data-placement="right" title="Personnaliser le fond" >image</i></div>
-        <div id="Add_Dates"><i class="material-icons"  id="btn-task" >event</i></div>
+        <div id="Add_Question"><i class="material-icons"  data-toggle="tooltip" data-placement="right" title="Ajouter une question" >add_circle_outline</i></div>
+        <div id="Privacy"><i class="material-icons" id="btn-lock" data-toggle="tooltip" data-placement="right" title="Rendre le formulaire public" >lock</i></div>
+        <div id="Add_Banniere"><i class="material-icons"  data-toggle="tooltip" data-placement="right" title="Personnaliser le fond" >image</i></div>
+        <div id="Add_Dates"><i class="material-icons" >event</i></div>
     </div>
 
     <h1>Création d'un Formulaire</h1>
     <form enctype="multipart/form-data" action="{{ route('formulaires.store') }}" method="post">
         @csrf
+
+        <!-- Public/privé -->
+            <input type="hidden" value="1" name="private" id="private_value">
 
         <div id="div_infos">
             <div class="Name_Form">
@@ -95,7 +98,6 @@
 </form>
 
 <script type="text/javascript" src="{{ URL::asset('js/create_form.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/formBar.js') }}"></script>
 
 </div>
 @endsection
