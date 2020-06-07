@@ -72,8 +72,8 @@
                                         <option value="Texte"> Texte</option>
                                         <option>Soon</option>
                                     </select>
-
                                 </div>
+                                <div class="col-1"></div>
 
                             </div>
                             <div class="multipleChoice">

@@ -61,6 +61,7 @@
                         <!-- Ligne titre + choix type -->
                         <div class="row">
                             <div class="col-6">
+                                <input type='hidden' id='id_question' name='id_q1'  value='1' >
                                 <input type="text" class="form-control title_question" name="q1" placeholder="Question 1" required>
                             </div>
                             <div class="col"></div>
@@ -71,6 +72,7 @@
                                     <option>Soon</option>
                                 </select>
                             </div>
+                            <div class="col-1"></div>
                         </div>
 
                         <!-- Case reponses questions -->

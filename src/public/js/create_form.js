@@ -68,6 +68,9 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                                    <option>Soon</option>\n' +
             '                                </select>\n' +
             '                            </div>\n' +
+            '                <div class=\"col-1\">\n' +
+            '                    <i class=\"material-icons delete_question\">clear</i>\n' +
+            '                </div>\n' +
             '                        </div>\n' +
             '\n' +
             '                        <!-- Case reponses questions -->\n' +
@@ -102,6 +105,9 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '                        <option value="Choix multiples"> Choix multiples</option>\n' +
         '                        <option>Soon</option>\n' +
         '                    </select>\n' +
+        '                </div>\n' +
+        '                <div class=\"col-1\">\n' +
+        '                    <i class=\"material-icons delete_question\">clear</i>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '\n' +
@@ -142,7 +148,7 @@ function addQuestions(nb_question) {
         "                        <!-- Ligne titre + choix type -->\n" +
         "                        <div class=\"row\">\n" +
         "                            <div class=\"col-6\">\n" +
-        '                                <input type="hidden" id="id_question" name="id_q'+ nb_question+ '"  value="'+nb_question+'" ></input>\n' +
+        "                                <input type='hidden' id='id_question' name='id_q" + nb_question + "'  value='"+ nb_question +"' >\n" +
         "                                <input type=\"text\" class=\"form-control title_question\" name=\"q" + nb_question + "\" placeholder=\"Question " + nb_question + "\" required>\n" +
         "                            </div>\n" +
         "                            <div class=\"col\"></div>\n" +
@@ -152,6 +158,9 @@ function addQuestions(nb_question) {
         "                                    <option value=\"Texte\"> Texte</option>\n" +
         "                                    <option>Soon</option>\n" +
         "                                </select>\n" +
+        "                            </div>\n" +
+        "                            <div class=\"col-1\">\n" +
+        "                               <i class=\"material-icons delete_question\">clear</i>\n" +
         "                            </div>\n" +
         "                        </div>\n" +
         "\n" +
@@ -282,6 +291,44 @@ $(document).on("click", ".delete_choice", function () {
 
         i++;
     });
+});
+
+/* ================
+Suppression question
+================= */
+
+$(document).on("click", ".delete_question", function () {
+    var question = $(this)[0].closest('.div_question');
+
+    //Liste des questions actuellement presentes
+    var list_question = Array.prototype.slice.call($("#questions")[0].children);
+
+    //id question supprimé
+    var id = question.children[0].value;
+
+    //suppression de la question
+    question.remove();
+
+    //mise a jour de l'odre
+    var i = 1;
+    list_question.forEach(child => {
+        //input des questions
+        var input = child.children[1].children[0].children[0].children[1];
+
+        //hidden id
+        var hidden = child.children[0];
+
+        if(i >= id) {
+            input.setAttribute("placeholder", "Question " + (i-1));
+            hidden.setAttribute("value", (i-1))
+        }
+        else {
+            input.setAttribute("placeholder", "Question " + i);
+            hidden.setAttribute("value", (i))
+        }
+        i++;
+    });
 })
+
 
 });
