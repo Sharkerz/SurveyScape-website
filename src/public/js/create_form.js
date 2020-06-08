@@ -350,7 +350,6 @@ $(document).on("click", ".delete_question", function () {
             choices.forEach(choice => {
                 var choiceQ = choice.children[0].children[0];
                 var choiceOrder = getChoice(choiceQ.name);
-                console.log(choiceOrder);
                 choiceQ.setAttribute("name", (i) + "-" + choiceOrder)
             })
         }
