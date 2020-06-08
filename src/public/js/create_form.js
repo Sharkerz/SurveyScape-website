@@ -298,6 +298,15 @@ Suppression question
 ================= */
 
 $(document).on("click", ".delete_question", function () {
+
+    function getSecondPart(str) {
+        return str.split('q')[1];
+    }
+
+    function getChoice(str) {
+        return str.split('-')[1];
+    }
+
     var question = $(this)[0].closest('.div_question');
 
     //Liste des questions actuellement presentes
@@ -318,13 +327,32 @@ $(document).on("click", ".delete_question", function () {
         //hidden id
         var hidden = child.children[0];
 
+        //type question
+        var type = child.children[1].children[0].children[2].children[0];
+
+        //liste choix
+        var choices = Array.prototype.slice.call(child.children[1].children[1].children[1].children);
+
         if(i >= id) {
             input.setAttribute("placeholder", "Question " + (i-1));
-            hidden.setAttribute("value", (i-1))
+            hidden.setAttribute("value", (i-1));
+            type.setAttribute("name", "typeq" + (i - 1));
+            choices.forEach(choice => {
+                var choiceQ = choice.children[0].children[0];
+                var choiceOrder = getChoice(choiceQ.name);
+                choiceQ.setAttribute("name", (i-1) + "-" + choiceOrder)
+            })
         }
         else {
             input.setAttribute("placeholder", "Question " + i);
-            hidden.setAttribute("value", (i))
+            hidden.setAttribute("value", (i));
+            type.setAttribute("name","typeq" + (i));
+            choices.forEach(choice => {
+                var choiceQ = choice.children[0].children[0];
+                var choiceOrder = getChoice(choiceQ.name);
+                console.log(choiceOrder);
+                choiceQ.setAttribute("name", (i) + "-" + choiceOrder)
+            })
         }
         i++;
     });
