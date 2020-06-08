@@ -101,6 +101,9 @@
                         <a class="link_header" href="{{ route('accueil') }}">
                             Accueil
                         </a>
+                        <a class="link_header" href="{{ route('listeFormulaire') }}">
+                            Formulaires
+                        </a>
                         <a class="link_header" href="{{ route('formulaires.index') }}">
                             Mes formulaires
                         </a>
