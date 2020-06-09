@@ -7,8 +7,10 @@
 
 @section('content')
 
-    <link href="{{ asset('css/create_form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/repondre.css') }}" rel="stylesheet">
 
-    {{ $formulaire->name }}
+    <div id="main_reponse" class="container-fluid">
+        <h2>{{ $formulaire->name }}</h2>
+    </div>
 
 @endsection

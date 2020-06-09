@@ -1,0 +1,10 @@
+#main_reponse {
+    background-color: white;
+    min-height: 80vh;
+}
+
+h2 {
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+}

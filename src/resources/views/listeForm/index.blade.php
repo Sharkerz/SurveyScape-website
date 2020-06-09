@@ -40,5 +40,6 @@
 
 </div>
 
+<script type="text/javascript" src="{{ URL::asset('js/list_forms.js') }}"></script>
 
 @endsection
