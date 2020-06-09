@@ -1,9 +1,9 @@
-@guest
 
-@else
-    @extends('layouts.app')
+@extends('layouts.app')
 
-@endguest
+@section('captcha')
+    {!! htmlScriptTagJsApi() !!}
+@endsection
 
 @section('content')
 
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <form method="post" action="{{ route('envoyer_reponse') }}">
+        <form method="post" id="form_reponse" action="{{ route('envoyer_reponse') }}">
             @csrf
 
             <input type="hidden" name="form_id" value="{{ $formulaire->id }}">
@@ -63,9 +63,12 @@
 
             @endforeach
             </div>
+
             <div id="envoyer">
+                {!! htmlFormSnippet() !!}
                 <button type="submit" class="btn btn-primary btn-lg center-block">Envoyer</button>
             </div>
+
         </form>
 
     </div>

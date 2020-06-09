@@ -14,7 +14,6 @@ $(document).ready(function () {
         if(type === "Choix multiples") {
             //input de la question
             first_input = input.children[1].children[1].children[0];
-            console.log(first_input);
             first_input.setAttribute("required", "");
         }
     })

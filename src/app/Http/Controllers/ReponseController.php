@@ -14,8 +14,6 @@ class ReponseController extends Controller
 function repondre($id) {
     $formulaire = Formulaire::find($id);
 
-
-
     $questions = Question::all() -> where('formulaire_id', $formulaire->id);
     $choix_question=[];
     foreach($questions as $question){
@@ -39,6 +37,16 @@ function repondre($id) {
 }
 
 function envoyer(Request $request) {
+
+    $input = $request->validate([
+        recaptchaFieldName() => recaptchaRuleName()
+    ]);
+//    if($input->fails()) {
+//        $errors = $input->errors();
+//    }
+
+    var_dump($input);die;
+
     $input = $request->input();
     var_dump($input);die;
     //envoie du form
