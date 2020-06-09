@@ -30,7 +30,7 @@ $(document).on("click", "i.material-icons.add_option", function () {
     // Ajout d'une option
     $(this).parents().get(1).children[1].innerHTML += '                <div class="row">\n' +
         '                    <div class="col-5">\n' +
-        '                               <input type="hidden" id="id_question"  value="'+nb_choices+'" ></input>\n' +
+        '                               <input type="hidden" name="choix_question'+nb_choices+'"  value="'+nb_choices+'" ></input>\n' +
         '                        <input name="' + num_question.value + '-' + nb_choices + '" type="text" class="form-control" placeholder="Choix ' + nb_choices + '" required>\n' +
         '                    </div>\n' +
         '                   <div class="col-1">\n' +
@@ -48,6 +48,7 @@ Choix type de question
 
 $(document).on("change", "select.form-control.select_type", function (e) {
     var id_question = $(this).closest(".body_question")[0].children[0].children[0].children[0].value;
+    console.log(id_question)
     var choice = $(this)[0].value;
     var div_question = $(this).closest(".div_question")[0].children[1];
     var ordre_question = $(this).closest(".div_question")[0].children[0].value;
