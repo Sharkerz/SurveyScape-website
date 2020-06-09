@@ -1,0 +1,75 @@
+
+/*=== Titre formulaire ===*/
+#title {
+    border-radius: 10px;
+    border-top: 6px solid blue;
+    border-bottom: 1.4px solid #E7E7E7;
+    border-right:1.4px solid #E7E7E7;
+    border-left: 1.4px solid #E7E7E7;
+    background-color: white;
+    min-height: 8.5rem;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+    font-size: 2.7rem;
+}
+
+#auteur {
+    float: right;
+    margin-right: 15px;
+}
+
+#img_auteur {
+    border-radius: 50%;
+    height: 3.7rem;
+    width: 3.7rem;
+}
+
+.name_auteur {
+    float: left;
+    font-size: 1.6rem;
+    line-height: 4rem;
+    margin-right: 10px;
+}
+
+/*=== Questions ===*/
+
+.div_question {
+    border: 1.4px solid #E7E7E7;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 2.5rem;
+}
+
+.question {
+    padding-top: 1rem;
+    margin-left: 5rem;
+}
+
+.question > h3 {
+    font-size: 1.9rem;
+}
+
+.proposition {
+    margin-left: 4rem;
+    font-size: 1.3rem;
+    padding: 1rem;
+    line-height: 1.4rem;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
+}
+
+.form-check {
+    margin-bottom: 1.4rem;
+}
+
+input[type=radio] {
+    width: 15px;
+    height: 15px;
+}

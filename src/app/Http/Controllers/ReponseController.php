@@ -2,84 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Formulaire;
+use App\Question;
+use App\QuestionChoixMultiple;
 use App\Reponse;
 use Illuminate\Http\Request;
 
 class ReponseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+
+function repondre($id) {
+    $formulaire = Formulaire::find($id);
+
+
+
+    $questions = Question::all() -> where('formulaire_id', $formulaire->id);
+    $choix_question=[];
+    foreach($questions as $question){
+        $question->id;
+        $id_de_la_question = $question->id;
+        $choix_question_multiples = QuestionChoixMultiple::all() -> where('questions_id', $id_de_la_question);
+        array_push($choix_question,$choix_question_multiples);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    //Si le formulaire est public
+    if($formulaire->private == '0') {
+        return view('reponse.index', [
+            'formulaire' => $formulaire,
+            'questions'=>$questions,
+            'choix_question_multiples' =>$choix_question,
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    abort(404);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Reponse  $reponse
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Reponse $reponse)
-    {
-        //
-    }
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Reponse  $reponse
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Reponse $reponse)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Reponse  $reponse
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Reponse $reponse)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Reponse  $reponse
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Reponse $reponse)
-    {
-        //
-    }
 }

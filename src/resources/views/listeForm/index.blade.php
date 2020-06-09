@@ -7,8 +7,7 @@
 <div class="container-fluid" id="formulaire_list">
 
     <div id="header_list">
-        <h5 class="header_title">Formulaires public disponibles</h5>
-        <br>
+        <h2 class="header_title">Formulaires public disponibles</h2>
         <hr>
     </div>
 
@@ -41,5 +40,6 @@
 
 </div>
 
+<script type="text/javascript" src="{{ URL::asset('js/list_forms.js') }}"></script>
 
 @endsection
