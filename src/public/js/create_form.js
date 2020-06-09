@@ -20,7 +20,7 @@ $(document).on("click", "i.material-icons.add_option", function () {
 
     var i = 1;
     value_options.forEach(child => {
-        
+
         var choice = child.children[0].children[1];
         choice.setAttribute("placeholder", "Choix " + i);
         choice.setAttribute("name", num_question.value + '-' + i);
@@ -56,7 +56,6 @@ $(document).on("change", "select.form-control.select_type", function (e) {
     if(choice === "Choix multiples") {
         n_multiple = 2;
         div_question.innerHTML =
-            '                    <div class="body_question">\n' +
             '                        <!-- Ligne titre + choix type -->\n' +
             '                        <div class="row">\n' +
             '                            <div class="col-6">\n' +
@@ -91,11 +90,10 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                            <div class="row">\n' +
             '                                <i class="material-icons add_option">add</i>\n' +
             '                            </div>\n' +
-            '                        </div>\n' +
             '                    </div>';
     }
     else if(choice === "Texte") {
-        div_question.innerHTML = '        <div class="body_question">\n' +
+        div_question.innerHTML =
         '            <!-- Ligne titre + choix type -->\n' +
         '            <div class="row">\n' +
         '                <div class="col-6">\n' +
@@ -124,7 +122,6 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '                        </div>\n' +
         '                    </div>\n' +
         '                </div>\n' +
-        '            </div>\n' +
         '        </div>';
     }
     e.preventDefault();
@@ -338,31 +335,39 @@ $(document).on("click", ".delete_question", function () {
         var type = child.children[1].children[0].children[2].children[0];
 
         //liste choix
-        var choices = Array.prototype.slice.call(child.children[1].children[1].children[1].children);
+        if(type.value === "Choix multiples") {
+            var choices = Array.prototype.slice.call(child.children[1].children[1].children[1].children);
+        }
 
         if(i >= id) {
             input.setAttribute("placeholder", "Question " + (i-1));
+            input.setAttribute("name", "q" + (i-1));
             hidden.setAttribute("value", (i-1));
-            type.setAttribute("name", "typeq" + (i - 1));
-            choices.forEach(choice => {
-                var choiceQ = choice.children[0].children[0];
-                var choiceOrder = getChoice(choiceQ.name);
-                choiceQ.setAttribute("name", (i-1) + "-" + choiceOrder)
-            })
+            type.setAttribute("name", "typeq" + (i-1));
+            if(type.value === "Choix multiples") {
+                choices.forEach(choice => {
+                    var choiceQ = choice.children[0].children[0];
+                    var choiceOrder = getChoice(choiceQ.name);
+                    choiceQ.setAttribute("name", (i - 1) + "-" + choiceOrder)
+                })
+            }
         }
         else {
             input.setAttribute("placeholder", "Question " + i);
+            input.setAttribute("name", "q" + (i));
             hidden.setAttribute("value", (i));
             type.setAttribute("name","typeq" + (i));
-            choices.forEach(choice => {
-                var choiceQ = choice.children[0].children[0];
-                var choiceOrder = getChoice(choiceQ.name);
-                choiceQ.setAttribute("name", (i) + "-" + choiceOrder)
-            })
+            if(type.value === "Choix multiples") {
+                choices.forEach(choice => {
+                    var choiceQ = choice.children[0].children[0];
+                    var choiceOrder = getChoice(choiceQ.name);
+                    choiceQ.setAttribute("name", (i) + "-" + choiceOrder)
+                })
+            }
         }
         i++;
     });
-})
+});
 
 function delete_choice(id){
     $.ajax({
