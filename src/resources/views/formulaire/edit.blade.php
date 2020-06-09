@@ -81,7 +81,7 @@
                                         <div class="choices">
                                         @foreach($choix_question_multiples as $choix_question_multiple)
                                             @foreach($choix_question_multiple as $choix_question)
-                                            @if($choix_question->questions_id== $question->id)
+                                            @if($choix_question->questions_id == $question->id)
                                             <div class="row">
                                                 <div class="col-5">
                                                 <input type="hidden" name="choix_question{{$choix_question->id}}"  value="{{$choix_question->id}}" >
