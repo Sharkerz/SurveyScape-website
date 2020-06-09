@@ -72,9 +72,9 @@ class FormulaireController extends Controller
             "private" => $request->input('private'),
         ]);
 
-        $id_form = Formulaire::where('name', '=', $request->input('name'))
+        $id_form = Formulaire::where('created_at', '=', now())
             ->first();
-
+            
         foreach($inputs as $input=>$value){
             if(startsWith($input,"q") == true){
                 Question::create([
@@ -82,12 +82,15 @@ class FormulaireController extends Controller
                     "formulaire_id" =>$id_form->id,
                 ]);
                 $id_question = Question::where('name', '=', $value)
+                                ->where('formulaire_id',$id_form->id)
                     ->first();
                 $question = $input;
             }
             if(isset($question)){
-                if(preg_match("/^type+$question/", $input )) {
+                if(preg_match("/^type/", $input )) {
+                    //dd($id_question->id);
                     Question::where('id', $id_question->id)
+                        ->where('formulaire_id',$id_form->id)
                         ->update(['type_question' => $value]);
                     $type_question=$value;
 
