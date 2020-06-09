@@ -8,26 +8,16 @@
 @endphp
 <link href="{{ asset('css/index_form.css') }}" rel="stylesheet">
 
-<div class="New_Forms">
-    <div id="Create_Forms">
-        <h2>Créer un  Formulaire</h2>
-    </div>
-    <button onclick="window.location.href='/formulaires/create'" id="Create_Form" id="btn-create" type="button" class="btn btn-success bouton-creation">Créer un formulaire</button>
-</div>
-
-
 <div class="-blanche">
 
-    <div class="DashboardCard_Container">
-        <h2>Vos Formulaires</h2>
-        <div class="roter">
-            <div class="md-8">
-                <div id="ListFormulaire">
-                </div>
+    <div id="DashboardCard_Container" class="container-fluid">
+            <div id="header_list">
+                <h2 class="header_title">Vos formulaires</h2>
+                <button onclick="window.location.href='/formulaires/create'" id="Create_Form" type="button" class="btn btn-success">Créer un formulaire</button>
+                <hr>
             </div>
-        </div>
+        <div id="ListFormulaire"></div>
     </div>
-
 </div>
 
 
@@ -61,28 +51,32 @@
             var monhtml = "";
             data.data.forEach(formulaire => {
                 if(formulaire.close_on !=null && formulaire.open_on !=null){
-                    monhtml += `<div class="Formulaire" id="`+formulaire.id+`">
-                <div class="image_Formulaire">
-                <img alt="Image_Formulaire" src="/Images/Formulaire/`+formulaire.image+`" class="image">
-                </div>
-                <div class="info_Formulaire">
-                <h2>`+ formulaire.name + `</h2>
-                <h6>Ouvre le:`+ formulaire.open_on + `</h6>
-                <h6>Ferme le:`+ formulaire.close_on + `</h6>
-                </div>
-                </div>`;
+                    monhtml += `<div class="card Formulaire" id="`+formulaire.id+`">
+                                    <div class="image_Formulaire">
+                                        <img alt="Image_Formulaire" src="/Images/Formulaire/`+formulaire.image+`" class="image">
+                                    </div>
+                                    <div class=" card-body info_Formulaire">
+                                        <h2 class="card-title">`+ formulaire.name + `</h2>
+                                        <div class="card-text">
+                                            <h6>Ouvre le:`+ formulaire.open_on + `</h6>
+                                            <h6>Ferme le:`+ formulaire.close_on + `</h6>
+                                        </div>
+                                    </div>
+                                </div>`;
                 }
                 else{
-                    monhtml += `<div class="Formulaire" id="`+formulaire.id+`">
-                <div class="image_Formulaire">
-                <img alt="Image_Formulaire" src="/Images/Formulaire/`+formulaire.image+`" class="image">
-                </div>
-                <div class="info_Formulaire">
-                <h2>`+ formulaire.name + `</h2>
-                <h6>Modifié le:`+ formulaire.updated_at + `</h6>
-                <h6>Crée le:`+ formulaire.created_at + `</h6>
-                </div>
-                </div>`;
+                    monhtml += `<div class="card Formulaire" id="`+formulaire.id+`">
+                                    <div class="image_Formulaire">
+                                        <img alt="Image_Formulaire" src="/Images/Formulaire/`+formulaire.image+`" class="image">
+                                    </div>
+                                    <div class=" card-body info_Formulaire">
+                                        <h2 class="card-title">`+ formulaire.name + `</h2>
+                                        <div class="card-text">
+                                            <h6>Modifié le:`+ formulaire.updated_at + `</h6>
+                                            <h6>Crée le:`+ formulaire.created_at + `</h6>
+                                        </div>
+                                    </div>
+                                </div>`;
                 }
             });
             $("#ListFormulaire").html(monhtml);

@@ -1,4 +1,9 @@
-@extends('layouts.app')
+@guest
+
+@else
+    @extends('layouts.app')
+
+@endguest
 
 @section('content')
 

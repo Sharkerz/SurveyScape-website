@@ -1,10 +1,11 @@
 #header_list {
-    padding-top: 3rem;
+    padding-top: 1rem;
     text-align: left;
 }
 
 .header_title {
-    font-size: 2.2rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
 }
 
 #formulaire_list {
@@ -14,17 +15,16 @@
     max-width: 86%;
     background-color: white;
     border-radius: 7px;
-    height: 128vh;
+
 }
 
 .formulaire {
     background-color: #FAFAFA;
     width: 13rem;
-    height: 24rem;
+    height: 23rem;
     display: inline-block;
     border-radius: 6px;
     margin-right: 70px;
-
     margin-top: 0;
 }
 
@@ -43,7 +43,7 @@
 /* Auteur */
 .auteur {
     float: right;
-    bottom: 0;
+    margin-top: -8px;
 }
 
 .img_auteur {

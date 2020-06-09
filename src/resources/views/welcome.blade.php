@@ -140,6 +140,7 @@
                     @auth
                         <a href="{{ url('/accueil') }}">Profil</a>
                     @else
+                        <a href="{{ route('listeFormulaire') }}">Formulaires publics</a>
                         <a href="{{ route('login') }}">Connexion</a>
 
                         @if (Route::has('register'))

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Formulaire;
+use App\Question;
+use App\QuestionChoixMultiple;
 use App\Reponse;
 use Illuminate\Http\Request;
 
@@ -25,7 +27,7 @@ function repondre($id) {
 
     //Si le formulaire est public
     if($formulaire->private == '0') {
-        return view('response.index', [
+        return view('reponse.index', [
             'formulaire' => $formulaire,
             'questions'=>$questions,
             'choix_question_multiples' =>$choix_question,

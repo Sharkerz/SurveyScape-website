@@ -91,6 +91,13 @@
             </a>
             <div class="container">
 
+                @guest
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <a class="link_header" href="{{ route('listeFormulaire') }}">
+                            Formulaires
+                        </a>
+                    </div>
+                @else
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -113,6 +120,7 @@
                     </ul>
 
                 </div>
+                @endguest
             </div>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
