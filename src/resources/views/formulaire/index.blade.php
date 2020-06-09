@@ -16,9 +16,6 @@
 </div>
 
 
-
-
-
 <div class="-blanche">
 
     <div class="DashboardCard_Container">
