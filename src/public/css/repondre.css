@@ -73,3 +73,7 @@ input[type=radio] {
     width: 15px;
     height: 15px;
 }
+
+#envoyer {
+    text-align: center;
+}

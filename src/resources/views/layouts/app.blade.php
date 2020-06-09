@@ -155,8 +155,11 @@
         </main>
     </div>
 
-<!-- Script notifications -->
-<script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
+    @guest
+    @else
+    <!-- Script notifications -->
+    <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
+@endguest
 
 <script type="text/javascript">
         $('#sun').text(localStorage.getItem("text"));

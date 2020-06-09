@@ -38,4 +38,10 @@ function repondre($id) {
 
 }
 
+function envoyer(Request $request) {
+    $input = $request->input();
+    var_dump($input);die;
+    //envoie du form
+}
+
 }
