@@ -53,6 +53,12 @@ Route::group(['middleware' => ['auth']], function () {
     /* Ajax liste notifications demande d'amis */
     Route::get('/notifications', 'NotificationspushController@notifications')->name('notifications');
 
+    /* Delete choice */
+    Route::post('/delete_choice', 'QuestionController@delete_choice')->name('delete_choice');
+
+    /* Delete question */
+    Route::post('/delete_question', 'QuestionController@delete_question')->name('delete_question');
+
 
 });
 

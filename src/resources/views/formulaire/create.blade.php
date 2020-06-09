@@ -81,6 +81,7 @@
                             <div class="choices">
                                 <div class="row" id="choices">
                                     <div class="col-5">
+                                        <input hidden  value="1-1" >
                                         <input type="text" name="1-1" class="form-control" placeholder="Choix 1" required>
                                     </div>
                                     <br><br>
