@@ -66,7 +66,7 @@
             <div id="envoyer">
                 {!! htmlFormSnippet() !!}
                 @if (count($errors) > 0)
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" id="div_error">
                         @foreach($errors->all() as $error)
                             <p>{{ $error }}</p>
                         @endforeach
