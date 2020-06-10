@@ -30,7 +30,7 @@ $(document).on("click", "i.material-icons.add_option", function () {
     // Ajout d'une option
     $(this).parents().get(1).children[1].innerHTML += '                <div class="row">\n' +
         '                    <div class="col-5">\n' +
-        '                               <input type="hidden" name="choix_question'+nb_choices+'"  value="'+nb_choices+'" ></input>\n' +
+        '                               <input type="hidden" name="nouveau_choix'+nb_choices+'"  value="'+nb_choices+'" ></input>\n' +
         '                        <input name="' + num_question.value + '-' + nb_choices + '" type="text" class="form-control" placeholder="Choix ' + nb_choices + '" required>\n' +
         '                    </div>\n' +
         '                   <div class="col-1">\n' +
@@ -236,7 +236,7 @@ function checkLock() {
 
     if(current.value === "0") {
         icon.innerText = "lock_open";
-        icon.setAttribute("data-original-title", "Rendre le formulaire privée");
+        icon.setAttribute("data-original-title", "Rendre le formulaire privé");
     }
     else if (current.value === "1") {
         icon.innerText = "lock";
@@ -250,7 +250,7 @@ $('#btn-lock').click(function privatelock() {
 
     if (current === "lock") {
         $(this)[0].innerText = "lock_open";
-        $(this)[0].setAttribute("data-original-title", "Rendre le formulaire privée");
+        $(this)[0].setAttribute("data-original-title", "Rendre le formulaire privé");
         $("#private_value")[0].value = "0";
     }
     else if (current === "lock_open") {
@@ -348,7 +348,7 @@ $(document).on("click", ".delete_question", function () {
                 choices.forEach(choice => {
                     var choiceQ = choice.children[0].children[0];
                     var choiceOrder = getChoice(choiceQ.name);
-                    choiceQ.setAttribute("name", (i - 1) + "-" + choiceOrder)
+                    //choiceQ.setAttribute("name", (i - 1) + "-" + choiceOrder)
                 })
             }
         }
@@ -361,7 +361,7 @@ $(document).on("click", ".delete_question", function () {
                 choices.forEach(choice => {
                     var choiceQ = choice.children[0].children[0];
                     var choiceOrder = getChoice(choiceQ.name);
-                    choiceQ.setAttribute("name", (i) + "-" + choiceOrder)
+                    //choiceQ.setAttribute("name", (i) + "-" + choiceOrder)
                 })
             }
         }
