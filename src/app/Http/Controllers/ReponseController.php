@@ -38,7 +38,7 @@ function repondre($id) {
 }
 
 function envoyer(Request $request) {
-    
+
     $input = $request->validate([
         recaptchaFieldName() => recaptchaRuleName()
     ]);
@@ -46,11 +46,11 @@ function envoyer(Request $request) {
         $errors = $input->errors();
     }*/
 
-    
+
 
     $inputs = $request->input();
     $id_form = $request->input('form_id');
-    if(Auth::user() != "null"){
+    if(auth()->check() == true){
         $user_id = Auth::user()->id;
     }
     else{
@@ -66,9 +66,12 @@ function envoyer(Request $request) {
                 "user_id" => $user_id,
                 "formulaire_id" => $id_form,
             ]);
-        } 
+        }
 
     }
+    $formulaire = Formulaire::find($id_form);
+
+    return view("reponse.success", ['formulaire_name' => $formulaire->name]);
 }
 
 }
