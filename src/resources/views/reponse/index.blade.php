@@ -1,9 +1,9 @@
 
 @extends('layouts.app')
 
- @section('captcha') 
+ @section('captcha')
     {!! htmlScriptTagJsApi() !!}
-@endsection 
+@endsection
 
 @section('content')
 
@@ -65,6 +65,13 @@
 
             <div id="envoyer">
                 {!! htmlFormSnippet() !!}
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
                 <button type="submit" class="btn btn-primary btn-lg center-block">Envoyer</button>
             </div>
 

@@ -8,6 +8,7 @@ use App\QuestionChoixMultiple;
 use App\Reponse;
 use Illuminate\Http\Request;
 use Auth;
+use Validator;
 
 class ReponseController extends Controller
 {
@@ -39,12 +40,14 @@ function repondre($id) {
 
 function envoyer(Request $request) {
 
-    $input = $request->validate([
+    $validator = Validator::make($request->all(), [
         recaptchaFieldName() => recaptchaRuleName()
     ]);
-    /*if($input->fails()) {
-        $errors = $input->errors();
-    }*/
+    if($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator);
+    }
 
 
 
