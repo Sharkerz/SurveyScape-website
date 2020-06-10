@@ -77,3 +77,6 @@ input[type=radio] {
 #envoyer {
     text-align: center;
 }
+.textarea{
+    resize: none;
+}

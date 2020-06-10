@@ -1,9 +1,9 @@
 
 @extends('layouts.app')
 
-@section('captcha')
+ @section('captcha') 
     {!! htmlScriptTagJsApi() !!}
-@endsection
+@endsection 
 
 @section('content')
 
@@ -26,7 +26,6 @@
 
         <form method="post" id="form_reponse" action="{{ route('envoyer_reponse') }}">
             @csrf
-
             <input type="hidden" name="form_id" value="{{ $formulaire->id }}">
 
             <div id="questions">
@@ -54,9 +53,9 @@
                                 @endforeach
                             @endforeach
 
-                        <!-- Reponse si choix multiples -->
+                        <!-- Reponse si Texte -->
                         @elseif($question->type_question == "Texte")
-                                    <textarea class="form-control" name="{{ $question->id }}" rows="3" placeholder="Votre réponse..." required></textarea>
+                                    <textarea class="form-control textarea" name="{{ $question->id }}" rows="3" placeholder="Votre réponse..." required></textarea>
                         @endif
                     </div>
                 </div>

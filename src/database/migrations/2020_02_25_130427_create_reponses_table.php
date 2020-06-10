@@ -16,11 +16,12 @@ class CreateReponsesTable extends Migration
         Schema::create('reponses', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
+            $table->string('response', 100);
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name', 100);
+            $table->unsignedBigInteger('formulaire_id');
+            $table->foreign('formulaire_id')->references('id')->on('formulaires');
             $table->timestamps();
         });
     }

@@ -17,12 +17,7 @@ class QuestionController extends Controller
                 QuestionChoixMultiple::where('id','=',$id)
                 ->delete();
             }
-            else{
-
-            }
-           
-
-                return response()->json();
+            return response()->json();
         }
         abort(404);
     }
@@ -39,12 +34,7 @@ class QuestionController extends Controller
                 Question::where('id','=',$id)
                 ->delete();
             }
-            else{
-
-            }
-           
-
-                return response()->json();
+            return response()->json();
         }
         abort(404);
     }

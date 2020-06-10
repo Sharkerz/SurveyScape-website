@@ -7,6 +7,7 @@ use App\Formulaire;
 use App\Question;
 use Illuminate\Http\Request;
 use Auth;
+use App\Reponse;
 use Redirect;
 use Image;
 
@@ -119,10 +120,23 @@ class FormulaireController extends Controller
      * @param  \App\Formulaire  $formulaire
      * @return \Illuminate\Http\Response
      */
-    public function show(Formulaire $formulaire)
+    public function show($id)
     {
+        $formulaire = Formulaire::find($id);
+        $questions = Question::all() -> where('formulaire_id', $formulaire->id);
+        $reponses = Reponse::all()->where('formulaire_id',$formulaire->id);
+        $choix_question=[];
+        foreach($questions as $question){
+            $question->id;
+            $id_de_la_question = $question->id;
+            $choix_question_multiples = QuestionChoixMultiple::all() -> where('questions_id', $id_de_la_question);
+            array_push($choix_question,$choix_question_multiples);
+        }
         return view('formulaire.show', [
-            'formulaire' => $formulaire
+            'formulaire' => $formulaire,
+            'questions'=>$questions,
+            'reponses'=>$reponses,
+            'choix_question_multiples' =>$choix_question,
         ]);
     }
 
