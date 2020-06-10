@@ -2,44 +2,53 @@
 
 @section('content')
 
-<link href="{{ asset('css/index_form.css') }}" rel="stylesheet">
+<link href="{{ asset('css/show_my_form.css') }}" rel="stylesheet">
+
 <div id="Modify_Form">
     <i class="material-icons"  id="btn-task" id="icon_notif">create</i>
 </div>
 <div class="container">
 
-<h1>{{ $formulaire->name }}</h1>
+    <!-- Div titre du formulaire -->
+    <div id="title">
+        <h2>{{ $formulaire->name }}</h2>
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Formulaire : {{ $formulaire->name }} <button onclick="window.location.href='{{ route('formulaires.index') }}'" type="button" class="btn btn-primary">Retour</button></div>
-                @foreach($questions as $question)
-                    {{$question->name}}
-                    @foreach($reponses as $reponse)
-                        @if($reponse->question_id == $question->id)
-                        {{$reponse->response}}
-                        @endif
-
-                    @endforeach
-                @endforeach
-                <div class="card-body">
-                    {{ $formulaire->name }}
-                    {{ $formulaire->user->name }}
-                    {{ $formulaire->open_on }}
-                    {{ $formulaire->close_on }}
-
-                    
-                    <form action="{{ route('formulaires.destroy', ['formulaire' => $formulaire->id]) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <input class="btn btn-danger" type='submit' value="Supprimer">
-                    </form>
-
-                </div>
-            </div>
-        </div>
+        <form action="{{ route('formulaires.destroy', ['formulaire' => $formulaire->id]) }}" method="post">
+            @csrf
+            @method('delete')
+            <input class="btn btn-danger" type='submit' value="Supprimer">
+        </form>
     </div>
+
+    <div id="questions">
+        @foreach($questions as $question)
+            <div class="div_question">
+                <div class="question">
+                    <h3>{{$question->name}}</h3>
+                </div>
+                @if($question->type_question === "Choix multiples")
+                    <!-- -->
+                    multiple
+                @elseif($question->type_question === "Texte")
+                    <!-- -->
+                    txt
+                @endif
+
+                @foreach($reponses as $reponse)
+                    @if($reponse->question_id == $question->id)
+                    {{$reponse->response}}
+                    @endif
+                @endforeach
+            </div>
+        @endforeach
+    </div>
+
+{{--                    {{ $formulaire->name }}--}}
+{{--                    {{ $formulaire->user->name }}--}}
+{{--                    {{ $formulaire->open_on }}--}}
+{{--                    {{ $formulaire->close_on }}--}}
+
+
 </div>
 
 @endsection
