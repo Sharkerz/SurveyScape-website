@@ -14,9 +14,14 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Formulaire : {{ $formulaire->name }} <button onclick="window.location.href='{{ route('formulaires.index') }}'" type="button" class="btn btn-primary">Retour</button></div>
-                @foreach($reponses as $reponse)
-                {{$reponse->response}}
+                @foreach($questions as $question)
+                    {{$question->name}}
+                    @foreach($reponses as $reponse)
+                        @if($reponse->question_id == $question->id)
+                        {{$reponse->response}}
+                        @endif
 
+                    @endforeach
                 @endforeach
                 <div class="card-body">
                     {{ $formulaire->name }}

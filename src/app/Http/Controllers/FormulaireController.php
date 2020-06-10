@@ -63,7 +63,7 @@ class FormulaireController extends Controller
 
         }
         $inputs = $request->input();
-
+        //dd($inputs);
         Formulaire::create([
             "name" => $request->input('name'),
             "open_on" => $request->input('open_on'),
@@ -218,8 +218,8 @@ class FormulaireController extends Controller
             }
             //Modification des question si elle existe deja
             if(preg_match("/^q/", $input )){
-                if($test = Question::find($id_de_la_question)){
-                    if($test->formulaire_id == $id_form->id){
+                if($test_form = Question::find($id_de_la_question)){
+                    if($test_form->formulaire_id == $id_form->id){
                     Question::where('id', '=', $id_de_la_question)
                         ->where('formulaire_id',$id_form->id)
                         ->update([
@@ -238,6 +238,7 @@ class FormulaireController extends Controller
                     }
                     //Ajout de question si elle existe pas encore
                     else{
+                        dd($input);
                         Question::create([
                             "name" =>$value,
                             "formulaire_id" =>$id_form->id,
@@ -276,6 +277,7 @@ class FormulaireController extends Controller
             }
             if(isset($new_question)){
                 if(preg_match("/^type/", $input )) {
+                    
                     Question::where('id', $id_question->id)
                         ->where('formulaire_id',$id_form->id)
                         ->update(['type_question' => $value]);
@@ -289,13 +291,16 @@ class FormulaireController extends Controller
                 if(preg_match("/^choix_question/", $input )){
                     $id_choix_question = $value;
                 }
+                elseif(isset($question) && (preg_match("/^nouveau_choix/", $input ))){  
+                    $id_question_presente = $id_question_existante->id;
+                }
                 elseif(isset($id_new_question)){
                     $id_choix_question_new =$id_new_question;
                     
                 }
                 //Modification des choix de question multiple
                 if(preg_match("/^[0-9]/", $input )) {
-                    if (isset($id_choix_question)){
+                    if(isset($id_choix_question)){
                         if( QuestionChoixmultiple::find($id_choix_question)){
                             QuestionChoixmultiple::where('id', '=', $id_choix_question)
                             ->update([
@@ -303,14 +308,16 @@ class FormulaireController extends Controller
                             ]);
                         unset($id_choix_question);
                         }
-                        //Ajout de choix a une question existante
-                        else{
-                            QuestionChoixmultiple::create([
-                                "name" =>$value,
-                                "questions_id" =>$id_question_existante->id,
-                            ]);
-                            unset($id_question_existante);
-                        }
+                    }
+                      //Ajout de choix a une question existante
+                      elseif(isset($id_question_presente)){
+                        //dd($input);
+                        QuestionChoixmultiple::create([
+                            "name" =>$value,
+                            "questions_id" =>$id_question_presente,
+                        ]);
+                        //dd($input);
+                        unset($id_question_presente);
                     }
                     //Ajout de choix dans les questions multiple si il le faut
                     elseif(isset($id_choix_question_new)){
@@ -320,7 +327,7 @@ class FormulaireController extends Controller
                                 "questions_id" =>$id_choix_question_new,
                             ]);
                             
-                            unset($id_choix_question_new);
+                            //unset($id_new_question);
                         }
                     }
                 }
