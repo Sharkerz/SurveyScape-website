@@ -16,5 +16,8 @@ $(document).ready(function () {
             first_input = input.children[1].children[1].children[0];
             first_input.setAttribute("required", "");
         }
-    })
+    });
+
+ document.body.style.background = "url('../test.jpg') repeat fixed";
+
 });

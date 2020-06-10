@@ -1,13 +1,13 @@
 
 @extends('layouts.app')
 
- @section('captcha')
+@section('captcha')
     {!! htmlScriptTagJsApi() !!}
 @endsection
 
 @section('content')
 
-    <link href="{{ asset('css/repondre.css') }}" rel="stylesheet">
+<link href="{{ asset('css/repondre.css') }}" rel="stylesheet">
 
     <div class="container">
 
