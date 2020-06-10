@@ -216,8 +216,22 @@
                 <!-- Api tab -->
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <br>
-                    Votre clé api est .. blabla <br>
-                    Soon
+                    <!-- APi token -->
+                    <div class="row">
+                        <div class="col">
+                            <p class="profil_bold">Bearer token</p>
+                        </div>
+                        <div class="col" id="token_window">
+                            <input type="button" value="Copier le token" id="copyApi" data-target="#token">
+                            <input type="hidden" id="token" value="{{ $user->api_token }}">
+                        </div>
+
+                        <div class="alert alert-success" id="alert_token" role="alert">
+                             Le token a bien été copié
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -235,6 +249,8 @@
             {{ session('success') }}
         </div>
     @endif
+
+<script type="text/javascript" src="{{ URL::asset('js/Profil_api.js') }}"></script>
 
 </div>
 

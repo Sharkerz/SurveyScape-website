@@ -12,6 +12,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <!-- captcha -->
+    @yield('captcha')
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -93,6 +96,13 @@
             </a>
             <div class="container">
 
+                @guest
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <a class="link_header" href="{{ route('listeFormulaire') }}">
+                            Formulaires
+                        </a>
+                    </div>
+                @else
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -103,6 +113,9 @@
                         <a class="link_header" href="{{ route('accueil') }}">
                             Accueil
                         </a>
+                        <a class="link_header" href="{{ route('listeFormulaire') }}">
+                            Formulaires
+                        </a>
                         <a class="link_header" href="{{ route('formulaires.index') }}">
                             Mes formulaires
                         </a>
@@ -112,6 +125,7 @@
                     </ul>
 
                 </div>
+                @endguest
             </div>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -146,8 +160,11 @@
         </main>
     </div>
 
-<!-- Script notifications -->
-<script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
+    @guest
+    @else
+    <!-- Script notifications -->
+    <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
+@endguest
 
 <script type="text/javascript">
         $('#sun').text(localStorage.getItem("text"));

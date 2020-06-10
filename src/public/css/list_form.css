@@ -1,0 +1,53 @@
+#header_list {
+    padding-top: 1rem;
+    text-align: left;
+}
+
+.header_title {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
+#formulaire_list {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    max-width: 86%;
+    background-color: white;
+    border-radius: 7px;
+
+}
+
+.formulaire {
+    background-color: #FAFAFA;
+    width: 13rem;
+    height: 23rem;
+    display: inline-block;
+    border-radius: 6px;
+    margin-right: 70px;
+    margin-top: 0;
+}
+
+.formulaire:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+
+.pagination {
+    margin-left: auto;
+    margin-right: auto;
+    width: 10rem;
+    margin-bottom: 2rem;
+}
+
+/* Auteur */
+.auteur {
+    float: right;
+    margin-top: -8px;
+}
+
+.img_auteur {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+}

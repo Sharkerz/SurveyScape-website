@@ -54,25 +54,31 @@
         </div>
 
     <div id="questions">
+    @php 
+    $nb_question=1
+    @endphp
     @foreach($questions as $question)
+  
         <div class="div_question">
-                <input type='hidden' value='1'>
+                <input type='hidden' value='{{$nb_question}}'>
                         <div class="body_question">
                             <!-- Ligne titre + choix type -->
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="hidden" id="id_question" name="id_q{{$question->id}}"  value="{{$question->id}}" >
-                                    <input type="text" class="form-control title_question" name="q{{$question->id}}" value="{{$question->name}}" required>
+                                    <input type="hidden" id="id_question" name="id_q{{$nb_question}}"  value="{{$question->id}}" >
+                                    <input type="text" class="form-control title_question" name="q{{$nb_question}}" value="{{$question->name}}" required>
                                 </div>
-                                @if($question->type_question == "Choix multiples")
                                 <div class="col"></div>
+                                @if($question->type_question == "Choix multiples")
                                 <div class="col-3">
-                                    <select class="form-control select_type" name="typeq{{$question->id}}">
+                                    <select class="form-control select_type" name="typeq{{$nb_question}}">
                                     <option value="Choix multiples"selected> {{$question->type_question}}</option>
                                         <option value="Texte"> Texte</option>
                                         <option>Soon</option>
                                     </select>
-
+                                </div>
+                                <div class="col-1">
+                                <i class="material-icons delete_question">clear</i>
                                 </div>
 
                             </div>
@@ -80,15 +86,26 @@
                                         <input class="nb_choice" name="nb_choice" type="hidden" value="1"> <!-- Nombre de choix -->
                                         <div class="choices">
                                         @foreach($choix_question_multiples as $choix_question_multiple)
+                                            @php 
+                                            $nb_choix=1
+                                            @endphp
                                             @foreach($choix_question_multiple as $choix_question)
-                                            @if($choix_question->questions_id== $question->id)
+                                            
+                                            @if($choix_question->questions_id == $question->id)
                                             <div class="row">
                                                 <div class="col-5">
-                                                <input type="hidden" name="choix_question{{$choix_question->id}}"  value="{{$choix_question->id}}" >
-                                                    <input type="text" name="{{$question->id}}-{{$choix_question->id}}" class="form-control" value="{{$choix_question->name}}" required>
+                                                <input type="hidden" name="choix_question{{$nb_question}}-{{$nb_choix}}"  value="{{$choix_question->id}}">
+                                                <input type="text" name="{{$nb_question}}-{{$nb_choix}}" class="form-control" value="{{$choix_question->name}}" required>
+                                                
+                                                </div>
+                                                <div class="col-1">
+                                                    <i class="material-icons delete_choice">clear</i>
                                                 </div>
 
                                             </div>
+                                            @php 
+                                            $nb_choix+=1
+                                            @endphp
                                             @endif
                                             @endforeach
                                             @endforeach
@@ -98,35 +115,40 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endif
-                                @if($question->type_question == "Texte")
-                                <div class="col"></div>
+                               
+                                @else($question->type_question == "Texte")
                                 <div class="col-3">
-                                    <select class="form-control select_type" name="typeq{{$question->id}}">
-                                        <option value="Texte"selected> {{$question->type_question}}</option>
+                                    <select class="form-control select_type" name="typeq{{$nb_question}}">
+                                    <option value="Texte"selected> {{$question->type_question}}</option>
                                         <option value="Choix multiples"> Choix multiples</option>
-
                                         <option>Soon</option>
                                     </select>
-
                                 </div>
-
-                            </div>
+                                <div class="col-1">
+                                    <i class="material-icons delete_question">clear</i>
+                                </div>
+                                </div>
+                                     <!-- Case reponses questions -->
                                     <div class="multipleChoice">
-                            <input class="nb_choice" name="nb_choice" type="hidden" value="1">
-                            <div class="choices">
-                                <div class="row">
-                                    <div class="col-5">
-                                        <input type="text" name="1-{{$question->id}}" class="form-control" placeholder="Reponse" required disabled>
-                                    </div>
-                                    <br><br>
-                                </div>
-                            </div>
-</div>
-</div>
+                                        <div class="choices">
+                                            <div class="row">
+                                                <div class="col-5">
+                                                    <input id="disabledTextInput" type="text" class="form-control" placeholder="Reponse" required disabled>
+                                                </div>
+                                            </div>
+                                       </div>
+                                   </div>
+                               </div>
+                    
+                                  
+
+
                             @endif
 
             </div>
+            @php 
+            $nb_question+=1
+            @endphp
         @endforeach
     </div>
 

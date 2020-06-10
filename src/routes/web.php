@@ -22,7 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/listeFormulaire', 'ListeFormulaireController@list')->name('listeFormulaire');
+Route::get('/repondre/{id}', 'ReponseController@repondre');
+Route::post('/repondre/send', 'ReponseController@envoyer')->name('envoyer_reponse');
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -39,10 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/accueil', 'AccueilController@index')->name('accueil');
     Route::post('/update_form', 'FormulaireController@update_form')->name('update_form');
 
-
-    /* Amis */
-
-
     /* Accepter et refuser demandes d'amis */
     Route::post('/accepterAmi', 'AmisController@accepter')->name('accepterAmi');
     Route::post('/refuserAmi', 'AmisController@refuser')->name('refuserAmi');
@@ -56,6 +54,12 @@ Route::group(['middleware' => ['auth']], function () {
     /* Ajax liste notifications demande d'amis */
     Route::get('/notifications', 'NotificationspushController@notifications')->name('notifications');
 
-   
+    /* Delete choice */
+    Route::post('/delete_choice', 'QuestionController@delete_choice')->name('delete_choice');
+
+    /* Delete question */
+    Route::post('/delete_question', 'QuestionController@delete_question')->name('delete_question');
+
+
 });
 

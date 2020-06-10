@@ -1,35 +1,34 @@
-.DashboardCard_Container{
-    margin-left: 10%;
-    margin-right: 10%;
+#DashboardCard_Container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 86%;
+    background-color: white;
+    border-radius: 10px;
 }
-.New_Forms{
-    background-color: #ffffff;
+
+.header_title {
+    padding-top: 1rem;
 }
-#Create_Forms{
-    margin-left: 10%;
-    text-align: top;
+
+#header_list {
+    margin-bottom: 2.5rem
 }
+
 #Create_Form{
-    margin-left:10%;    
+    float: right;
+    margin-top: -2.7rem;
+    margin-right: 1rem;
 }
 .info_Formulaire{
-    margin-bottom: 0px;
-    border-top:1px solid white;
-    background-color: #ffffff;
     vertical-align: bottom;
 }
 
-.image_Formulaire{
-    width: 200px;
-    height: 200px;
-}
 .Formulaire{
-    background-color: #EAEAEA;
-    width: 200px;
-    height: 200px;
-    display: inline-block;
-    margin-right : 70px;
-    margin-bottom: 140px;
+    background-color: #FAFAFA;
+    width: 13rem;
+    height: 21rem;
+    margin-right: 70px;
+    margin-top: 0;
 }
 
 .Formulaire:hover{
@@ -40,9 +39,16 @@
 .material-icons{
     font-size: 50px;
 }
+
 #Modify_Form{
     width: 50px;
     height: 50px;
     margin-left: 95%;
     cursor: pointer;
+}
+
+#ListFormulaire {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
