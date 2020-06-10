@@ -4,6 +4,10 @@
 @section('content')
 <link href="{{ asset('css/create_form.css') }}" rel="stylesheet">
 
+<div id="back">
+    <a href="javascript:window.history.go(-1)"><i id="back_logo" class="material-icons">arrow_back</i></a>
+</div>
+
 <div class="container">
     <div id="Add_Form">
         <div id="Add_Question"><i class="material-icons"  data-toggle="tooltip" data-placement="right" title="Ajouter une question" >add_circle_outline</i></div>
@@ -54,11 +58,11 @@
         </div>
 
     <div id="questions">
-    @php 
+    @php
     $nb_question=1
     @endphp
     @foreach($questions as $question)
-  
+
         <div class="div_question">
                 <input type='hidden' value='{{$nb_question}}'>
                         <div class="body_question">
@@ -86,24 +90,24 @@
                                         <input class="nb_choice" name="nb_choice" type="hidden" value="1"> <!-- Nombre de choix -->
                                         <div class="choices">
                                         @foreach($choix_question_multiples as $choix_question_multiple)
-                                            @php 
+                                            @php
                                             $nb_choix=1
                                             @endphp
                                             @foreach($choix_question_multiple as $choix_question)
-                                            
+
                                             @if($choix_question->questions_id == $question->id)
                                             <div class="row">
                                                 <div class="col-5">
                                                 <input type="hidden" name="choix_question{{$nb_question}}-{{$nb_choix}}"  value="{{$choix_question->id}}">
                                                 <input type="text" name="{{$nb_question}}-{{$nb_choix}}" class="form-control" value="{{$choix_question->name}}" required>
-                                                
+
                                                 </div>
                                                 <div class="col-1">
                                                     <i class="material-icons delete_choice">clear</i>
                                                 </div>
 
                                             </div>
-                                            @php 
+                                            @php
                                             $nb_choix+=1
                                             @endphp
                                             @endif
@@ -115,7 +119,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                                 @else($question->type_question == "Texte")
                                 <div class="col-3">
                                     <select class="form-control select_type" name="typeq{{$nb_question}}">
@@ -139,14 +143,10 @@
                                        </div>
                                    </div>
                                </div>
-                    
-                                  
-
-
                             @endif
 
             </div>
-            @php 
+            @php
             $nb_question+=1
             @endphp
         @endforeach

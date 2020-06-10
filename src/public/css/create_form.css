@@ -145,3 +145,34 @@ Div ajout questions
     float: right;
 }
 
+/*
+Bouton retour
+*/
+
+#back {
+    border-radius: 50%;
+    background-color: white;
+    height: 3.3rem;
+    width: 3.3rem;
+    text-align: center;
+    float: left;
+    margin-left: 50px;
+}
+
+#back > a {
+    text-decoration: none;
+    color: black;
+}
+
+#back_logo {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 3rem;
+    height: 3rem;
+}
+
+#back_logo:hover {
+    cursor: pointer;
+    color: #761b18;
+}
+
