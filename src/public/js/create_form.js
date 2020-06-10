@@ -288,6 +288,15 @@ function load_background(filename) {
     document.body.style.background = "url('../Images/background_form/"+ filename +"') repeat fixed";
 }
 
+// Background personnalisé
+function background() {
+    if ($("#edit_background")[0] !== undefined) { //Si le formulaire possède un background
+        var filename = $("#edit_background")[0].value;
+        document.body.style.background = "url('../../Images/background_form/"+ filename +"') repeat fixed";
+    }
+}
+background();
+
 /* ================
 Suppression choix questions multiples
 ================= */

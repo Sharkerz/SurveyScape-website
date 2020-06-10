@@ -18,7 +18,6 @@
             @csrf
             <input  hidden id="image_fond" type="file" name="image_fond_form">
         </form>
-        <div id="Add_Dates"><i class="material-icons" >event</i></div>
     </div>
 
     <h1>Création d'un Formulaire</h1>

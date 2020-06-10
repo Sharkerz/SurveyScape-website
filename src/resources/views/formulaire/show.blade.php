@@ -9,7 +9,7 @@
     <i class="material-icons"  id="btn-task" id="icon_notif">create</i>
 </div>
 <div class="container">
-   
+
 
     <!-- Div titre du formulaire -->
     <div id="title">
@@ -55,6 +55,12 @@
 </div>
 
 @endsection
+
+<!-- Si un background personnalisé existe -->
+@isset($formulaire->background)
+    <input type="text" id="background" value="{{ $formulaire->background }}" hidden>
+@endisset
+
 <script>
     var id_form = '{{$formulaire->id}}' ;
 </script>
