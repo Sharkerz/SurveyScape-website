@@ -277,11 +277,16 @@ $(document).on('change','#image_fond',function(){
         processData: false,
         contentType: false,
         success: function (Response) {
-            var test = Response.background;
-            console.log(test);
+            load_background(Response.background);
+            $("#background_create")[0].innerHTML += "<input type=\"text\" name=\"background\" value=\""+ Response.background +"\" hidden>";
         }
     })
 });
+
+//Chargement du background
+function load_background(filename) {
+    document.body.style.background = "url('../Images/background_form/"+ filename +"') repeat fixed";
+}
 
 /* ================
 Suppression choix questions multiples

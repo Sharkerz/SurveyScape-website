@@ -23,6 +23,7 @@ class CreateFormulairesTable extends Migration
             $table->string('image')->default('default.png');
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('private');
+            $table->string('background')->nullable();
             $table->timestamps();
         });
     }

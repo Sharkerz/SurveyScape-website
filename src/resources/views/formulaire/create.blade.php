@@ -106,6 +106,10 @@
         <br><button type="submit" class="btn btn-primary btn-lg">Publier</button>
     </div>
 
+    <div id="background_create">
+        <!-- div qui accueil le background si selectionné -->
+    </div>
+
 </form>
 
 <script type="text/javascript" src="{{ URL::asset('js/create_form.js') }}"></script>

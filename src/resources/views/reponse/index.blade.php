@@ -79,6 +79,12 @@
 
     </div>
 
+<!-- Si un background personnalisé existe -->
+@isset($formulaire->background)
+    <input type="text" id="background" value="{{ $formulaire->background }}" hidden>
+@endisset
+
+
 <script type="text/javascript" src="{{ URL::asset('js/repondre.js') }}"></script>
 
 @endsection

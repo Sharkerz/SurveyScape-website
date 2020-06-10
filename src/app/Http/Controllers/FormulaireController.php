@@ -54,6 +54,7 @@ class FormulaireController extends Controller
             return (substr($string, 0, $len) === $startString);
         }
 
+        // Image banniere
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time(). '.' . $image->getClientOriginalExtension();
@@ -64,6 +65,17 @@ class FormulaireController extends Controller
             $image ="default.png";
 
         }
+
+        //Background
+        if ($request->has('background')){
+            $background = $request->input('background');
+        }
+        else{
+            $background = null;
+
+        }
+
+
         $inputs = $request->input();
         //dd($inputs);
         Formulaire::create([
@@ -73,6 +85,7 @@ class FormulaireController extends Controller
             "user_id" => Auth::user()->id,
             "image" =>$image,
             "private" => $request->input('private'),
+            "background" => $background,
         ]);
 
         $id_form = Formulaire::where('created_at', '=', now())
@@ -346,10 +359,10 @@ class FormulaireController extends Controller
 
     public function upload_background(Request $request) {
         if ($request->ajax()) {
-            $file = $request->file('image_fond_form');
-
-
-            return response()->json(['background'=>$file],200);
+                $file = $request->file('image_fond_form');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
+                Image::make($file)->resize(1920, 1080)->save( public_path('/Images/background_form/' . $filename ) );
+                return response()->json(['background'=>$filename],200);
         }
         abort(404);
     }
