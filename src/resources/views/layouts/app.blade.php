@@ -32,45 +32,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Dark mode -->
-<<<<<<< HEAD
-    <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>
-
-    <!--<script type="text/javascript">
-
-            if(localStorage.getItem("text") == "brightness_3") {
-                DarkReader.disable()
-            } else if(localStorage.getItem("text") == "wb_sunny") {
-                DarkReader.enable()
-            }
-            
-        $(document).ready(function() {
-            if(localStorage.getItem("text") == "brightness_3") {
-                document.body.style.backgroundImage = "radial-gradient(#DDE2E3, #F5F5F5);";
-            } else if(localStorage.getItem("text") == "wb_sunny") {
-                document.body.style.backgroundImage = "none";
-            }
-            $('#sun').click(function(){
-                if($('#sun').text() == 'brightness_3') {
-                    document.body.style.backgroundImage = "none";
-                    DarkReader.enable()
-                    $('#sun').text('wb_sunny');
-                    localStorage.setItem("text","wb_sunny");
-                } else if($('#sun').text() == 'wb_sunny') {
-                    DarkReader.disable()
-                    $('#sun').text('brightness_3');
-                    document.body.style.backgroundImage = "radial-gradient(#DDE2E3, #F5F5F5);";
-                    localStorage.setItem("text","brightness_3");
-                }
-            });
-
-            $('#sun').on('click', function() {
-                localStorage.input = $(this).text();
-            });
-
-        });
-
-    </script>-->
-=======
 {{--    <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>--}}
 
 {{--    <script type="text/javascript">--}}
@@ -108,7 +69,6 @@
 {{--        });--}}
 
 {{--    </script>--}}
->>>>>>> cbf44a01b603c52fca4445ee4a30d6006da8ff88
 
 </head>
 <body>
@@ -211,15 +171,6 @@
     <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
 @endguest
 
-<<<<<<< HEAD
-<!--<script type="text/javascript">
-        $('#sun').text(localStorage.getItem("text"));
-        if(localStorage.getItem("text") == null){
-            $('#sun').text("brightness_3");
-            document.body.style.backgroundImage = "radial-gradient(#DDE2E3, #F5F5F5);";
-        }
- </script> -->
-=======
 {{--<script type="text/javascript">--}}
 {{--        $('#sun').text(localStorage.getItem("text"));--}}
 {{--        if(localStorage.getItem("text") == null){--}}
@@ -227,7 +178,6 @@
 {{--            document.body.style.backgroundImage = "url(../background.png)";--}}
 {{--        }--}}
 {{--</script>--}}
->>>>>>> cbf44a01b603c52fca4445ee4a30d6006da8ff88
 
 </body>
 </html>
