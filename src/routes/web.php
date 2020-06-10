@@ -60,6 +60,8 @@ Route::group(['middleware' => ['auth']], function () {
     /* Delete question */
     Route::post('/delete_question', 'QuestionController@delete_question')->name('delete_question');
 
+    /*ajax upload background */
+    Route::post('/formulaire/background', 'FormulaireController@upload_background')->name('form_background');
 
 });
 

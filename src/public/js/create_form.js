@@ -263,13 +263,26 @@ $('#btn-lock').click(function privatelock() {
 Ajout image fond du formulaire
 ================= */
 $("#btn-add_image_fond").click(function () {
-    var test = $(this).parents()[0];
     $('#image_fond').click();
-    //test.innerHTML +="<input id=\"image_fond\" type=\"file\" name=\"image_fond_form\">"
 });
+
 $(document).on('change','#image_fond',function(){
-    console.log($(this)[0].files[0].name);
-})
+    var file = $(this)[0].files[0];
+    var data = new FormData($('#form_background')[0]);
+
+    $.ajax({
+        type: 'POST',
+        url : '/formulaire/background',
+        data: data,
+        processData: false,
+        contentType: false,
+        success: function (Response) {
+            var test = Response.background;
+            console.log(test);
+        }
+    })
+});
+
 /* ================
 Suppression choix questions multiples
 ================= */

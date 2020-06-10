@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Amis;
 use App\QuestionChoixMultiple;
 use App\Formulaire;
 use App\Question;
@@ -10,6 +11,7 @@ use Auth;
 use App\Reponse;
 use Redirect;
 use Image;
+use Symfony\Component\Console\Input\Input;
 
 class FormulaireController extends Controller
 {
@@ -75,7 +77,7 @@ class FormulaireController extends Controller
 
         $id_form = Formulaire::where('created_at', '=', now())
             ->first();
-            
+
         foreach($inputs as $input=>$value){
             if(startsWith($input,"q") == true){
                 Question::create([
@@ -230,13 +232,13 @@ class FormulaireController extends Controller
                         ->update([
                             "name" =>$value,
                         ]);
-                        
-                        
+
+
                     $question = $input;
                     $temp = Question::where('id', '=', $id_de_la_question)
                     ->get('type_question');
                     $last_question_type = $temp[0]->type_question ;
-                    
+
                     $id_question_existante = Question::where('name', '=', $value)
                         ->first();
 
@@ -255,7 +257,7 @@ class FormulaireController extends Controller
                     }
                     }
 
-                //Ajout des premières question qui existe pas forcement en bdd 
+                //Ajout des premières question qui existe pas forcement en bdd
                 else{
                     Question::create([
                         "name" =>$value,
@@ -266,7 +268,7 @@ class FormulaireController extends Controller
                         ->first();
                     }
             }
-             
+
             //Modification du type de question utiliser pour les questions a choix multiples
             if(isset($question)){
                 if(preg_match("/^type/", $input )) {
@@ -282,7 +284,7 @@ class FormulaireController extends Controller
             }
             if(isset($new_question)){
                 if(preg_match("/^type/", $input )) {
-                    
+
                     Question::where('id', $id_question->id)
                         ->where('formulaire_id',$id_form->id)
                         ->update(['type_question' => $value]);
@@ -296,12 +298,12 @@ class FormulaireController extends Controller
                 if(preg_match("/^choix_question/", $input )){
                     $id_choix_question = $value;
                 }
-                elseif(isset($question) && (preg_match("/^nouveau_choix/", $input ))){  
+                elseif(isset($question) && (preg_match("/^nouveau_choix/", $input ))){
                     $id_question_presente = $id_question_existante->id;
                 }
                 elseif(isset($id_new_question)){
                     $id_choix_question_new =$id_new_question;
-                    
+
                 }
                 //Modification des choix de question multiple
                 if(preg_match("/^[0-9]/", $input )) {
@@ -331,15 +333,25 @@ class FormulaireController extends Controller
                                 "name" =>$value,
                                 "questions_id" =>$id_choix_question_new,
                             ]);
-                            
+
                             //unset($id_new_question);
                         }
                     }
                 }
- 
+
             }
         };
         return Redirect::route('formulaires.index');
+    }
+
+    public function upload_background(Request $request) {
+        if ($request->ajax()) {
+            $file = $request->file('image_fond_form');
+
+
+            return response()->json(['background'=>$file],200);
+        }
+        abort(404);
     }
 
 }
