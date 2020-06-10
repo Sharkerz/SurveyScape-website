@@ -74,6 +74,7 @@ body {
   text-align: left;
   /* background-color: #f8fafc; */
   background-repeat:no-repeat;
+  background-image: url(../background.png);
 }
 
 .bouton-creation {

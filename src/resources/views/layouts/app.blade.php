@@ -36,13 +36,18 @@
 
     <script type="text/javascript">
 
-        if(localStorage.getItem("text") == "brightness_3") {
-            DarkReader.disable()
-        } else if(localStorage.getItem("text") == "wb_sunny") {
-            DarkReader.enable()
-        }
-
+            if(localStorage.getItem("text") == "brightness_3") {
+                DarkReader.disable()
+            } else if(localStorage.getItem("text") == "wb_sunny") {
+                DarkReader.enable()
+            }
+            
         $(document).ready(function() {
+            if(localStorage.getItem("text") == "brightness_3") {
+                document.body.style.backgroundImage = "url(../background.png)";
+            } else if(localStorage.getItem("text") == "wb_sunny") {
+                document.body.style.backgroundImage = "none";
+            }
             $('#sun').click(function(){
                 if($('#sun').text() == 'brightness_3') {
                     document.body.style.backgroundImage = "none";
