@@ -48,7 +48,6 @@ Choix type de question
 
 $(document).on("change", "select.form-control.select_type", function (e) {
     var id_question = $(this).closest(".body_question")[0].children[0].children[0].children[0].value;
-    console.log(id_question)
     var choice = $(this)[0].value;
     var div_question = $(this).closest(".div_question")[0].children[1];
     var ordre_question = $(this).closest(".div_question")[0].children[0].value;
@@ -260,6 +259,17 @@ $('#btn-lock').click(function privatelock() {
     }
 });
 
+/* ================
+Ajout image fond du formulaire
+================= */
+$("#btn-add_image_fond").click(function () {
+    var test = $(this).parents()[0];
+    $('#image_fond').click();
+    //test.innerHTML +="<input id=\"image_fond\" type=\"file\" name=\"image_fond_form\">"
+});
+$(document).on('change','#image_fond',function(){
+    console.log($(this)[0].files[0].name);
+})
 /* ================
 Suppression choix questions multiples
 ================= */

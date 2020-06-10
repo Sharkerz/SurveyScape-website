@@ -34,7 +34,7 @@
     <!-- Dark mode -->
     <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>
 
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
 
             if(localStorage.getItem("text") == "brightness_3") {
                 DarkReader.disable()
@@ -44,7 +44,7 @@
             
         $(document).ready(function() {
             if(localStorage.getItem("text") == "brightness_3") {
-                document.body.style.backgroundImage = "url(../background.png)";
+                document.body.style.backgroundImage = "radial-gradient(#DDE2E3, #F5F5F5);";
             } else if(localStorage.getItem("text") == "wb_sunny") {
                 document.body.style.backgroundImage = "none";
             }
@@ -57,7 +57,7 @@
                 } else if($('#sun').text() == 'wb_sunny') {
                     DarkReader.disable()
                     $('#sun').text('brightness_3');
-                    document.body.style.backgroundImage = "url(../background.png)";
+                    document.body.style.backgroundImage = "radial-gradient(#DDE2E3, #F5F5F5);";
                     localStorage.setItem("text","brightness_3");
                 }
             });
@@ -68,7 +68,7 @@
 
         });
 
-    </script>
+    </script>-->
 
 </head>
 <body>
@@ -171,13 +171,13 @@
     <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
 @endguest
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
         $('#sun').text(localStorage.getItem("text"));
         if(localStorage.getItem("text") == null){
             $('#sun').text("brightness_3");
-            document.body.style.backgroundImage = "url(../background.png)";
+            document.body.style.backgroundImage = "radial-gradient(#DDE2E3, #F5F5F5);";
         }
-</script>
+ </script> -->
 
 </body>
 </html>

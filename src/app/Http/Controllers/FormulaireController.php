@@ -132,10 +132,15 @@ class FormulaireController extends Controller
             $choix_question_multiples = QuestionChoixMultiple::all() -> where('questions_id', $id_de_la_question);
             array_push($choix_question,$choix_question_multiples);
         }
+        $nb_reponses = 0;
+        foreach($reponses as $reponse){
+            $nb_reponses +=1;
+        }
         return view('formulaire.show', [
             'formulaire' => $formulaire,
             'questions'=>$questions,
             'reponses'=>$reponses,
+            'nb_reponses' =>$nb_reponses,
             'choix_question_multiples' =>$choix_question,
         ]);
     }

@@ -2,13 +2,19 @@
 
 @section('content')
 
-<link href="{{ asset('css/index_form.css') }}" rel="stylesheet">
-<div id="Modify_Form">
-    <i class="material-icons"  id="btn-task" id="icon_notif">create</i>
-</div>
-<div class="container">
+<link href="{{ asset('css/show_form.css') }}" rel="stylesheet">
 
-<h1>{{ $formulaire->name }}</h1>
+<div class="container">
+    <div id="Modify_Form">
+        <i class="material-icons"  id="btn-task" id="icon_notif">create</i>
+    </div>
+    <div id="info">
+        <h1>Responses au formulaire :{{$formulaire->name}}</h1>
+        <h2>Il y a actuellement  :{{$nb_reponses}} réponses</h2>
+    </div>
+   
+
+
 
     <div class="row justify-content-center">
         <div class="col-md-8">
