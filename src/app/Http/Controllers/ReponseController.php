@@ -49,8 +49,6 @@ function envoyer(Request $request) {
                 ->withErrors($validator);
     }
 
-
-
     $inputs = $request->input();
     $id_form = $request->input('form_id');
     if(auth()->check() == true){
