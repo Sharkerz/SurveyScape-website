@@ -15,42 +15,47 @@
     <div id="title">
         <h2>{{ $formulaire->name }}</h2>
         <h3>Il y a actuellement  :{{$nb_reponses}} réponses</h3>
-
-        <form action="{{ route('formulaires.destroy', ['formulaire' => $formulaire->id]) }}" method="post">
-            @csrf
-            @method('delete')
-            <input class="btn btn-danger" type='submit' value="Supprimer">
-        </form>
     </div>
 
     <div id="questions">
+    @php
+    $nb_question=1
+    @endphp
         @foreach($questions as $question)
             <div class="div_question">
                 <div class="question">
-                    <h3>{{$question->name}}</h3>
+                    <h3>Question n°{{$nb_question}}:{{$question->name}}</h3>
                 </div>
                 @if($question->type_question === "Choix multiples")
-                    <!-- -->
-                    multiple
+                    
                 @elseif($question->type_question === "Texte")
-                    <!-- -->
-                    txt
+                    <div class="Liste_Reponse">
+                    @php
+                        $nb_reponses_question = 0
+                        @endphp
+                        @foreach($reponses as $reponse)
+                            @if($nb_reponses_question >= 3)
+                                <div class="Autres_reponses">
+                                    <button type="button" class="btn btn-light">Afficher toutes les réponses</button>
+                                </div>
+                            
+                            @elseif($reponse->question_id == $question->id)
+                            <div class="Reponse_Texte">{{$reponse->response}}</div>
+                                @php
+                                $nb_reponses_question+=1
+                                @endphp
+                            @endif
+                        @endforeach
+                        </ul>
+                    </div>
                 @endif
 
-                @foreach($reponses as $reponse)
-                    @if($reponse->question_id == $question->id)
-                    {{$reponse->response}}
-                    @endif
-                @endforeach
             </div>
+            @php
+            $nb_question+=1
+            @endphp
         @endforeach
     </div>
-
-{{--                    {{ $formulaire->name }}--}}
-{{--                    {{ $formulaire->user->name }}--}}
-{{--                    {{ $formulaire->open_on }}--}}
-{{--                    {{ $formulaire->close_on }}--}}
-
 
 </div>
 
