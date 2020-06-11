@@ -10,10 +10,6 @@ class Formulaire extends Model
         'name', 'user_id', 'close_on', 'open_on','image', 'private', 'background', 'token'
     ];
 
-    public static function where($token)
-    {
-    }
-
     public function rubriques()
     {
         return $this->hasMany('App\Rubrique');
