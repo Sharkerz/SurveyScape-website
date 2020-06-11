@@ -18,6 +18,13 @@ $(document).ready(function () {
         }
     });
 
- //document.body.style.background = "url('../test.jpg') repeat fixed";
+// Background personnalisé
+function background() {
+    if ($("#background")[0] !== undefined) { //Si le formulaire possède un background
+        var filename = $("#background")[0].value;
+        document.body.style.background = "url('../Images/background_form/"+ filename +"') repeat fixed";
+    }
+}
+background();
 
 });

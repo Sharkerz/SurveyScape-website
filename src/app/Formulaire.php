@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Formulaire extends Model
 {
     protected $fillable = [
-        'name', 'user_id', 'close_on', 'open_on','image', 'private'
+        'name', 'user_id', 'close_on', 'open_on','image', 'private', 'background'
     ];
 
     public function rubriques()

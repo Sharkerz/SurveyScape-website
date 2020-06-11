@@ -263,13 +263,40 @@ $('#btn-lock').click(function privatelock() {
 Ajout image fond du formulaire
 ================= */
 $("#btn-add_image_fond").click(function () {
-    var test = $(this).parents()[0];
     $('#image_fond').click();
-    //test.innerHTML +="<input id=\"image_fond\" type=\"file\" name=\"image_fond_form\">"
 });
+
 $(document).on('change','#image_fond',function(){
-    console.log($(this)[0].files[0].name);
-})
+    var file = $(this)[0].files[0];
+    var data = new FormData($('#form_background')[0]);
+
+    $.ajax({
+        type: 'POST',
+        url : '/formulaire/background',
+        data: data,
+        processData: false,
+        contentType: false,
+        success: function (Response) {
+            load_background(Response.background);
+            $("#background_create")[0].innerHTML += "<input type=\"text\" name=\"background\" value=\""+ Response.background +"\" hidden>";
+        }
+    })
+});
+
+//Chargement du background
+function load_background(filename) {
+    document.body.style.background = "url('../Images/background_form/"+ filename +"') repeat fixed";
+}
+
+// Background personnalisé
+function background() {
+    if ($("#edit_background")[0] !== undefined) { //Si le formulaire possède un background
+        var filename = $("#edit_background")[0].value;
+        document.body.style.background = "url('../../Images/background_form/"+ filename +"') repeat fixed";
+    }
+}
+background();
+
 /* ================
 Suppression choix questions multiples
 ================= */

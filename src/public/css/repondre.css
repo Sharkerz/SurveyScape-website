@@ -80,3 +80,7 @@ input[type=radio] {
 .textarea{
     resize: none;
 }
+
+#div_error {
+    height: 3.2rem;
+}

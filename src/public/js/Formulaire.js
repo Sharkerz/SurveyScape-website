@@ -9,4 +9,13 @@ $(document).ready(function () {
     document.location.href="/formulaires/" + id_form + "/edit"
 });
 
+// Background personnalisé
+function background() {
+    if ($("#background")[0] !== undefined) { //Si le formulaire possède un background
+        var filename = $("#background")[0].value;
+        document.body.style.background = "url('../Images/background_form/"+ filename +"') repeat fixed";
+    }
+}
+background();
+
 });

@@ -14,8 +14,10 @@
         <div id="Add_Question"><i class="material-icons"  data-toggle="tooltip" data-placement="right" title="Ajouter une question" >add_circle_outline</i></div>
         <div id="Privacy"><i class="material-icons" id="btn-lock" data-toggle="tooltip" data-placement="right" title="Rendre le formulaire public" >lock</i></div>
         <div id="Add_Fond_Form"><i class="material-icons" id="btn-add_image_fond" data-toggle="tooltip" data-placement="right" title="Personnaliser le fond" >image</i></div>
-        <input  hidden id="image_fond" type="file" name="image_fond_form">
-        <div id="Add_Dates"><i class="material-icons" >event</i></div>
+        <form id="form_background" enctype="multipart/form-data" method="post">
+            @csrf
+            <input  hidden id="image_fond" type="file" name="image_fond_form">
+        </form>
     </div>
 
     <h1>Création d'un Formulaire</h1>
@@ -101,6 +103,10 @@
 
     <div class="col" id="submit_form">
         <br><button type="submit" class="btn btn-primary btn-lg">Publier</button>
+    </div>
+
+    <div id="background_create">
+        <!-- div qui accueil le background si selectionné -->
     </div>
 
 </form>

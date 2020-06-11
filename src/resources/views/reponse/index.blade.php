@@ -66,7 +66,7 @@
             <div id="envoyer">
                 {!! htmlFormSnippet() !!}
                 @if (count($errors) > 0)
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" id="div_error">
                         @foreach($errors->all() as $error)
                             <p>{{ $error }}</p>
                         @endforeach
@@ -78,6 +78,12 @@
         </form>
 
     </div>
+
+<!-- Si un background personnalisé existe -->
+@isset($formulaire->background)
+    <input type="text" id="background" value="{{ $formulaire->background }}" hidden>
+@endisset
+
 
 <script type="text/javascript" src="{{ URL::asset('js/repondre.js') }}"></script>
 

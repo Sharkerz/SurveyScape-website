@@ -13,4 +13,5 @@ npm-debug.log
 yarn-error.log
 /public/avatar/*
 /public/Images/Formulaire/*
+/public/Images/background_form/*
 .rnd
