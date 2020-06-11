@@ -33,43 +33,36 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Dark mode -->
-{{--    <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>--}}
+    <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>
 
-{{--    <script type="text/javascript">--}}
+    <script type="text/javascript">
 
-{{--            if(localStorage.getItem("text") == "brightness_3") {--}}
-{{--                DarkReader.disable()--}}
-{{--            } else if(localStorage.getItem("text") == "wb_sunny") {--}}
-{{--                DarkReader.enable()--}}
-{{--            }--}}
-{{--            --}}
-{{--        $(document).ready(function() {--}}
-{{--            if(localStorage.getItem("text") == "brightness_3") {--}}
-{{--                document.body.style.backgroundImage = "url(../background.png)";--}}
-{{--            } else if(localStorage.getItem("text") == "wb_sunny") {--}}
-{{--                document.body.style.backgroundImage = "none";--}}
-{{--            }--}}
-{{--            $('#sun').click(function(){--}}
-{{--                if($('#sun').text() == 'brightness_3') {--}}
-{{--                    document.body.style.backgroundImage = "none";--}}
-{{--                    DarkReader.enable()--}}
-{{--                    $('#sun').text('wb_sunny');--}}
-{{--                    localStorage.setItem("text","wb_sunny");--}}
-{{--                } else if($('#sun').text() == 'wb_sunny') {--}}
-{{--                    DarkReader.disable()--}}
-{{--                    $('#sun').text('brightness_3');--}}
-{{--                    document.body.style.backgroundImage = "url(../background.png)";--}}
-{{--                    localStorage.setItem("text","brightness_3");--}}
-{{--                }--}}
-{{--            });--}}
+            if(localStorage.getItem("text") == "brightness_3") {
+                DarkReader.disable()
+            } else if(localStorage.getItem("text") == "wb_sunny") {
+                DarkReader.enable()
+            }
+            
+        $(document).ready(function() {
+            $('#sun').click(function(){
+                if($('#sun').text() == 'brightness_3') {
+                    DarkReader.enable()
+                    $('#sun').text('wb_sunny');
+                    localStorage.setItem("text","wb_sunny");
+                } else if($('#sun').text() == 'wb_sunny') {
+                    DarkReader.disable()
+                    $('#sun').text('brightness_3');
+                    localStorage.setItem("text","brightness_3");
+                }
+            });
 
-{{--            $('#sun').on('click', function() {--}}
-{{--                localStorage.input = $(this).text();--}}
-{{--            });--}}
+            $('#sun').on('click', function() {
+                localStorage.input = $(this).text();
+            });
 
-{{--        });--}}
+        });
 
-{{--    </script>--}}
+    </script>
 
 </head>
 <body>
@@ -196,13 +189,12 @@
     <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
 @endguest
 
-{{--<script type="text/javascript">--}}
-{{--        $('#sun').text(localStorage.getItem("text"));--}}
-{{--        if(localStorage.getItem("text") == null){--}}
-{{--            $('#sun').text("brightness_3");--}}
-{{--            document.body.style.backgroundImage = "url(../background.png)";--}}
-{{--        }--}}
-{{--</script>--}}
+<script type="text/javascript">
+        $('#sun').text(localStorage.getItem("text"));
+        if(localStorage.getItem("text") == null){
+            $('#sun').text("brightness_3");
+        }
+</script>
 
 </body>
 </html>

@@ -195,8 +195,7 @@ class FormulaireController extends Controller
         ]);
         }
         else{
-            return Redirect::route('formulaires.index');
-        }
+            return view("formulaire.block", ['formulaire_name' => $formulaire->name]);        }
     }
 
     /**
