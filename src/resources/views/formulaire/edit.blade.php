@@ -12,7 +12,11 @@
     <div id="Add_Form">
         <div id="Add_Question"><i class="material-icons"  data-toggle="tooltip" data-placement="right" title="Ajouter une question" >add_circle_outline</i></div>
         <div id="Privacy"><i class="material-icons" id="btn-lock" data-toggle="tooltip" data-placement="right" title="Rendre le formulaire public" >lock</i></div>
-        <div id="Add_Fond_Form"><i class="material-icons" data-toggle="tooltip" data-placement="right" title="Personnaliser le fond" >image</i></div>
+        <div id="Add_Fond_Form"><i class="material-icons" data-toggle="tooltip" id="btn-add_image_fond" data-placement="right" title="Personnaliser le fond" >image</i></div>
+        <form id="form_background" enctype="multipart/form-data" method="post">
+            @csrf
+            <input  hidden id="image_fond" type="file" name="image_fond_form">
+        </form>
     </div>
 
     <h1>Edition du formulaire : </h1>
@@ -155,12 +159,17 @@
         <br><button type="submit" class="btn btn-primary btn-lg">Enregistrer</button>
     </div>
 
+    <div id="background_create">
+        <!-- div qui accueil le background si selectionné -->
+    </div>
+
+    <!-- Si un background personnalisé existe -->
+    @if(isset($formulaire->background) === true and $formulaire->background !== null)
+    <input type="text" name="check_background" id="edit_background" value="{{ $formulaire->background }}" hidden>
+    @endif
+
     </form>
 
-<!-- Si un background personnalisé existe -->
-@isset($formulaire->background)
-    <input type="text" id="edit_background" value="{{ $formulaire->background }}" hidden>
-@endisset
 
 </div>
 <script type="text/javascript" src="{{ URL::asset('js/create_form.js') }}"></script>

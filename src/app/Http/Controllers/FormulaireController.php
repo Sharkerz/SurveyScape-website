@@ -75,7 +75,6 @@ class FormulaireController extends Controller
 
         }
 
-
         $inputs = $request->input();
         //dd($inputs);
         Formulaire::create([
@@ -203,6 +202,8 @@ class FormulaireController extends Controller
 
     public function update_form(Request $request){
         //Mise à jour des données en rapport avec le formulaire
+
+        //image banniere
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time(). '.' . $image->getClientOriginalExtension();
@@ -213,6 +214,19 @@ class FormulaireController extends Controller
             $image ="default.png";
 
         }
+
+        //background
+        if ($request->has('background')){
+            $background = $request->input('background');
+        }
+        else if ($request->has('check_background')){
+            $background = $request->input('check_background');
+        }
+        else{
+            $background = null;
+
+        }
+
         $inputs = $request->input();
         //Mise à jour du formulaire
         Formulaire::where('id', $request->input('id'))
@@ -221,7 +235,9 @@ class FormulaireController extends Controller
                 "open_on" => $request->input('open_on'),
                 "close_on" => $request->input('close_on'),
                 "image" =>$image,
-                "private" => $request->input('private')]);
+                "private" => $request->input('private'),
+                "background" => $background,
+            ]);
 
         $id_form = Formulaire::where('name', '=', $request->input('name'))
             ->first();
