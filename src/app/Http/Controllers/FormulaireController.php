@@ -137,31 +137,37 @@ class FormulaireController extends Controller
     public function show($id)
     {
         $formulaire = Formulaire::find($id);
-        $questions = Question::all() -> where('formulaire_id', $formulaire->id);
-        $reponses = Reponse::all()->where('formulaire_id',$formulaire->id);
-        $choix_question=[];
-        foreach($questions as $question){
-            $question->id;
-            $id_de_la_question = $question->id;
-            $choix_question_multiples = QuestionChoixMultiple::all() -> where('questions_id', $id_de_la_question);
-            array_push($choix_question,$choix_question_multiples);
+        if ($formulaire->user_id == Auth::id()){
+            $questions = Question::all() -> where('formulaire_id', $formulaire->id);
+            $reponses = Reponse::all()->where('formulaire_id',$formulaire->id);
+            $choix_question=[];
+            foreach($questions as $question){
+                $question->id;
+                $id_de_la_question = $question->id;
+                $choix_question_multiples = QuestionChoixMultiple::all() -> where('questions_id', $id_de_la_question);
+                array_push($choix_question,$choix_question_multiples);
+            }
+            $nb_questions = 0;
+            foreach($questions as $question){
+                $nb_questions +=1;
+            }
+            $nb_reponses = 0;
+            foreach($reponses as $reponse){
+                $nb_reponses +=1;
+            }
+            $nb_reponses=round($nb_reponses/$nb_questions);
+            return view('formulaire.show', [
+                'formulaire' => $formulaire,
+                'questions'=>$questions,
+                'reponses'=>$reponses,
+                'nb_reponses' =>$nb_reponses,
+                'choix_question_multiples' =>$choix_question,
+            ]);
         }
-        $nb_questions = 0;
-        foreach($questions as $question){
-            $nb_questions +=1;
+        else{
+            return Redirect::route('formulaires.index');
         }
-        $nb_reponses = 0;
-        foreach($reponses as $reponse){
-            $nb_reponses +=1;
-        }
-        $nb_reponses=round($nb_reponses/$nb_questions);
-        return view('formulaire.show', [
-            'formulaire' => $formulaire,
-            'questions'=>$questions,
-            'reponses'=>$reponses,
-            'nb_reponses' =>$nb_reponses,
-            'choix_question_multiples' =>$choix_question,
-        ]);
+       
     }
 
     /**
@@ -173,6 +179,7 @@ class FormulaireController extends Controller
     public function edit($id)
     {
         $formulaire = Formulaire::find($id);
+        if ($formulaire->user_id == Auth::id()){
         $questions = Question::all() -> where('formulaire_id', $formulaire->id);
         $choix_question=[];
         foreach($questions as $question){
@@ -186,6 +193,10 @@ class FormulaireController extends Controller
             'questions'=>$questions,
             'choix_question_multiples' =>$choix_question,
         ]);
+        }
+        else{
+            return Redirect::route('formulaires.index');
+        }
     }
 
     /**
