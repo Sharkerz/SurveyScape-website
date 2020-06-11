@@ -233,10 +233,13 @@ function checkLock() {
     var current = $("#private_value")[0];
     var icon = $("#btn-lock")[0];
 
+    // Passe en public
     if(current.value === "0") {
         icon.innerText = "lock_open";
         icon.setAttribute("data-original-title", "Rendre le formulaire privé");
     }
+
+    //passe en privé
     else if (current.value === "1") {
         icon.innerText = "lock";
         icon.setAttribute("data-original-title", "Rendre le formulaire public");
@@ -251,11 +254,15 @@ $('#btn-lock').click(function privatelock() {
         $(this)[0].innerText = "lock_open";
         $(this)[0].setAttribute("data-original-title", "Rendre le formulaire privé");
         $("#private_value")[0].value = "0";
+        $("#status_private_word")[0].innerText = "public";
+        $("#status_private_word")[0].style.color = "green";
     }
     else if (current === "lock_open") {
         $(this)[0].innerText = "lock";
         $(this)[0].setAttribute("data-original-title", "Rendre le formulaire public");
         $("#private_value")[0].value = "1";
+        $("#status_private_word")[0].innerText = "privé";
+        $("#status_private_word")[0].style.color = "red";
     }
 });
 

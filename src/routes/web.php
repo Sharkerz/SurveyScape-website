@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/listeFormulaire', 'ListeFormulaireController@list')->name('listeFormulaire');
-Route::get('/repondre/{id}', 'ReponseController@repondre');
+Route::get('/repondre/{token}', 'ReponseController@repondre');
 Route::post('/repondre/send', 'ReponseController@envoyer')->name('envoyer_reponse');
 
 Route::group(['middleware' => ['auth']], function () {

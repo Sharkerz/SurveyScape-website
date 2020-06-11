@@ -12,6 +12,7 @@ use App\Reponse;
 use Redirect;
 use Image;
 use Symfony\Component\Console\Input\Input;
+use function GuzzleHttp\Psr7\str;
 
 class FormulaireController extends Controller
 {
@@ -63,7 +64,6 @@ class FormulaireController extends Controller
         }
         else{
             $image ="default.png";
-
         }
 
         //Background
@@ -72,8 +72,13 @@ class FormulaireController extends Controller
         }
         else{
             $background = null;
-
         }
+
+        //Generation du token
+        $char = "abcdefghijklmnopqrstuvwxyz0123456789";
+        $chain = str_shuffle($char);
+
+        $token = time().$chain;
 
         $inputs = $request->input();
         //dd($inputs);
@@ -85,6 +90,7 @@ class FormulaireController extends Controller
             "image" =>$image,
             "private" => $request->input('private'),
             "background" => $background,
+            "token" => $token,
         ]);
 
         $id_form = Formulaire::where('created_at', '=', now())
@@ -167,7 +173,7 @@ class FormulaireController extends Controller
         else{
             return Redirect::route('formulaires.index');
         }
-       
+
     }
 
     /**

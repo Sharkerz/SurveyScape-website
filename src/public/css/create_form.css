@@ -34,6 +34,19 @@ Div personnalisation du formulaire
     padding: 6px;
 }
 
+/*
+Affichage status formulaire privé/public
+*/
+
+#status_private {
+    white-space: nowrap;
+    font-size: 1.2rem;
+}
+
+#status_private_word {
+    color: red
+}
+
 
 /*
 Questions
@@ -174,4 +187,5 @@ Bouton retour
     cursor: pointer;
     color: #761b18;
 }
+
 
