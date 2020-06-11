@@ -60,11 +60,12 @@
             </div>
 
             <div class="row">
-                <div class="col-10">
+                <div class="col-9">
                 </div>
                 <div class="col-2" id="status_private" data-toggle="tooltip" data-placement="top" title="Les formulaires publics sont indexés sur le site. S'ils sont privés, il n'est possible d'y répondre qu'en possession du lien de partage">
                     <span>Formulaire</span> <span id="status_private_word">privé</span>
                 </div>
+
             </div>
 
         </div>

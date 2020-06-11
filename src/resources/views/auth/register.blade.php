@@ -27,7 +27,7 @@
                                 <div class="form-group row">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('auth.E-Mail Address') }}</label>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6" id="div_email">
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                         @error('email')
@@ -35,6 +35,8 @@
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
+                                        <div id="div_error_email" style="text-align: center; color: red">
+                                        </div>
                                     </div>
                                 </div>
 
@@ -52,12 +54,16 @@
                                     </div>
                                 </div>
 
+
                                 <div class="form-group row">
                                     <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('auth.Confirm Password') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                     </div>
+                                </div>
+
+                                <div id="div_error_api" style="text-align: center; color: red">
                                 </div>
 
                                 <div class="form-group row mb-0">
@@ -100,13 +106,40 @@
             "cache": false,
             "data": form,
             "dataType": "json",
-            error: function(){
-                alert('error');
+            error: function(xhr){
+                var error = JSON.parse(xhr.responseText);
+
+                if(error.errors === undefined) {
+                    error_api();
+                }
+                 else if(error.errors.email[0] === "The email has already been taken.") {
+                    error_email();
+                 }
             },
             success: function () {
                 window.location.href = "/login";
             }
         };
+
+        function error_email() {
+            $("#div_error_email")[0].innerHTML +=
+            '<span>Cette adresse email est déja utilisé</span>';
+            const start = Date.now();
+
+            setTimeout(() => {
+                $("#div_error_email")[0].innerHTML = "";
+            }, 3000);
+        }
+
+        function error_api() {
+            $("#div_error_api")[0].innerHTML +=
+                '<span>Nous sommes désolés, le serveur a rencontré un problème.</span>';
+            const start = Date.now();
+
+            setTimeout(() => {
+                $("#div_error_api")[0].innerHTML = "";
+            }, 3000);
+        }
 
         $.ajax(settings).done(function (response) {
         });
