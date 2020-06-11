@@ -20,6 +20,15 @@
                 height: 300vh;
                 margin: 0;
             }
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: white;
+                color: white;
+                text-align: center;
+            }
 
             .full-height {
                 height: 100vh;
@@ -134,6 +143,10 @@
         </style>
     </head>
     <body>
+        <div class="footer">
+            <p>Footer</p>
+        </div>
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

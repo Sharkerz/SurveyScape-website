@@ -24,6 +24,7 @@ class CreateFormulairesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('private');
             $table->string('background')->nullable();
+            $table->longText('token');
             $table->timestamps();
         });
     }
