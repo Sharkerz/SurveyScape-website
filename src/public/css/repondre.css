@@ -84,3 +84,13 @@ input[type=radio] {
 #div_error {
     height: 3.2rem;
 }
+
+.g-recaptcha {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
+#btn_envoyer {
+    margin-top: 1rem;
+}

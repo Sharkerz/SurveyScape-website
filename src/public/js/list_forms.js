@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $(document).on("click", ".formulaire", function () {
-        var form_id = $(this).attr("id");
-        document.location.href="/repondre/" + form_id + ""
+        var form_token = $(this)[0].children[0].value;
+        document.location.href="/repondre/" + form_token + ""
     });
 });

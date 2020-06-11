@@ -15,8 +15,8 @@
 
     @foreach($formulaires as $formulaire)
 
-
         <div class="card formulaire" id="{{ $formulaire->id }}">
+            <input type="hidden" class="form_token" value="{{ $formulaire->token }}">
                 <img class="card-img-top" alt="Image_Formulaire" src="/Images/Formulaire/{{ $formulaire->image }}">
             <div class="card-body">
                 <h2 class="card-title"> {{ $formulaire->name }} </h2>
