@@ -93,7 +93,7 @@ class FormulaireController extends Controller
             "token" => $token,
         ]);
 
-        $id_form = Formulaire::where('created_at', '=', now())
+        $id_form = Formulaire::all() ->where('token', '=', $token)
             ->first();
 
         foreach($inputs as $input=>$value){
