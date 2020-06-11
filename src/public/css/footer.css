@@ -1,6 +1,8 @@
+main {
+    min-height: 85.5vh;
+}
 
 #footer {
-  position: absolute;
   left: 0;
   bottom: 0;
   height: 4rem;
