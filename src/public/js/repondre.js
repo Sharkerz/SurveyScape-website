@@ -18,6 +18,6 @@ $(document).ready(function () {
         }
     });
 
- document.body.style.background = "url('../test.jpg') repeat fixed";
+ //document.body.style.background = "url('../test.jpg') repeat fixed";
 
 });

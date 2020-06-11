@@ -11,6 +11,20 @@
     margin-bottom: 3rem;
 }
 
+#info{
+    background-color: white;
+    border-radius: 3mm;
+}
+.material-icons{
+    font-size: 50px;
+}
+
+#Modify_Form{
+    
+    height: 50px;
+    margin-left: 95%;
+    cursor: pointer;
+}
 h2 {
     margin-right: auto;
     margin-left: auto;
@@ -29,11 +43,11 @@ h2 {
 
 .question {
     padding-top: 1rem;
-    margin-left: 5rem;
+    margin-left: 1rem;
 }
 
 .question > h3 {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
 }
 
 .proposition {
@@ -61,4 +75,18 @@ input[type=radio] {
 }
 .textarea{
     resize: none;
+}
+.Liste_Reponse{
+    margin-left: 5%;
+     
+}
+.Reponse_Texte{
+    width: inherit;
+    height:40px;
+    background-color: #E7E7E7;
+    margin-bottom: 3px;
+    margin-right: 5%;
+    margin-left: 2%;
+    line-height: 2;
+    font-size: 1.3rem;
 }
