@@ -23,6 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/card-notifs.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 
     <!-- JQuery et Ajax-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -163,7 +164,31 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+        <div class="container-fluid" id="footer">
+        <div class="row">
+            <div class="col lfooter" >
+                <p></p>
+            </div>
+            <div class="col lfooter" >
+                <p>Conditions d'utilisation</p>
+            </div>
+            <div class="col lfooter">
+            <p>Equipe de direction</p>
+            </div>
+            <div class="col lfooter">
+            <p>Politique de confidentialité</p>
+            </div>
+            <div class="col" id="l4footer">
+            <img src="https://img.icons8.com/material/48/000000/linkedin--v1.png"/>
+            </div>
+            <div class="col lfooter" >
+                <p></p>
+            </div>
+
+        </div>
+        </div>
+
+        </div>
 
     @guest
     @else
