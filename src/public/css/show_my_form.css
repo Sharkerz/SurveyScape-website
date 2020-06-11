@@ -20,11 +20,21 @@
 }
 
 #Modify_Form{
-    
-    height: 50px;
     margin-left: 95%;
     cursor: pointer;
+    border-radius: 50%;
+    background-color: white;
+    height: 3.3rem;
+    width: 3.3rem;
+    text-align: center;
 }
+
+#Modify_Form:hover {
+    cursor: pointer;
+    color: #1b4b72;
+}
+
+
 h2 {
     margin-right: auto;
     margin-left: auto;
@@ -78,7 +88,7 @@ input[type=radio] {
 }
 .Liste_Reponse{
     margin-left: 5%;
-     
+
 }
 .Reponse_Texte{
     /* width: inherit; */
@@ -91,7 +101,7 @@ input[type=radio] {
     font-size: 1.3rem;
 }
 .Reponse_Texte_cacher{
-    display: none;  
+    display: none;
     width : inherit;
     height:40px;
     background-color: #F9F9F9;
@@ -108,4 +118,35 @@ input[type=radio] {
 .Afficher_Reponses{
     margin-left: 30%;
     margin-right: 30%;
+}
+
+/*
+Bouton retour
+*/
+
+#back {
+    border-radius: 50%;
+    background-color: white;
+    height: 3.3rem;
+    width: 3.3rem;
+    text-align: center;
+    float: left;
+    margin-left: 50px;
+}
+
+#back > a {
+    text-decoration: none;
+    color: black;
+}
+
+#back_logo {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 3rem;
+    height: 3rem;
+}
+
+#back_logo:hover {
+    cursor: pointer;
+    color: #761b18;
 }
