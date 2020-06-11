@@ -5,6 +5,10 @@
 
 <link href="{{ asset('css/show_my_form.css') }}" rel="stylesheet">
 
+<div id="back">
+    <a href="javascript:window.history.go(-1)"><i id="back_logo" class="material-icons">arrow_back</i></a>
+</div>
+
 <div id="Modify_Form">
     <i class="material-icons"  id="btn-task" id="icon_notif">create</i>
 </div>
@@ -27,7 +31,7 @@
                     <h3>Question n°{{$nb_question}}:{{$question->name}}</h3>
                 </div>
                 @if($question->type_question === "Choix multiples")
-                    
+
                 @elseif($question->type_question === "Texte")
                     <div class="Liste_Reponse">
                     @php
@@ -45,7 +49,7 @@
                                 @php
                                 $nb_reponses_question+=1
                                 @endphp
-                            @elseif($reponse->question_id == $question->id && $nb_reponses_question >=3) 
+                            @elseif($reponse->question_id == $question->id && $nb_reponses_question >=3)
                             <div  class="Reponse_Texte_cacher">{{$reponse->response}}</div>
                                 @php
                                 $nb_reponses_question+=1
