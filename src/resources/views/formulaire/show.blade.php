@@ -30,8 +30,27 @@
                 <div class="question">
                     <h3>Question n°{{$nb_question}}:{{$question->name}}</h3>
                 </div>
+                <div class ="Resultat_graphique">
                 @if($question->type_question === "Choix multiples")
-
+                    @php
+                        $data = array();
+                    @endphp
+                @foreach($reponses as $reponse)
+                    @if($reponse->question_id == $question->id)
+                        @php
+                            $temp = $reponse->response;
+                            
+                        @endphp
+                    @endif
+                    <script> var data = '{{$temp}}';</script>
+                    <script type="text/javascript" src="{{ URL::asset('js/show_form.js') }}"></script>
+                @endforeach
+                @php
+                    
+                    
+                @endphp
+                    
+                </div>
                 @elseif($question->type_question === "Texte")
                     <div class="Liste_Reponse">
                     @php
