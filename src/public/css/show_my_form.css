@@ -81,12 +81,31 @@ input[type=radio] {
      
 }
 .Reponse_Texte{
-    width: inherit;
+    /* width: inherit; */
     height:40px;
-    background-color: #E7E7E7;
+    background-color: #F9F9F9;
     margin-bottom: 3px;
     margin-right: 5%;
     margin-left: 2%;
     line-height: 2;
     font-size: 1.3rem;
+}
+.Reponse_Texte_cacher{
+    display: none;  
+    width : inherit;
+    height:40px;
+    background-color: #F9F9F9;
+    margin-bottom: 3px;
+    margin-right: 5%;
+    margin-left: 2%;
+    line-height: 2;
+    font-size: 1.3rem;
+}
+.Masquer_Reponses{
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.Afficher_Reponses{
+    margin-left: 30%;
+    margin-right: 30%;
 }

@@ -34,20 +34,26 @@
                         $nb_reponses_question = 0
                         @endphp
                         @foreach($reponses as $reponse)
-                            @if($nb_reponses_question >= 3)
-                                <div class="Autres_reponses">
-                                    <button type="button" class="btn btn-light">Afficher toutes les réponses</button>
-                                </div>
-                            
-                            @elseif($reponse->question_id == $question->id)
+                            @if($nb_reponses_question == 3)
+                                    <button type="button" class="btn btn-light Afficher_Reponses">Afficher toutes les réponses</button>
+                                <div class="test">
+                                @php
+                                $nb_reponses_question+=1
+                                @endphp
+                            @elseif($reponse->question_id == $question->id && $nb_reponses_question <=3)
                             <div class="Reponse_Texte">{{$reponse->response}}</div>
+                                @php
+                                $nb_reponses_question+=1
+                                @endphp
+                            @elseif($reponse->question_id == $question->id && $nb_reponses_question >=3) 
+                            <div  class="Reponse_Texte_cacher">{{$reponse->response}}</div>
                                 @php
                                 $nb_reponses_question+=1
                                 @endphp
                             @endif
                         @endforeach
-                        </ul>
                     </div>
+                </div>
                 @endif
 
             </div>
@@ -58,7 +64,7 @@
     </div>
 
 </div>
-
+<script type="text/javascript" src="{{ URL::asset('js/show_form.js') }}"></script>
 @endsection
 
 <!-- Si un background personnalisé existe -->
