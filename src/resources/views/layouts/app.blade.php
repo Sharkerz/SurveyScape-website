@@ -23,6 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/header.css') }}" rel="stylesheet">
     <link href="{{ asset('css/card-notifs.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 
     <!-- JQuery et Ajax-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -32,43 +33,36 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Dark mode -->
-{{--    <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>--}}
+    <script src = "https://unpkg.com/darkreader@4.9.2/darkreader.js"></script>
 
-{{--    <script type="text/javascript">--}}
+    <script type="text/javascript">
 
-{{--            if(localStorage.getItem("text") == "brightness_3") {--}}
-{{--                DarkReader.disable()--}}
-{{--            } else if(localStorage.getItem("text") == "wb_sunny") {--}}
-{{--                DarkReader.enable()--}}
-{{--            }--}}
-{{--            --}}
-{{--        $(document).ready(function() {--}}
-{{--            if(localStorage.getItem("text") == "brightness_3") {--}}
-{{--                document.body.style.backgroundImage = "url(../background.png)";--}}
-{{--            } else if(localStorage.getItem("text") == "wb_sunny") {--}}
-{{--                document.body.style.backgroundImage = "none";--}}
-{{--            }--}}
-{{--            $('#sun').click(function(){--}}
-{{--                if($('#sun').text() == 'brightness_3') {--}}
-{{--                    document.body.style.backgroundImage = "none";--}}
-{{--                    DarkReader.enable()--}}
-{{--                    $('#sun').text('wb_sunny');--}}
-{{--                    localStorage.setItem("text","wb_sunny");--}}
-{{--                } else if($('#sun').text() == 'wb_sunny') {--}}
-{{--                    DarkReader.disable()--}}
-{{--                    $('#sun').text('brightness_3');--}}
-{{--                    document.body.style.backgroundImage = "url(../background.png)";--}}
-{{--                    localStorage.setItem("text","brightness_3");--}}
-{{--                }--}}
-{{--            });--}}
+            if(localStorage.getItem("text") == "brightness_3") {
+                DarkReader.disable()
+            } else if(localStorage.getItem("text") == "wb_sunny") {
+                DarkReader.enable()
+            }
+            
+        $(document).ready(function() {
+            $('#sun').click(function(){
+                if($('#sun').text() == 'brightness_3') {
+                    DarkReader.enable()
+                    $('#sun').text('wb_sunny');
+                    localStorage.setItem("text","wb_sunny");
+                } else if($('#sun').text() == 'wb_sunny') {
+                    DarkReader.disable()
+                    $('#sun').text('brightness_3');
+                    localStorage.setItem("text","brightness_3");
+                }
+            });
 
-{{--            $('#sun').on('click', function() {--}}
-{{--                localStorage.input = $(this).text();--}}
-{{--            });--}}
+            $('#sun').on('click', function() {
+                localStorage.input = $(this).text();
+            });
 
-{{--        });--}}
+        });
 
-{{--    </script>--}}
+    </script>
 
 </head>
 <body>
@@ -163,7 +157,31 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+        <div class="container-fluid" id="footer">
+        <div class="row">
+            <div class="col lfooter" >
+                <p></p>
+            </div>
+            <div class="col lfooter" >
+                <p>Conditions d'utilisation</p>
+            </div>
+            <div class="col lfooter">
+            <p>Equipe de direction</p>
+            </div>
+            <div class="col lfooter">
+            <p>Politique de confidentialité</p>
+            </div>
+            <div class="col" id="l4footer">
+            <img src="https://img.icons8.com/material/48/000000/linkedin--v1.png"/>
+            </div>
+            <div class="col lfooter" >
+                <p></p>
+            </div>
+
+        </div>
+        </div>
+
+        </div>
 
     @guest
     @else
@@ -171,13 +189,12 @@
     <script type="text/javascript" src="{{ URL::asset('js/Notifications.js') }}"></script>
 @endguest
 
-{{--<script type="text/javascript">--}}
-{{--        $('#sun').text(localStorage.getItem("text"));--}}
-{{--        if(localStorage.getItem("text") == null){--}}
-{{--            $('#sun').text("brightness_3");--}}
-{{--            document.body.style.backgroundImage = "url(../background.png)";--}}
-{{--        }--}}
-{{--</script>--}}
+<script type="text/javascript">
+        $('#sun').text(localStorage.getItem("text"));
+        if(localStorage.getItem("text") == null){
+            $('#sun').text("brightness_3");
+        }
+</script>
 
 </body>
 </html>
