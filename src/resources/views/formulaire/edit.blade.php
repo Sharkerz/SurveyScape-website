@@ -19,14 +19,6 @@
         </form>
     </div>
 
-    <div class="row">
-        <div class="col-10">
-        </div>
-        <div class="col-2" id="status_private" data-toggle="tooltip" data-placement="top" title="Les formulaires publics sont indexés sur le site. S'ils sont privés, il n'est possible d'y répondre qu'en possession du lien de partage">
-            <span>Formulaire</span> <span id="status_private_word">privé</span>
-        </div>
-    </div>
-
     <h1>Edition du formulaire : </h1>
 
     <form action="{{ route('update_form') }}" method="post">
@@ -66,6 +58,15 @@
                     <input type="date" id="end_date" name="close_on" value="null" min="2020-01-01">
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-10">
+                </div>
+                <div class="col-2" id="status_private" data-toggle="tooltip" data-placement="top" title="Les formulaires publics sont indexés sur le site. S'ils sont privés, il n'est possible d'y répondre qu'en possession du lien de partage">
+                    <span>Formulaire</span> <span id="status_private_word">privé</span>
+                </div>
+            </div>
+
         </div>
 
     <div id="questions">
