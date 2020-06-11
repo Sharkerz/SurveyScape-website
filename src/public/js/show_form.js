@@ -1,5 +1,8 @@
 $(document).ready(function () {
-
+    
+    var test =[];
+    test+=[data];
+    console.log(test);
     $(document).on("click", ".Afficher_Reponses", function () {
         var button = $(this)[0].style.display = 'none';
         var new_reponses = $(this)[0].closest(".div_question").children[1].children[4].children;
