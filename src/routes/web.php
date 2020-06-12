@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/listeFormulaire', 'ListeFormulaireController@list')->name('listeFormulaire');
 Route::get('/repondre/{token}', 'ReponseController@repondre');
 Route::post('/repondre/send', 'ReponseController@envoyer')->name('envoyer_reponse');
+Route::get('/conditions-utilisations', function() {return view('conditions.index');})->name('conditions_utilisations');
 
 Route::group(['middleware' => ['auth']], function () {
 

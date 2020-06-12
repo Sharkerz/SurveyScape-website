@@ -163,7 +163,9 @@
                 <p></p>
             </div>
             <div class="col lfooter" >
-                <p>Conditions d'utilisation</p>
+                <a class="condutilisation" href="{{ route('conditions_utilisations') }}">
+                    Conditions d'utilisation
+                </a>
             </div>
             <div class="col lfooter">
             <p>Equipe de direction</p>
