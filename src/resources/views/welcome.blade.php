@@ -10,10 +10,9 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
         <style>
             html, body {
-                background-color: #DDE2E3;
-                background-image: radial-gradient(#DDE2E3, #F5F5F5);
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -163,7 +162,7 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="content" id="main_welcome">
                 <div class="title m-b-md">
                     <svg
                         id="logo"
@@ -187,11 +186,7 @@
                     </svg>
                 </div>
 
-                <div class="links">
-                    <a href="{{ route('formulaires.index') }}">Vos Formulaires</a>
-                    <a href="">Les Formulaires en ligne</a>
-                    <a href="https://github.com/Sharkerz/survey" target="_blank">GitHub</a>
-                </div>
+
             </div>
         </div>
     </body>

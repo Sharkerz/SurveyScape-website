@@ -1,3 +1,24 @@
+
+/* Tab selection */
+#tab {
+    padding-top: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%
+}
+
+#public {
+    min-height: 50rem;
+}
+
+#friend {
+    min-height: 50rem;
+}
+
+#error_friend {
+    padding-top: 35vh;
+}
+
 #header_list {
     padding-top: 1rem;
     text-align: left;
@@ -51,3 +72,5 @@
     width: 2rem;
     height: 2rem;
 }
+
+
