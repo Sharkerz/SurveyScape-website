@@ -36,7 +36,9 @@
     max-width: 86%;
     background-color: white;
     border-radius: 7px;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .formulaire {

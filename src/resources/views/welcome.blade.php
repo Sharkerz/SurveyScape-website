@@ -18,29 +18,7 @@
                 font-weight: 200;
                 margin: 0;
             }
-            .footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background-color: white;
-                color: white;
-                text-align: center;
-            }
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
 
             .top-right {
                 position: absolute;
@@ -59,8 +37,8 @@
             .links > a {
                 color: #24474D;
                 padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
+                font-size: 17px;
+                font-weight: 700;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -201,7 +179,7 @@
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
-                <a href="{{ url('/accueil') }}">Profil</a>
+                <a href="{{ url('/accueil') }}">Accèder à mon espace</a>
             @else
                 <a href="{{ route('listeFormulaire') }}">Formulaires publics</a>
                 <a href="{{ route('login') }}">Connexion</a>

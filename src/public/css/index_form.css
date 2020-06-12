@@ -26,8 +26,8 @@
 .Formulaire{
     background-color: #FAFAFA;
     width: 13rem;
-    height: 21rem;
-    margin-right: 70px;
+    height: 22rem;
+    margin-right: 50px;
     margin-top: 0;
 }
 
@@ -37,7 +37,10 @@
 }
 
 #ListFormulaire {
+    margin-right: auto;
+    margin-left: auto;
+    width: 800px;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
