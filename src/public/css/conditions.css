@@ -1,10 +1,10 @@
 
 #text1 {
-    border: 5px outset red;
     text-align: center;
 }
 
 #titre {
+    margin-top: 1rem;
     text-align: center;
     font-family: Merriweather;
     font-style: normal;
