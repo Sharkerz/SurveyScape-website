@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #DDE2E3;
@@ -17,7 +18,7 @@
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 300vh;
+                height: 1000vh;
                 margin: 0;
             }
             .footer {
@@ -71,6 +72,15 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #surveyanim{
+                position: absolute;
+                height: 30%;
+                width: 30%;
+                top: 11rem;
+                left: -2rem;
+            }
+            
 
             #logo {
                 position: absolute;
@@ -140,14 +150,64 @@
                     stroke-dashoffset: 0;
                 }
             }
+
+            #camembert {
+                animation: cam 1s ease-in-out infinite alternate;
+            }
+
+            @keyframes cam{
+                from{
+                    transform: rotateX(0deg);
+                }
+                to{
+                    transform: rotateX(20deg)
+                }
+                
+
+            }
+            #photo {
+                animation: sur 1s ease-in-out infinite alternate;
+            }
+
+            @keyframes sur{
+                from{
+                    transform: rotateX(0deg);
+                }
+                to{
+                    transform: rotateX(20deg)
+                }
+                
+
+            }
+            #mail {
+                animation: mai 1s ease-in-out infinite alternate;
+            }
+
+            @keyframes mai{
+                from{
+                    transform: rotateX(0deg);
+                }
+                to{
+                    transform: rotateX(20deg)
+                }
+                
+
+            }
+            /*
+            */
+
+
         </style>
     </head>
     <body>
-        <div class="footer">
+        <div class="footer" id="main_welcome">
             <p>Footer</p>
         </div>
 
         <div class="flex-center position-ref full-height">
+            <div id="Think_Explore_Survey">
+                    <p>"Think, Explore, Survey."</p>
+            </div>
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -162,9 +222,11 @@
                     @endauth
                 </div>
             @endif
-
+        </div>
             <div class="content">
+
                 <div class="title m-b-md">
+
                     <svg
                         id="logo"
                         width="735"
@@ -185,13 +247,185 @@
                         <path d="M400.812 16.1523H407.984V67.4805H400.812V16.1523ZM417.16 53.1719C414.887 53.1719 412.906 52.6328 411.219 51.5547C409.531 50.4531 408.797 49.4922 408 47.5L407.984 39.2852C407.984 40.8555 408.266 42.1914 408.828 43.293C409.391 44.3945 410.199 45.2383 411.254 45.8242C412.332 46.4102 413.633 46.7031 415.156 46.7031C417.523 46.7031 419.352 45.9883 420.641 44.5586C421.953 43.1055 422.609 41.0664 422.609 38.4414V30.5312C422.609 27.8594 421.953 25.7852 420.641 24.3086C419.352 22.832 417.523 22.0938 415.156 22.0938C413.633 22.0938 412.332 22.375 411.254 22.9375C410.199 23.5 409.391 24.332 408.828 25.4336C408.266 26.5117 407.984 27.8125 407.984 29.3359V21.5C409.086 19.3672 409.789 18.5312 411.57 17.3828C413.352 16.2109 415.332 15.625 417.512 15.625C420.09 15.625 422.293 16.2109 424.121 17.3828C425.973 18.5312 427.379 20.2188 428.34 22.4453C429.301 24.6719 429.781 27.3555 429.781 30.4961V38.4414C429.781 41.5352 429.289 44.1836 428.305 46.3867C427.32 48.5898 425.879 50.2773 423.98 51.4492C422.082 52.5977 419.809 53.1719 417.16 53.1719Z" stroke="#7C9397" stroke-width="2" mask="url(#path-1-outside-1)"/>
                         <path d="M458.518 53.1719C455.143 53.1719 452.26 52.5391 449.87 51.2734C447.479 50.0078 445.651 48.1562 444.385 45.7188C443.143 43.2578 442.522 40.293 442.522 36.8242V32.7109C442.522 29.1016 443.12 26.0195 444.315 23.4648C445.534 20.9102 447.291 18.9648 449.588 17.6289C451.885 16.293 454.651 15.625 457.885 15.625C460.932 15.625 463.534 16.3867 465.69 17.9102C467.846 19.4336 469.487 21.6367 470.612 24.5195C471.76 27.4023 472.334 30.8594 472.334 34.8906V37.2812H449.345L449.358 31.5156H465.514C465.303 28.5391 464.53 26.2305 463.194 24.5898C461.881 22.9258 460.112 22.0938 457.885 22.0938C455.166 22.0938 453.057 22.9844 451.557 24.7656C450.08 26.5469 449.342 29.0664 449.342 32.3242V36.9648C449.342 39.9883 450.139 42.3086 451.733 43.9258C453.327 45.543 455.588 46.3516 458.518 46.3516C459.971 46.3516 461.413 46.0586 462.842 45.4727C464.272 44.8867 465.549 44.0664 466.674 43.0117L471.385 47.7227C469.58 49.457 467.553 50.8047 465.303 51.7656C463.053 52.7031 460.791 53.1719 458.518 53.1719Z" stroke="#7C9397" stroke-width="2" mask="url(#path-1-outside-1)"/>
                     </svg>
+                    <svg 
+                        id="surveyanim"
+                        width="396" 
+                        height="360" 
+                        viewBox="0 0 396 360" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="undraw_customer_survey_f9ur 1" clip-path="url(#clip0)">
+                        <g id="survey">
+                        <g id="Group" opacity="0.5">
+                        <path id="Vector" opacity="0.5" d="M288.99 24.9057H110.836V270.792H288.99V24.9057Z" fill="url(#paint0_linear)"/>
+                        </g>
+                        <path id="Vector_2" d="M286.723 26.717H113.103V267.17H286.723V26.717Z" fill="white"/>
+                        <path id="Vector_3" d="M243.205 20.3683H157.075V41.2076H243.205V20.3683Z" fill="url(#paint1_linear)"/>
+                        <path id="Vector_4" d="M200.14 0C193.489 0 188.1 5.51547 188.1 12.317C188.1 19.1185 193.489 24.634 200.14 24.634C206.79 24.634 212.18 19.1185 212.18 12.317C212.18 5.51547 206.79 0 200.14 0ZM200.14 19.4219C198.726 19.4588 197.333 19.0737 196.139 18.3158C194.945 17.5579 194.004 16.4616 193.438 15.167C192.871 13.8725 192.703 12.4384 192.956 11.0482C193.209 9.65798 193.871 8.37472 194.858 7.36243C195.845 6.35013 197.112 5.65478 198.496 5.36525C199.881 5.07572 201.32 5.20516 202.631 5.73702C203.942 6.26889 205.063 7.17902 205.854 8.3511C206.644 9.52317 207.066 10.904 207.066 12.317C207.088 14.1759 206.371 15.9676 205.073 17.2994C203.774 18.6312 202 19.3944 200.14 19.4219V19.4219Z" fill="url(#paint2_linear)"/>
+                        <path id="Vector_5" d="M242.298 20.3774H157.981V40.3019H242.298V20.3774Z" fill="#4C6B71"/>
+                        <path id="Vector_6" d="M200.14 0.905663C197.809 0.905663 195.53 1.59617 193.592 2.88987C191.653 4.18357 190.143 6.02235 189.251 8.17369C188.359 10.325 188.125 12.6923 188.58 14.9762C189.035 17.26 190.157 19.3579 191.805 21.0044C193.454 22.651 195.554 23.7723 197.84 24.2266C200.127 24.6809 202.496 24.4477 204.65 23.5566C206.804 22.6655 208.644 21.1565 209.94 19.2203C211.235 17.2841 211.926 15.0078 211.926 12.6792C211.926 9.5567 210.684 6.56204 208.474 4.35407C206.263 2.14609 203.266 0.905663 200.14 0.905663V0.905663ZM200.14 19.4717C198.795 19.4717 197.48 19.0733 196.362 18.327C195.244 17.5806 194.372 16.5198 193.857 15.2786C193.343 14.0374 193.208 12.6717 193.471 11.3541C193.733 10.0365 194.381 8.8262 195.331 7.87626C196.282 6.92631 197.494 6.2794 198.813 6.01731C200.132 5.75522 201.499 5.88973 202.742 6.40384C203.984 6.91794 205.046 7.78855 205.793 8.90556C206.541 10.0226 206.939 11.3358 206.939 12.6792C206.939 14.4807 206.223 16.2084 204.948 17.4822C203.673 18.7561 201.943 19.4717 200.14 19.4717Z" fill="#4C6B71"/>
+                        <path id="Vector_7" d="M158.434 65.6604H121.262V102.792H158.434V65.6604Z" fill="url(#paint3_linear)"/>
+                        <path id="Vector_8" d="M158.561 139.245H121.389V176.377H158.561V139.245Z" fill="url(#paint4_linear)"/>
+                        <path id="Vector_9" d="M158.688 211.925H121.516V249.057H158.688V211.925Z" fill="url(#paint5_linear)"/>
+                        <path id="Vector_10" d="M157.075 67.0189H122.622V101.434H157.075V67.0189Z" fill="#006837"/>
+                        <path id="Vector_11" d="M157.075 139.925H122.622V174.34H157.075V139.925Z" fill="#4C6B71"/>
+                        <path id="Vector_12" d="M157.075 212.83H122.622V247.245H157.075V212.83Z" fill="#4C6B71"/>
+                        <path id="Vector_13" d="M226.962 77.6423H179.74V80.9343H226.962V77.6423Z" fill="#E0E0E0"/>
+                        <path id="Vector_14" d="M257.711 82.5826H179.74V85.8747H257.711V82.5826Z" fill="#E0E0E0"/>
+                        <path id="Vector_15" d="M252.221 87.5185H179.74V90.8106H252.221V87.5185Z" fill="#E0E0E0"/>
+                        <path id="Vector_16" d="M226.962 150.548H179.74V153.84H226.962V150.548Z" fill="#E0E0E0"/>
+                        <path id="Vector_17" d="M257.711 155.488H179.74V158.78H257.711V155.488Z" fill="#E0E0E0"/>
+                        <path id="Vector_18" d="M252.221 160.424H179.74V163.716H252.221V160.424Z" fill="#E0E0E0"/>
+                        <path id="Vector_19" d="M226.962 223.454H179.74V226.746H226.962V223.454Z" fill="#E0E0E0"/>
+                        <path id="Vector_20" d="M257.711 228.394H179.74V231.686H257.711V228.394Z" fill="#E0E0E0"/>
+                        <path id="Vector_21" d="M252.221 233.33H179.74V236.622H252.221V233.33Z" fill="#E0E0E0"/>
+                        <path id="Vector_22" d="M132.029 82.1751L138.284 87.9079L147.147 74.8891L150.275 77.4928L138.284 93.1155L129.422 83.2211L132.029 82.1751Z" fill="url(#paint6_linear)"/>
+                        <path id="Vector_23" d="M133.049 82.4151L138.488 87.3962L146.195 76.0755L148.915 78.3396L138.488 91.9245L130.782 83.3208L133.049 82.4151Z" fill="white"/>
+                        <path id="Vector_24" d="M133.049 155.774L138.488 160.755L146.195 149.434L148.915 151.698L138.488 165.283L130.782 156.679L133.049 155.774Z" fill="white"/>
+                        <path id="Vector_25" d="M133.049 229.132L138.488 234.113L146.195 222.792L148.915 225.057L138.488 238.641L130.782 230.038L133.049 229.132Z" fill="white"/>
+                        <g id="Group_2" opacity="0.5">
+                        <path id="Vector_26" opacity="0.5" d="M295.11 158.943H297.83" stroke="#69F0AE" stroke-width="5" stroke-miterlimit="10"/>
+                        <path id="Vector_27" opacity="0.5" d="M303.061 158.943H363.212" stroke="#69F0AE" stroke-width="5" stroke-miterlimit="10" stroke-dasharray="11.54 11.54"/>
+                        <path id="Vector_28" opacity="0.5" d="M365.827 158.943H368.547V156.226" stroke="#69F0AE" stroke-width="5" stroke-miterlimit="10"/>
+                        <path id="Vector_29" opacity="0.5" d="M368.547 151.042V101.765" stroke="#69F0AE" stroke-width="5" stroke-miterlimit="10" stroke-dasharray="11.45 11.45"/>
+                        <path id="Vector_30" opacity="0.5" d="M368.547 99.1698V96.4529" stroke="#69F0AE" stroke-width="5" stroke-miterlimit="10"/>
+                        </g>
+                        <path id="Vector_31" opacity="0.5" d="M104.943 82.6415H44.1985V139.698" stroke="#69F0AE" stroke-width="5" stroke-miterlimit="10" stroke-dasharray="12 12"/>
+                        <path id="Vector_32" opacity="0.5" d="M139.848 276.906V309.509H230.512" stroke="#69F0AE" stroke-width="5" stroke-miterlimit="10" stroke-dasharray="12 12"/>
+                        </g>
+                        <g id="camembert">
+                        <path id="Vector_33" d="M89.7569 149.434H2.71991V211.019H89.7569V149.434Z" fill="white"/>
+                        <path id="Vector_34" d="M48.029 164.984C47.3013 164.986 46.5745 165.034 45.8531 165.129L48.029 181.739L31.2971 180.625C31.2744 180.992 31.2563 181.363 31.2563 181.739C31.2563 185.053 32.24 188.292 34.083 191.047C35.926 193.803 38.5455 195.95 41.6103 197.218C44.6752 198.486 48.0476 198.818 51.3012 198.172C54.5548 197.525 57.5434 195.929 59.8891 193.586C62.2348 191.243 63.8323 188.258 64.4795 185.008C65.1266 181.757 64.7945 178.389 63.525 175.327C62.2555 172.266 60.1057 169.649 57.3474 167.808C54.5892 165.967 51.3463 164.984 48.029 164.984V164.984Z" fill="#E0E0E0"/>
+                        <path id="Vector_35" d="M42.2265 161.959C38.3809 162.463 34.8287 164.282 32.1747 167.107C29.5208 169.933 27.929 173.589 27.6705 177.455L44.4025 178.569L42.2265 161.959Z" fill="#4C6B71"/>
+                        </g>
+                        <g id="photo">
+                        <path id="Vector_36" d="M318.682 277.585H243.431V353.208H318.682V277.585Z" fill="#F5F5F5"/>
+                        <path id="Vector_37" d="M314.602 279.849H248.418V337.811H314.602V279.849Z" fill="white"/>
+                        <path id="Vector_38" d="M314.602 319.245C296.311 319.245 281.51 314.586 281.51 308.83C263.219 308.83 248.418 312.883 248.418 317.887V339.623H314.602V319.245Z" fill="#E0E0E0"/>
+                        <path id="Vector_39" d="M303.723 299.321C307.478 299.321 310.522 296.28 310.522 292.528C310.522 288.777 307.478 285.736 303.723 285.736C299.967 285.736 296.923 288.777 296.923 292.528C296.923 296.28 299.967 299.321 303.723 299.321Z" fill="#4C6B71"/>
+                        </g>
+                        <g id="mail">
+                        <path id="Vector_40" d="M399.373 85.8113H332.735V48.6792L365.827 20.3774L399.373 48.6792V85.8113Z" fill="white"/>
+                        <path id="Vector_41" d="M332.282 48.6792L365.374 67.2453L398.919 48.6792" fill="#E0E0E0"/>
+                        <path id="Vector_42" d="M366.054 67.0189L346.561 79.6981V32.1509H385.093V56.3321L366.054 67.0189Z" fill="#FAFAFA"/>
+                        <path id="Vector_43" d="M332.508 86.0377H399.146L332.508 48.9057V86.0377Z" fill="#F5F5F5"/>
+                        <path id="Vector_44" d="M379.653 39.3962H351.548V41.2075H379.653V39.3962Z" fill="white"/>
+                        <path id="Vector_45" d="M379.653 43.0189H351.548V44.8302H379.653V43.0189Z" fill="white"/>
+                        <path id="Vector_46" d="M379.653 46.6415H351.548V48.4528H379.653V46.6415Z" fill="#4C6B71"/>
+                        </g>
+                        </g>
+                        <defs>
+                        <linearGradient id="paint0_linear" x1="199.913" y1="270.792" x2="199.913" y2="24.9057" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#808080" stop-opacity="0.25"/>
+                        <stop offset="0.54" stop-color="#808080" stop-opacity="0.12"/>
+                        <stop offset="1" stop-color="#808080" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear" x1="38183.6" y1="1916.74" x2="38183.6" y2="957.718" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#808080" stop-opacity="0.25"/>
+                        <stop offset="0.54" stop-color="#808080" stop-opacity="0.12"/>
+                        <stop offset="1" stop-color="#808080" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <linearGradient id="paint2_linear" x1="14749.9" y1="2633.12" x2="14749.9" y2="1293.28" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#808080" stop-opacity="0.25"/>
+                        <stop offset="0.54" stop-color="#808080" stop-opacity="0.12"/>
+                        <stop offset="1" stop-color="#808080" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <linearGradient id="paint3_linear" x1="11588.8" y1="8494.64" x2="11588.8" y2="5449.81" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#808080" stop-opacity="0.25"/>
+                        <stop offset="0.54" stop-color="#808080" stop-opacity="0.12"/>
+                        <stop offset="1" stop-color="#808080" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <linearGradient id="paint4_linear" x1="11599.4" y1="14602.2" x2="11599.4" y2="11557.4" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#808080" stop-opacity="0.25"/>
+                        <stop offset="0.54" stop-color="#808080" stop-opacity="0.12"/>
+                        <stop offset="1" stop-color="#808080" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <linearGradient id="paint5_linear" x1="11609.9" y1="20634.6" x2="11609.9" y2="17589.7" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#808080" stop-opacity="0.25"/>
+                        <stop offset="0.54" stop-color="#808080" stop-opacity="0.12"/>
+                        <stop offset="1" stop-color="#808080" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <linearGradient id="paint6_linear" x1="6562.45" y1="3822.79" x2="6562.45" y2="3088.99" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#808080" stop-opacity="0.25"/>
+                        <stop offset="0.54" stop-color="#808080" stop-opacity="0.12"/>
+                        <stop offset="1" stop-color="#808080" stop-opacity="0.1"/>
+                        </linearGradient>
+                        <clipPath id="clip0">
+                        <rect width="396" height="360" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <div id="Groupe_1">
+                <img id="arrow" src="Images/welcome/arrow.png">
                 </div>
 
-                <div class="links">
-                    <a href="{{ route('formulaires.index') }}">Vos Formulaires</a>
-                    <a href="">Les Formulaires en ligne</a>
-                    <a href="https://github.com/Sharkerz/survey" target="_blank">GitHub</a>
+
+            </div>
+            <div id="Web_1920__4">
+                <div id="Crer_votre_questionnaire_en_li">
+                    <span>Créer votre questionnaire en ligne <br/><br/><br/><br/><br/>Besoin de l'avis de différentes personnes  ?<br/><br/>Obtenez rapidement et en quelques clics les réponses qu'ils vous faut <br/>   </span>
                 </div>
+                <svg class="Ellipse_5">
+                    <ellipse id="Ellipse_5" rx="106" ry="100" cx="106" cy="100">
+                    </ellipse>
+                </svg>
+                <svg class="Ellipse_6">
+                    <ellipse id="Ellipse_6" rx="106" ry="100" cx="106" cy="100">
+                    </ellipse>
+                </svg>
+                <div id="Crer_en_quelques_clics_votre_f">
+                    <span>Créer en quelques clics votre formulaire <br/>RAPIDE, SIMPLE, ET EFFICACE</span>
+                </div>
+                <div id="Diffuser_votre_sondage_en_lign">
+                    <span>Diffuser votre sondage en ligne<br/>Partagez avec vos amis</span><br>
+                </div>
+                <svg class="Ellipse_7">
+                    <ellipse id="Ellipse_7" rx="106" ry="100" cx="106" cy="100">
+                    </ellipse>
+                </svg>
+                <div id="Analysez_vos_donnes__Personnal">
+                    <span>Analysez vos données <br/>Personnalisez vos rapports </span><br>
+                </div>
+                <svg class="Rectangle_9">
+                    <rect id="Rectangle_9" rx="0" ry="0" x="0" y="0" width="511" height="76">
+                    </rect>
+                </svg>
+                <div id="Commencez_maintenant">
+                    <span>Commencez maintenant</span>
+                </div>
+                <img id="Fichier_1" src="Images/welcome/Fichier_1.png" srcset="Images/welcome/Fichier_1.png 1x, Images/welcome/Fichier_1@2x.png 2x">
+                <img id="ID38798" src="Images/welcome/ID38798.png" srcset="Images/welcome/ID38798.png 1x, Images/welcome/ID38798@2x.png 2x">
+                <img id="survey" src="Images/welcome/survey.png" srcset="Images/welcome/survey.png 1x, Images/welcome/survey@2x.png 2x">
+
+
+                <div id="La_communaut">
+                    <span>La communauté</span>
+                </div>
+                <div id="Evaluez_le_march_augmentez_vot">
+                    <span>Evaluez le marché, augmentez votre notoriété<br/> <br/>Partagez vos formulaires avec vos amis </span><span style="font-size:15px;"> </span>
+                </div>
+                <div id="Version_mobile">
+                    <span>Version mobile</span>
+                </div>
+                <div id="Disponible_et_optimis_sur_tout">
+                    <span>Disponible et optimisé sur toutes les plateformes<br/><br/>Quand vous voulez, <br/>Où vous voulez.</span><br>
+                </div>
+                <div id="Sinscrire_maintenant">
+                    <span>S'inscrire maintenant</span>
+                </div>
+                <div id="Enqutes_questions_et_rponses_g">
+                    <span>Enquêtes, questions et réponses gratuites et illimités</span><br>
+                </div>
+                <svg class="Rectangle_10">
+                    <rect id="Rectangle_10" rx="0" ry="0" x="0" y="0" width="363" height="54">
+                    </rect>
+                </svg>
+                <div id="Commencez_maintenant___-">
+                    <span>Commencez maintenant   -></span>
+                </div>
+                <img id="android_apple_white" src="Images/welcome/android_apple_white.png" srcset="Images/welcome/android_apple_white.png 1x, Images/welcome/android_apple_white@2x.png 2x">
+                <img id="Communaute_2" src="Images/welcome/Communaute_2.png" srcset="Images/welcome/Communaute_2.png 1x, Images/welcome/Communaute_2@2x.png 2x">
             </div>
         </div>
     </body>
