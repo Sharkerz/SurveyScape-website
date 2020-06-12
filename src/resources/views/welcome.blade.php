@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #DDE2E3;
@@ -17,7 +18,7 @@
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 300vh;
+                height: 1000vh;
                 margin: 0;
             }
             .footer {
@@ -74,8 +75,10 @@
 
             #surveyanim{
                 position: absolute;
-                top: 30%;
-                left: 5%;
+                height: 30%;
+                width: 30%;
+                top: 11rem;
+                left: -2rem;
             }
             
 
@@ -190,15 +193,21 @@
                 
 
             }
+            /*
+            */
+
 
         </style>
     </head>
     <body>
-        <div class="footer">
+        <div class="footer" id="main_welcome">
             <p>Footer</p>
         </div>
 
         <div class="flex-center position-ref full-height">
+            <div id="Think_Explore_Survey">
+                    <p>"Think, Explore, Survey."</p>
+            </div>
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -213,9 +222,11 @@
                     @endauth
                 </div>
             @endif
-
+        </div>
             <div class="content">
+
                 <div class="title m-b-md">
+
                     <svg
                         id="logo"
                         width="735"
@@ -345,12 +356,76 @@
                         </defs>
                     </svg>
                 </div>
-
-                <div class="links">
-                    <a href="{{ route('formulaires.index') }}">Vos Formulaires</a>
-                    <a href="">Les Formulaires en ligne</a>
-                    <a href="https://github.com/Sharkerz/survey" target="_blank">GitHub</a>
+                <div id="Groupe_1">
+                <img id="arrow" src="Images/welcome/arrow.png">
                 </div>
+
+
+            </div>
+            <div id="Web_1920__4">
+                <div id="Crer_votre_questionnaire_en_li">
+                    <span>Créer votre questionnaire en ligne <br/><br/><br/><br/><br/>Besoin de l'avis de différentes personnes  ?<br/><br/>Obtenez rapidement et en quelques clics les réponses qu'ils vous faut <br/>   </span>
+                </div>
+                <svg class="Ellipse_5">
+                    <ellipse id="Ellipse_5" rx="106" ry="100" cx="106" cy="100">
+                    </ellipse>
+                </svg>
+                <svg class="Ellipse_6">
+                    <ellipse id="Ellipse_6" rx="106" ry="100" cx="106" cy="100">
+                    </ellipse>
+                </svg>
+                <div id="Crer_en_quelques_clics_votre_f">
+                    <span>Créer en quelques clics votre formulaire <br/>RAPIDE, SIMPLE, ET EFFICACE</span>
+                </div>
+                <div id="Diffuser_votre_sondage_en_lign">
+                    <span>Diffuser votre sondage en ligne<br/>Partagez avec vos amis</span><br>
+                </div>
+                <svg class="Ellipse_7">
+                    <ellipse id="Ellipse_7" rx="106" ry="100" cx="106" cy="100">
+                    </ellipse>
+                </svg>
+                <div id="Analysez_vos_donnes__Personnal">
+                    <span>Analysez vos données <br/>Personnalisez vos rapports </span><br>
+                </div>
+                <svg class="Rectangle_9">
+                    <rect id="Rectangle_9" rx="0" ry="0" x="0" y="0" width="511" height="76">
+                    </rect>
+                </svg>
+                <div id="Commencez_maintenant">
+                    <span>Commencez maintenant</span>
+                </div>
+                <img id="Fichier_1" src="Images/welcome/Fichier_1.png" srcset="Images/welcome/Fichier_1.png 1x, Images/welcome/Fichier_1@2x.png 2x">
+                <img id="ID38798" src="Images/welcome/ID38798.png" srcset="Images/welcome/ID38798.png 1x, Images/welcome/ID38798@2x.png 2x">
+                <img id="survey" src="Images/welcome/survey.png" srcset="Images/welcome/survey.png 1x, Images/welcome/survey@2x.png 2x">
+
+
+                <div id="La_communaut">
+                    <span>La communauté</span>
+                </div>
+                <div id="Evaluez_le_march_augmentez_vot">
+                    <span>Evaluez le marché, augmentez votre notoriété<br/> <br/>Partagez vos formulaires avec vos amis </span><span style="font-size:15px;"> </span>
+                </div>
+                <div id="Version_mobile">
+                    <span>Version mobile</span>
+                </div>
+                <div id="Disponible_et_optimis_sur_tout">
+                    <span>Disponible et optimisé sur toutes les plateformes<br/><br/>Quand vous voulez, <br/>Où vous voulez.</span><br>
+                </div>
+                <div id="Sinscrire_maintenant">
+                    <span>S'inscrire maintenant</span>
+                </div>
+                <div id="Enqutes_questions_et_rponses_g">
+                    <span>Enquêtes, questions et réponses gratuites et illimités</span><br>
+                </div>
+                <svg class="Rectangle_10">
+                    <rect id="Rectangle_10" rx="0" ry="0" x="0" y="0" width="363" height="54">
+                    </rect>
+                </svg>
+                <div id="Commencez_maintenant___-">
+                    <span>Commencez maintenant   -></span>
+                </div>
+                <img id="android_apple_white" src="Images/welcome/android_apple_white.png" srcset="Images/welcome/android_apple_white.png 1x, Images/welcome/android_apple_white@2x.png 2x">
+                <img id="Communaute_2" src="Images/welcome/Communaute_2.png" srcset="Images/welcome/Communaute_2.png 1x, Images/welcome/Communaute_2@2x.png 2x">
             </div>
         </div>
     </body>

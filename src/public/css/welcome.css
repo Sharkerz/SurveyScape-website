@@ -1,0 +1,297 @@
+#main_welcome{
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(#DDE2E3, #F5F5F5);
+}
+#Groupe_1 {
+    position: absolute;
+    bottom: 0;
+    width: 5%;
+    left: 41.8%
+}
+
+
+#Crer_votre_questionnaire_en_li {
+    left: 549px;
+    top: 1059px;
+    position: absolute;
+    overflow: visible;
+    width: 823px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 26px;
+    color: rgba(36,71,77,1);
+}
+#Ellipse_5 {
+    fill: rgba(36,71,77,1);
+}
+.Ellipse_5 {
+    position: absolute;
+    overflow: visible;
+    width: 212px;
+    height: 200px;
+    left: 477px;
+    top: 1429px;
+}
+#Ellipse_6 {
+    fill: rgba(36,71,77,1);
+}
+.Ellipse_6 {
+    position: absolute;
+    overflow: visible;
+    width: 212px;
+    height: 200px;
+    left: 1235px;
+    top: 1425px;
+}
+#Crer_en_quelques_clics_votre_f {
+    left: 402px;
+    top: 1634px;
+    position: absolute;
+    overflow: visible;
+    width: 363px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
+    color: rgba(76,107,113,1);
+}
+#Diffuser_votre_sondage_en_lign {
+    left: 820px;
+    top: 1634px;
+    position: absolute;
+    overflow: visible;
+    width: 281px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
+    color: rgba(76,107,113,1);
+}
+#Ellipse_7 {
+    fill: rgba(36,71,77,1);
+}
+.Ellipse_7 {
+    position: absolute;
+    overflow: visible;
+    width: 212px;
+    height: 200px;
+    left: 854px;
+    top: 1429px;
+}
+#Analysez_vos_donnes__Personnal {
+    left: 1217px;
+    top: 1634px;
+    position: absolute;
+    overflow: visible;
+    width: 249px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
+    color: rgba(76,107,113,1);
+}
+#Rectangle_9 {
+    fill: rgba(255,255,255,1);
+    stroke: rgba(255,255,255,1);
+    stroke-width: 15px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Rectangle_9 {
+    position: absolute;
+    overflow: visible;
+    width: 511px;
+    height: 76px;
+    left: 705px;
+    top: 1841px;
+}
+#Commencez_maintenant {
+    left: 799px;
+    top: 1859px;
+    position: absolute;
+    overflow: visible;
+    width: 348px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 29px;
+    color: rgba(36,71,77,1);
+}
+#Fichier_1 {
+    position: absolute;
+    width: 114px;
+    height: 81px;
+    left: 902px;
+    top: 1489px;
+    overflow: visible;
+}
+#ID38798 {
+    position: absolute;
+    width: 126px;
+    height: 125px;
+    left: 1278px;
+    top: 1463px;
+    overflow: visible;
+}
+#survey {
+    position: absolute;
+    width: 104px;
+    height: 150px;
+    left: 531px;
+    top: 1450px;
+    overflow: visible;
+}
+#Think_Explore_Survey {
+    text-align: center;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 35px;
+    color: rgba(36,71,77,1);
+}
+
+#La_communaut {
+    left: 442px;
+    top: 2089px;
+    position: absolute;
+    overflow: visible;
+    width: 317px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 40px;
+    color: rgba(36,71,77,1);
+}
+#Evaluez_le_march_augmentez_vot {
+    left: 310px;
+    top: 2218px;
+    position: absolute;
+    overflow: visible;
+    width: 559px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 27px;
+    color: rgba(76,107,113,1);
+}
+#Version_mobile {
+    left: 1163px;
+    top: 2576px;
+    position: absolute;
+    overflow: visible;
+    width: 295px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 40px;
+    color: rgba(36,71,77,1);
+}
+#Disponible_et_optimis_sur_tout {
+    left: 1014px;
+    top: 2711px;
+    position: absolute;
+    overflow: visible;
+    width: 593px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 27px;
+    color: rgba(76,107,113,1);
+}
+#Sinscrire_maintenant {
+    left: 430px;
+    top: 3172px;
+    position: absolute;
+    overflow: visible;
+    width: 341px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 32px;
+    color: rgba(36,71,77,1);
+}
+#Enqutes_questions_et_rponses_g {
+    left: 338px;
+    top: 3291px;
+    position: absolute;
+    overflow: visible;
+    width: 525px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 22px;
+    color: rgba(76,107,113,1);
+}
+#Rectangle_10 {
+    fill: rgba(255,255,255,1);
+    stroke: rgba(255,255,255,1);
+    stroke-width: 15px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+.Rectangle_10 {
+    position: absolute;
+    overflow: visible;
+    width: 363px;
+    height: 54px;
+    left: 1128px;
+    top: 3192px;
+}
+#Commencez_maintenant___- {
+    left: 1195px;
+    top: 3205px;
+    position: absolute;
+    overflow: visible;
+    width: 281px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
+    color: rgba(36,71,77,1);
+}
+#android_apple_white {
+    position: absolute;
+    width: 370px;
+    height: 466px;
+    left: 415px;
+    top: 2510px;
+    overflow: visible;
+}
+#Communaute_2 {
+    position: absolute;
+    width: 653px;
+    height: 425px;
+    left: 983px;
+    top: 1995px;
+    overflow: visible;
+}
