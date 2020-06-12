@@ -370,6 +370,7 @@
             <div class="col-4"></div>
             <div class="col">
                 <div class="rond_logo">
+                    <img class="img_rond" src="Images/welcome/survey.png">
                 </div>
                 <p class="rond_text">
                     En quelques clics <br>
@@ -378,6 +379,7 @@
             </div>
             <div class="col">
                 <div class="rond_logo">
+                    <img class="img_rond" src="Images/welcome/env.png">
                 </div>
                 <p class="rond_text">
                     Diffuser votre sondage en ligne <br>
@@ -386,6 +388,7 @@
             </div>
             <div class="col">
                 <div class="rond_logo">
+                    <img class="img_rond" src="Images/welcome/loupe.png">
                 </div>
                 <p class="rond_text">
                     Analysez vos données <br>
@@ -409,7 +412,7 @@
             </div>
 
             <div class="col">
-                <img id="arrow" src="Images/welcome/communaute.png">
+                <img src="Images/welcome/communaute.png">
             </div>
 
             <div class="col-2">
