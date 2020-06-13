@@ -158,7 +158,7 @@
             @yield('content')
         </main>
         <div class="container-fluid" id="footer">
-        <div class="row">
+        <div class="row" id="row_footer">
             <div class="col lfooter" >
                 <p></p>
             </div>
@@ -179,7 +179,7 @@
             </div>
             <div class="col" id="l4footer">
             <p>
-            <a href="https://www.linkedin.com/in/s%C3%A9bastien-cron-927231175/" target="_blank">    
+            <a href="https://www.linkedin.com/in/s%C3%A9bastien-cron-927231175/" target="_blank">
             <img  id="logohover" src="https://img.icons8.com/material/48/000000/linkedin--v1.png"/>
             </a>
             </p>
