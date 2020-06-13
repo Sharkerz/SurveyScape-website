@@ -68,3 +68,11 @@
     color: #1b1e21;
     font-weight: 500;
 }
+
+
+.a_item_notif_form {
+    white-space: nowrap;
+    display: inline-block;
+    padding-right: 0 !important;
+    padding-left: 1rem !important;
+}

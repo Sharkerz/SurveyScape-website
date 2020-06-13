@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     /* partage de formulaire avec ses amis */
     Route::post('/partageform', 'Partage_formController@partage')->name('partageform');
+    Route::post('/deleteNotif', 'Partage_formController@delete')->name('partageform_delete');
 
 });
 

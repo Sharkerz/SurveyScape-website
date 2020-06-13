@@ -22,6 +22,8 @@ $(document).ready(function () {
         document.getElementById('list_notif').innerHTML = '<h6 class="dropdown-header">Demandes d\'amis</h6>';
         /* Liste demandes d'amis */
         $.get('/notifications', function (response) {
+
+            //Demande d'amis
             $id = response.id;
             $name = response.name;
 
@@ -41,7 +43,28 @@ $(document).ready(function () {
                                         '</form>' +
                                     '</div>' +
                                 '</a>'
-            )
+            );
+
+            document.getElementById('list_notif').innerHTML += '<h6 class="dropdown-header">Formulaires</h6>';
+
+            //formulaires partagées
+            $form = response.forms;
+            //console.log($form)
+            $form.forEach(element =>
+
+                     element.forEach(formulaire => (
+                        doc.innerHTML +=
+                                    '<a class="dropdown-item a_item_notif_form">Le formulaire <strong>' + formulaire.name + '</strong> <br> vous a été partagé'+
+                                        '<div class="item_notif">' +
+                                        '<form method="post">' +
+                                        '<input value="' + element + '" name="id_ami" type="hidden">' +
+                                        '<i class="material-icons refuser-amis-btn" >clear</i> ' +
+                                        '</form>' +
+                                        '</div>' +
+                                    '</a>'
+                             )
+                    ))
+
         });
     }
     reload_notif();
@@ -75,6 +98,22 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
+
+    /* Bouton suppr notif */
+    $('#list_notif').on('click', '.a_item_notif_form', function (e) {
+        var form = $(this).parent();
+        $.ajax({
+            type: 'POST',
+            url: '/deleteNotif',
+            data: form.serialize(),
+            success: function (Response) {
+                reload_notif();
+                reload_icon();
+            },
+        });
+        e.preventDefault();
+    });
+
 
     /* Laisser ouvert le dropdown après un clic */
     document.getElementById("list_notif").addEventListener("click", function(e) {

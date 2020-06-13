@@ -125,7 +125,7 @@ function alertCopy() {
         if(list_id.includes(id) === false) {
             list_id.push(id);
             $("#amis_toshare")[0].innerHTML += " <div class='item-friend-toshare'> <span class=\"badge badge-primary\">"+ name +"</span>" +
-                "<input type='hidden' value='"+ id +"' name='id_friend'> </div>"
+                "<input type='hidden' value='"+ id +"' name='id_friend-"+ id +"'> </div>"
         }
     });
 

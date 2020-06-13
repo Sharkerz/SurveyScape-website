@@ -21,7 +21,9 @@
             @endforeach
         </div>
 
-        <form id="form_share">
+        <form id="form_share" method="post" action="/partageform">
+            @csrf
+            <input type="hidden" name="form_id" value="{{$formulaire->id}}">
             <div id="amis_toshare">
             </div>
             <div id="btn_share">
