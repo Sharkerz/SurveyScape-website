@@ -70,8 +70,9 @@
                     <h2 class="header_title">Formulaires que vos amis vous partagent</h2>
                     <hr>
                 </div>
-
-
+                @if($partage == NULL)
+                <h1 id="error_no_partage"> Aucun de vos amis n'as partagée de formulaire avec vous.</h1>
+                @endif
                 @foreach($partage as $form)
                         <div class="card formulaire" id="{{ $form->id }}">
                             <input type="hidden" class="form_token" value="{{ $form->token }}">

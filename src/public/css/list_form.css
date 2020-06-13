@@ -16,7 +16,10 @@
 }
 
 #error_friend {
-    padding-top: 35vh;
+    padding-top: 30vh;
+}
+#error_no_partage{
+    padding-top: 30vh;
 }
 
 #header_list {
