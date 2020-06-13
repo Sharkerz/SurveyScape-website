@@ -181,7 +181,11 @@
                 </a>
             </div>
             <div class="col" id="l4footer">
-            <img src="https://img.icons8.com/material/48/000000/linkedin--v1.png"/>
+            <p>
+            <a href="https://www.linkedin.com/in/s%C3%A9bastien-cron-927231175/" target="_blank">    
+            <img  id="logohover" src="https://img.icons8.com/material/48/000000/linkedin--v1.png"/>
+            </a>
+            </p>
             </div>
             <div class="col lfooter" >
                 <p></p>
