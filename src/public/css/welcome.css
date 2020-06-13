@@ -58,6 +58,8 @@ body {
     width: 13rem;
     height: 13rem;
     background-color: rgba(36,71,77,1);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .rond_text {

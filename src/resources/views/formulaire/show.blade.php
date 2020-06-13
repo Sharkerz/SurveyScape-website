@@ -40,8 +40,6 @@
     <div id="title">
         <h2>{{ $formulaire->name }}</h2>
 
-        <button id="btn_acceder" type="button" class="btn btn-primary" value="{{ Request::root() }}/repondre/{{ $formulaire->token }}">Accèder</button>
-
         <h3 style="padding-left: 1.5rem">Il y a actuellement  :{{$nb_reponses}} réponses</h3>
 
         <div id="share_link">
