@@ -30,6 +30,17 @@ h2 {
     margin-left: auto;
     width: max-content;
     font-size: 2.7rem;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
+}
+
+h3{
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }
 
 /*=== Questions ===*/
@@ -169,6 +180,10 @@ Bouton retour
     padding-left: 1.5rem;
     display: inline-flex;
     white-space: nowrap;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }
 
 #share_link > p {
@@ -223,6 +238,10 @@ Bouton retour
 #header_share {
     font-size: 1.3rem;
     height: 5rem;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }
 
 #amis_list {
