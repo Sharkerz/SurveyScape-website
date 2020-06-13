@@ -17,11 +17,13 @@
     <div class="card-body" id="body_share">
         <div class="list-group" id="amis_list">
             @foreach($amis as $ami)
-                <a href="#" class="list-group-item list-group-item-action amis-item" data-value="{{$ami->id}}">{{ $ami->name }}</a>
+                <a class="list-group-item list-group-item-action amis-item" data-value="{{$ami->id}}">{{ $ami->name }}</a>
             @endforeach
         </div>
 
-        <form id="form_share">
+        <form id="form_share" method="post" action="/partageform">
+            @csrf
+            <input type="hidden" name="form_id" value="{{$formulaire->id}}">
             <div id="amis_toshare">
             </div>
             <div id="btn_share">

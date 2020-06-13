@@ -146,6 +146,9 @@
                         <div class="dropdown-menu dropdown-menu-left" id="list_notif">
                             <h6 class="dropdown-header">Demandes d'amis</h6>
                         </div>
+                        <div class="dropdown-menu dropdown-menu-left" id="list_notif">
+                            <h6 class="dropdown-header">Formulaires</h6>
+                        </div>
                     </div>
 
                     <img id="avatar_header" src="/avatar/{{ Auth::user()->avatar }}" onclick="window.location='{{ route("profil.index") }}'">

@@ -162,10 +162,6 @@ class FormulaireController extends Controller
                 foreach($reponses as $reponse){
                     $nb_reponses +=1;
                 }
-<<<<<<< HEAD
-                if($nb_questions != 0 ){
-                    $nb_reponses=round($nb_reponses/$nb_questions);
-=======
                 $nb_reponses=round($nb_reponses/$nb_questions);
 
                 /* liste Amis pour partager */
@@ -190,7 +186,6 @@ class FormulaireController extends Controller
 
                 foreach ($amis as $id_amis) {
                     $amis_name[$id_amis] = User::where('id', '=', $id_amis)->first();
->>>>>>> 5cca4f3ec8051b36f0d7de17a693f8460eb7ac13
                 }
                 return view('formulaire.show', [
                     'formulaire' => $formulaire,

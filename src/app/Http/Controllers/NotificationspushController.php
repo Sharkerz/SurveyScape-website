@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Amis;
+use App\Formulaire;
+use App\Partage_form;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -60,7 +62,16 @@ class NotificationspushController extends Controller
                 $name[$id_ami] = User::where('id', '=', $id_ami)->first()->name;
             }
 
-                return response()->json(['id'=>$id_amis, 'name'=>$name],200);
+            //Formulaire qu'on nous a partagés
+            $partages = Partage_form::all() ->where('user_id', '=', Auth::id());
+            $tab_partages = [];
+            foreach ($partages as $partage) {
+                $form = Formulaire::find($partage->formulaire_id);
+                array_push($tab_partages, $form);
+                
+            }
+
+                return response()->json(['id'=>$id_amis, 'name'=>$name, 'forms'=>$tab_partages],200);
 
         }
         abort(404);

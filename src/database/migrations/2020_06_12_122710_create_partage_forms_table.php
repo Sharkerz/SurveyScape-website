@@ -20,6 +20,7 @@ class CreatePartageFormsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('formulaire_id');
             $table->foreign('formulaire_id')->references('id')->on('formulaires');
+            $table->boolean('notif')->default('1');
             $table->timestamps();
         });
     }
