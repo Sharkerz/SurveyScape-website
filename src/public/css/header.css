@@ -26,7 +26,11 @@
     -moz-user-select: none; /* Firefox */
     -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
     -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
-    user-select: none; /* Propriété standard */
+    user-select: none;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1); /* Propriété standard */
 }
 
 .link_header:hover {
