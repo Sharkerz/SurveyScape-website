@@ -17,14 +17,32 @@
 
 #error_friend {
     padding-top: 30vh;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }
 #error_no_partage{
     padding-top: 30vh;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }
 
 #header_list {
     padding-top: 1rem;
     text-align: left;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
+}
+h2 {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }
 
 .header_title {

@@ -22,13 +22,13 @@ main {
 
 .lfooter {
     margin-top: 0;
-    padding-top: 13px;
+    padding-top: 20px;
     font-size: 20px;
     max-height: 4rem;
 }
 
 #l4footer {
-    margin-top: 5px;
+    margin-top: 7px;
 }
 
 
@@ -40,7 +40,7 @@ main {
 
 #cond{
     margin-top: 0;
-    padding-top: 15px;
+    padding-top: 20px;
     font-family: Rubik;
     font-style: normal;
     font-weight: lighter;
