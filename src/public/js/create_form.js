@@ -237,12 +237,16 @@ function checkLock() {
     if(current.value === "0") {
         icon.innerText = "lock_open";
         icon.setAttribute("data-original-title", "Rendre le formulaire privé");
+        $("#status_private_word")[0].innerText = "public";
+        $("#status_private_word")[0].style.color = "green";
     }
 
     //passe en privé
     else if (current.value === "1") {
         icon.innerText = "lock";
         icon.setAttribute("data-original-title", "Rendre le formulaire public");
+        $("#status_private_word")[0].innerText = "privé";
+        $("#status_private_word")[0].style.color = "red";
     }
 
 }
