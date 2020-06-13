@@ -163,22 +163,26 @@
                 <p></p>
             </div>
             <div class="col lfooter" >
-                <a class="condutilisation" href="{{ route('conditions_utilisations') }}">
+                <a class="condutilisation" id ="cond" href="{{ route('conditions_utilisations') }}">
                     Conditions d'utilisation
                 </a>
             </div>
             <div class="col lfooter">
-                <a class="equipedirection" href="{{ route('equipe_de_direction') }}">
+                <a class="equipedirection" id ="cond" href="{{ route('equipe_de_direction') }}">
                     Equipe de direction
                 </a>
             </div>
             <div class="col lfooter">
-                <a class="confidentialite" href="{{ route('politique_de_confidentialite') }}">
+                <a class="confidentialite" id ="cond" href="{{ route('politique_de_confidentialite') }}">
                     Politique de confidentialité
                 </a>
             </div>
             <div class="col" id="l4footer">
-            <img src="https://img.icons8.com/material/48/000000/linkedin--v1.png"/>
+            <p>
+            <a href="https://www.linkedin.com/in/s%C3%A9bastien-cron-927231175/" target="_blank">    
+            <img  id="logohover" src="https://img.icons8.com/material/48/000000/linkedin--v1.png"/>
+            </a>
+            </p>
             </div>
             <div class="col lfooter" >
                 <p></p>

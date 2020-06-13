@@ -6,7 +6,7 @@
 <link href="{{ asset('css/show_my_form.css') }}" rel="stylesheet">
 
 <div id="back">
-    <a href="javascript:window.history.go(-1)"><i id="back_logo" class="material-icons">arrow_back</i></a>
+    <a href="{{route('formulaires.index')}}"><i id="back_logo" class="material-icons">arrow_back</i></a>
 </div>
 
 <div class="card" id="window_share">

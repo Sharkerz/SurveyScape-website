@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>equipe de direction</title>
     <link href="{{ asset('css/direction.css') }}" rel="stylesheet">
+    <div id="back">
+    <a href="javascript:window.history.go(-1)"><i id="back_logo" class="material-icons">arrow_back</i></a>
+</div>
 </head>
 <body>
     <div class="container" id="presentation">
@@ -29,10 +32,10 @@
                 </div>
                 <br>
                 <p class="text_title">
-                    Développeur  <br>
+                    Manager  <br>
                 </p>
                 <p class="text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                    Spécialisé dans le management, Léo à rejoint Big Brother après avoir réaliser un stage chez 2CRSI dans le développement. Ses connaissances en language de programmation, en management et en marketing en font un élément essentiel dans l'entreprise.
                 </p>
             </div>
             <div class="col">
@@ -47,7 +50,7 @@
                     Développeur <br>
                 </p>
                 <p class="text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                    Tout droit sorti de SUPINFO International University, Maxence à sû redonner un vent nouveau à l'entreprise. Ses connaissances en développement web, suite à son passage au sein du secteur informatique de chez ARTE, nous sont très précieuse au sein de Big Brother. 
                 </p>
             </div>
             <div class="col">
@@ -59,10 +62,10 @@
                 </div>
                 <br>
                 <p class="text_title">
-                    Développeur  <br>
+                    Designer  <br>
                 </p>
                 <p class="text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                    En tant que développeur frontend, Sébastien à réussi à donner un vent de fraîcheur au sein du design des différents projets de chez Big Brother. Ses connaissances en language de programmation ainsi qu'en design en font un élément important pour n'importe quel projet.
                 </p>
             </div>
             <div class="col">
@@ -77,7 +80,7 @@
                     Développeur <br>
                 </p>
                 <p class="text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                En tant que développeur spécialisé dans le backend, Benoit est un élément important au sein des différentes équipes grâce à ses connaissances en développement Web. Il à sû utilisé au mieux son expérience passé chez DeltaCE afin d'améliorer les différents produits de chez Big Brother.
                 </p>
             </div>
         </div>
