@@ -36,3 +36,8 @@ main {
     color: rgba(36,71,77,1);
     text-decoration: none;
 }
+
+#logohover:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
