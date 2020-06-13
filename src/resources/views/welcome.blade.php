@@ -179,7 +179,7 @@
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
-                <a href="{{ url('/accueil') }}">Accèder à mon espace</a>
+                <a href="{{ url('/home') }}">Accèder à mon espace</a>
             @else
                 <a href="{{ route('listeFormulaire') }}">Formulaires publics</a>
                 <a href="{{ route('login') }}">Connexion</a>

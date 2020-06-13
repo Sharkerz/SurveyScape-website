@@ -15,7 +15,6 @@
     <i class="material-icons"  id="btn-task" id="icon_notif">create</i>
 </div>
 <div class="container">
-
     <!-- Div titre du formulaire -->
     <div id="title">
         <h2>{{ $formulaire->name }}</h2>

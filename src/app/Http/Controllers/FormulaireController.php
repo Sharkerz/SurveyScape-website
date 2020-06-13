@@ -131,7 +131,7 @@ class FormulaireController extends Controller
 
         };
 
-        return Redirect::route('formulaires.index');
+        return Redirect::route('formulaires.show',[$id_form]);
     }
 
     /**
@@ -161,7 +161,9 @@ class FormulaireController extends Controller
                 foreach($reponses as $reponse){
                     $nb_reponses +=1;
                 }
-                $nb_reponses=round($nb_reponses/$nb_questions);
+                if($nb_questions != 0 ){
+                    $nb_reponses=round($nb_reponses/$nb_questions);
+                }
                 return view('formulaire.show', [
                     'formulaire' => $formulaire,
                     'questions'=>$questions,
@@ -304,7 +306,6 @@ class FormulaireController extends Controller
                     }
                     //Ajout de question si elle existe pas encore
                     else{
-                        dd($input);
                         Question::create([
                             "name" =>$value,
                             "formulaire_id" =>$id_form->id,
@@ -347,7 +348,6 @@ class FormulaireController extends Controller
             }
             if(isset($new_question)){
                 if(preg_match("/^type/", $input )) {
-
                     Question::where('id', $id_question->id)
                         ->where('formulaire_id',$id_form->id)
                         ->update(['type_question' => $value]);
@@ -381,12 +381,10 @@ class FormulaireController extends Controller
                     }
                       //Ajout de choix a une question existante
                       elseif(isset($id_question_presente)){
-                        //dd($input);
                         QuestionChoixmultiple::create([
                             "name" =>$value,
                             "questions_id" =>$id_question_presente,
                         ]);
-                        //dd($input);
                         unset($id_question_presente);
                     }
                     //Ajout de choix dans les questions multiple si il le faut
@@ -396,15 +394,13 @@ class FormulaireController extends Controller
                                 "name" =>$value,
                                 "questions_id" =>$id_choix_question_new,
                             ]);
-
-                            //unset($id_new_question);
                         }
                     }
                 }
 
             }
         };
-        return Redirect::route('formulaires.index');
+        return Redirect::route('formulaires.show',[$id_form]);
     }
 
     public function upload_background(Request $request) {
@@ -415,6 +411,27 @@ class FormulaireController extends Controller
                 return response()->json(['background'=>$filename],200);
         }
         abort(404);
+    }
+    public function delete_form(Request $request){
+        if ($request->ajax()) {
+            $id = $request->get('id');
+            Reponse::where('formulaire_id','=',$id)
+            ->delete();
+            $questions = Question::all()->where('formulaire_id',$id);
+            foreach($questions as $question){
+                if ($question->type_question == "Choix multiples"){
+                    
+                    $choix_question = QuestionChoixMultiple::all()->where('questions_id',$question->id);
+                    foreach($choix_question as $choix){
+                        QuestionChoixMultiple::where('questions_id',$question->id)->delete();
+                    }
+                }
+                Question::where('id',$question->id)->delete();
+            }
+            Formulaire::where('id',$id)->delete();
+            return response()->json();
+        }
+        abort(404);  
     }
 
 }
