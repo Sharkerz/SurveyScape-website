@@ -1,0 +1,70 @@
+#divcontain_home {
+    min-height: 79.5vh;
+    background-color: white;
+    width: 70%;
+    border-radius: 12px;
+    margin-top: 0.5em;
+    text-align: center;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
+}
+
+#home_liste_todo {
+    width: 30em;
+    margin-top: 3em;
+    text-align: left;
+    height: 50vh;
+    overflow-y: scroll;
+    margin-left: 1.8em;
+}
+
+#bonjour_txt {
+    font-size: 2.2em;
+    text-align: left;
+    margin-left: 2.7em;
+    margin-top: 0.2em;
+    padding-top: 1rem;
+}
+
+#dashboard {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#dash_amis {
+    width: 30vh;
+    height: 14vh;
+    display: inline-block;
+    background-image: url("/Images/dashboard/dash_ami.png");
+}
+
+#dash_form {
+    width: 30vh;
+    height: 14vh;
+    display: inline-block;
+    margin-left: 1.1em;
+    background-image: url("/Images/dashboard/dash_form.png");
+}
+
+#dash_notif {
+    width: 30vh;
+    height: 14vh;
+    display: inline-block;
+    margin-left: 1.1em;
+    background-image: url("/Images/dashboard/dash_bell.png");
+}
+
+.dash:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.text_dashboard {
+    color: white;
+    margin-left: 0.85em;
+    position: absolute;
+    margin-top: 1.2em;
+}
