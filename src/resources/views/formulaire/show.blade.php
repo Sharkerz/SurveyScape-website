@@ -73,12 +73,14 @@
     $collect_data = [];
     @endphp
         @foreach($questions as $question)
+          
             <div class="div_question">
                 <div class="question">
                     <h3>Question n°{{$nb_question}}:{{$question->name}}</h3>
                 </div>
                 @if($question->type_question === "Choix multiples")
                     @if($nb_reponses != 0)
+             
                 <div class ="Resultat_graphique">
                     <canvas id="canvas{{$nb_question}}" height="220" width="610">
                 @php
@@ -98,11 +100,11 @@
                 @endforeach
                 @php
                 $data = (json_encode($table,JSON_UNESCAPED_SLASHES));
-                array_push($collect_data,addslashes($data));
+                $collect_data[$nb_question] =addslashes($data);
                 @endphp
             <script>
             var nb_question = '<?php echo($nb_question)?>';
-             var data_send = '<?php echo($collect_data[$nb_question-1])?>';
+            var data_send = '<?php echo($collect_data[$nb_question])?>';
             ;</script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>
                 <script>
