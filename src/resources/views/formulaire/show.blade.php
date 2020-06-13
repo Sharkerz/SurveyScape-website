@@ -51,12 +51,8 @@
                     @endif
                 @endforeach
                 @php
-                echo($table[4]);
-                $data = (json_encode($table,JSON_UNESCAPED_SLASHES)); 
-                echo($data);
+                $data = (json_encode($table,JSON_UNESCAPED_SLASHES));
                 array_push($collect_data,addslashes($data));
-                
-                
                 @endphp
             <script>
             var nb_question = '<?php echo($nb_question)?>';
