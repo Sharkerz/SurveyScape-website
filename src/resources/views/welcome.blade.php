@@ -179,7 +179,7 @@
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
-                <a href="{{ url('/accueil') }}">Accèder à mon espace</a>
+                <a href="{{ url('/home') }}">Accèder à mon espace</a>
             @else
                 <a href="{{ route('listeFormulaire') }}">Formulaires publics</a>
                 <a href="{{ route('login') }}">Connexion</a>
@@ -380,7 +380,7 @@
             <div class="col-2"></div>
 
             <div class="col">
-                <h2 class="communeaute_titre"> Communeauté</h2>
+                <h2 class="communeaute_titre"> Communauté</h2>
                 <br>
                 <p class="communeaute_text">
                     Evaluez le marché, augmentez votre notoriété

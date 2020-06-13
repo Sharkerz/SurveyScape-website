@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Question;
 use App\QuestionChoixMultiple;
+use App\Reponse;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Question\Question as SymfonyQuestion;
 
@@ -13,11 +14,11 @@ class QuestionController extends Controller
     {
         if ($request->ajax()) {
             $id = $request->get('id');
-            if(QuestionChoixMultiple::find($id)){
-                $question = QuestionChoixMultiple::where('id','=',$id)->delete();
-                Reponse::where('response',$question->name)->delete();
+            if($question = QuestionChoixMultiple::find($id)){
                 QuestionChoixMultiple::where('id','=',$id)
                 ->delete();
+                Reponse::where('response',$question->name)->delete();
+               
             }
             return response()->json();
         }
@@ -33,12 +34,13 @@ class QuestionController extends Controller
                     QuestionChoixMultiple::where('questions_id','=',$id)
                     ->delete();
                 }
-                Question::where('id','=',$id)
-                ->delete();
                 Reponse::where('question_id','=',$id)
                 ->delete();
+                Question::where('id','=',$id)
+                ->delete();
+                
             }
-            return response()->json();
+            return response()->json(['id', $id]);
         }
         abort(404);
     }

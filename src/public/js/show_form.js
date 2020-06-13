@@ -1,4 +1,15 @@
 $(document).ready(function () {
+
+    function delete_form(id){
+        $.ajax({
+            type: 'post',
+            url: '/delete_form',
+            data: {'id' : id},
+            success : function(){ // renvoie sur la liste des formulaires
+                document.location.href="/formulaires";  
+            }
+        })
+    }
     $(document).on("click", ".Afficher_Reponses", function () {
         var button = $(this)[0].style.display = 'none';
         var new_reponses = $(this)[0].closest(".div_question").children[1].children[4].children;
@@ -36,6 +47,17 @@ $(document).ready(function () {
   }
   background();
 
+<<<<<<< HEAD
+      //Suppression du Formulaire
+      $('#Delete_Form').on("click", function () {
+          
+        var id_form = $(this).parent()[0].children[4].children[0].value;
+        delete_form(id_form);
+    });
+
+  });
+  
+=======
   //copie du lien de partage
 
     /*
@@ -138,3 +160,4 @@ function alertCopy() {
     })
 
 });
+>>>>>>> 5cca4f3ec8051b36f0d7de17a693f8460eb7ac13

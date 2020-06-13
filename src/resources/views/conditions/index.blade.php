@@ -2,15 +2,12 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>conditions d'utilisation</title>
-    <link href="{{ asset('css/conditions.css') }}" rel="stylesheet">
-</head>
-<body>
+<link href="{{ asset('css/conditions.css') }}" rel="stylesheet">
+<div id="back">
+    <a href="javascript:window.history.go(-1)"><i id="back_logo" class="material-icons">arrow_back</i></a>
+</div>
+<div class="container">
+
     <h1 class="titre" id="titre">CONDITIONS GENERALES SURVEY SCAPE </h1>
     <div class="row" id="text1">
 
@@ -37,7 +34,7 @@
                 The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 
                 
 
-
+<div>
 
 
 @endsection

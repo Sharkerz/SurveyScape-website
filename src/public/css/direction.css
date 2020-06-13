@@ -1,0 +1,53 @@
+.photo{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text_title{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.4rem;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
+    /* font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(76,107,113,1); */
+}
+.text{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.4rem;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(76,107,113,1);
+}
+
+.name{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
+}
+
+#presentation{
+    background-color: white;
+    border-radius: 25px;
+    min-height: 80vh;
+}
+
+.img_rond{
+    border-radius: 50%;
+    /* max-width: 50%;
+    max-height: 135px; */
+}

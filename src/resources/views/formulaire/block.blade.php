@@ -8,7 +8,7 @@
     <h4 class="card-header">Page bloquée</h4>
     <div class="card-body">
         <p class="card-text">Vous n'avez pas accès à cette page</p>
-        <a href="{{ route('accueil') }}" class="btn btn-primary">Retourner à l'accueil</a>
+        <a href="{{ route('home') }}" class="btn btn-primary">Retourner à l'accueil</a>
     </div>
 </div>
 

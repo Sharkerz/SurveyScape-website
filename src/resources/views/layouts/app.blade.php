@@ -171,10 +171,14 @@
                 </a>
             </div>
             <div class="col lfooter">
-            <p>Equipe de direction</p>
+                <a class="equipedirection" href="{{ route('equipe_de_direction') }}">
+                    Equipe de direction
+                </a>
             </div>
             <div class="col lfooter">
-            <p>Politique de confidentialité</p>
+                <a class="confidentialite" href="{{ route('politique_de_confidentialite') }}">
+                    Politique de confidentialité
+                </a>
             </div>
             <div class="col" id="l4footer">
             <img src="https://img.icons8.com/material/48/000000/linkedin--v1.png"/>
