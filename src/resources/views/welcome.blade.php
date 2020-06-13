@@ -380,7 +380,7 @@
             <div class="col-2"></div>
 
             <div class="col">
-                <h2 class="communeaute_titre"> Communeauté</h2>
+                <h2 class="communeaute_titre"> Communauté</h2>
                 <br>
                 <p class="communeaute_text">
                     Evaluez le marché, augmentez votre notoriété
