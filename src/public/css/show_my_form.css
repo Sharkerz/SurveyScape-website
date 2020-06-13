@@ -7,7 +7,7 @@
     border-right:1.4px solid #E7E7E7;
     border-left: 1.4px solid #E7E7E7;
     background-color: white;
-    min-height: 8.5rem;
+    min-height: 12.5rem;
     margin-bottom: 3rem;
 }
 
@@ -17,16 +17,6 @@
 }
 .material-icons{
     font-size: 50px;
-}
-
-#Modify_Form{
-    margin-left: 90%;
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: white;
-    height: 3.3rem;
-    width: 3.3rem;
-    text-align: center;
 }
 
 #Modify_Form:hover {
@@ -151,15 +141,11 @@ Bouton retour
     color: #761b18;
 }
 
-#Delete_Form {
-    border-radius: 50%;
-    background-color: white;
-    margin-left: 50px;
-    height: 3.3rem;
-    width: 3.3rem;
-    text-align: center;
+#ronds_edit {
     float: right;
-    margin-right: 30px;
+    display: inline-flex;
+    margin-bottom: 5rem;
+    margin-top: 3rem;
 }
 
 #Delete_Form > a {
@@ -169,5 +155,107 @@ Bouton retour
 
 #Delete_Form:hover {
     cursor: pointer;
-    color: #1b4b72;
+    color: #761b18;
+}
+
+#Share_Form:hover {
+    cursor: pointer;
+    color: #1d643b;
+}
+
+#share_link {
+    float: left;
+    padding-top: 0.3rem;
+    padding-left: 1.5rem;
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+#share_link > p {
+    padding-top: 0.35rem;
+    margin-right: 0.4rem;
+    font-size: 1rem;
+}
+
+#input_sharelink {
+    margin-top: 0.1rem;
+    width: 25rem;
+}
+
+#btn_copy {
+    height: 2.6rem;
+    margin-left: 0.3rem;
+}
+
+#alert_copy {
+    visibility: hidden;
+    position: absolute;
+    margin-left: 20%;
+    margin-top: 3rem;
+}
+
+#btn_acceder {
+    float: right;
+    margin-right: 1rem;
+    margin-top: -2.8rem;
+}
+
+#window_share {
+    position: absolute;
+    left: 32%;
+    top: 15%;
+    width: 40%;
+    height: 30%;
+    background-color: #E8E8E8;
+    visibility: hidden;
+}
+
+#close_share {
+    float: right;
+    margin-top: -3rem;
+}
+
+#close_share:hover {
+    cursor: pointer;
+    color: #761b18;
+}
+
+#header_share {
+    font-size: 1.3rem;
+    height: 5rem;
+}
+
+#amis_list {
+    width: 14rem;
+    overflow-y: scroll;
+    height: 11rem;
+}
+
+.amis-item {
+    padding: 0;
+    height: 2.5rem;
+}
+
+#body_share {
+    display: flex;
+}
+
+#amis_toshare {
+    margin-left: 2rem;
+    font-size: 1.2rem;
+}
+
+.item-friend-toshare {
+    cursor: pointer;
+}
+
+#btn_share {
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 1rem;
+    margin-left: 7rem;
+}
+
+#form_share {
+    height: 7rem;
 }

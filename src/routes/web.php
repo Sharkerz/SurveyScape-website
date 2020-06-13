@@ -26,6 +26,8 @@ Route::get('/listeFormulaire', 'ListeFormulaireController@list')->name('listeFor
 Route::get('/repondre/{token}', 'ReponseController@repondre');
 Route::post('/repondre/send', 'ReponseController@envoyer')->name('envoyer_reponse');
 Route::get('/conditions-utilisations', function() {return view('conditions.index');})->name('conditions_utilisations');
+Route::get('/equipe-de-direction', function() {return view('direction.index');})->name('equipe_de_direction');
+Route::get('/politique-de-confidentialite', function() {return view('confidentialite.index');})->name('politique_de_confidentialite');
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -66,6 +68,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     /*ajax upload background */
     Route::post('/formulaire/background', 'FormulaireController@upload_background')->name('form_background');
+
+    /* partage de formulaire avec ses amis */
+    Route::post('/partageform', 'Partage_formController@partage')->name('partageform');
 
 });
 
