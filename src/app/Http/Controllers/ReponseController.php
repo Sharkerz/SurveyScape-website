@@ -24,6 +24,7 @@ function repondre($token) {
             $choix_question_multiples = QuestionChoixMultiple::all()->where('questions_id', $id_de_la_question);
             array_push($choix_question, $choix_question_multiples);
         }
+        dd($choix_question);
 
 
         return view('reponse.index', [

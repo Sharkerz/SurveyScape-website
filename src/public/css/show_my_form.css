@@ -234,6 +234,7 @@ Bouton retour
 .amis-item {
     padding: 0;
     height: 2.5rem;
+    cursor: pointer;
 }
 
 #body_share {

@@ -47,7 +47,6 @@ $(document).ready(function () {
   }
   background();
 
-<<<<<<< HEAD
       //Suppression du Formulaire
       $('#Delete_Form').on("click", function () {
           
@@ -55,9 +54,8 @@ $(document).ready(function () {
         delete_form(id_form);
     });
 
-  });
+ 
   
-=======
   //copie du lien de partage
 
     /*
@@ -160,4 +158,3 @@ function alertCopy() {
     })
 
 });
->>>>>>> 5cca4f3ec8051b36f0d7de17a693f8460eb7ac13

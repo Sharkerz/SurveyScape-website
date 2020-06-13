@@ -66,10 +66,10 @@ class NotificationspushController extends Controller
             $partages = Partage_form::all() ->where('user_id', '=', Auth::id());
             $tab_partages = [];
             foreach ($partages as $partage) {
-                $form = Formulaire::all()->where('id', '=', $partage->formulaire_id);
+                $form = Formulaire::find($partage->formulaire_id);
                 array_push($tab_partages, $form);
+                
             }
-
 
                 return response()->json(['id'=>$id_amis, 'name'=>$name, 'forms'=>$tab_partages],200);
 

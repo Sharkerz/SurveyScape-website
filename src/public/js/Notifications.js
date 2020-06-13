@@ -51,19 +51,17 @@ $(document).ready(function () {
             $form = response.forms;
             //console.log($form)
             $form.forEach(element =>
-
-                     element.forEach(formulaire => (
                         doc.innerHTML +=
-                                    '<a class="dropdown-item a_item_notif_form">Le formulaire <strong>' + formulaire.name + '</strong> <br> vous a été partagé'+
+                                    '<a class="dropdown-item a_item_notif_form">Le formulaire <strong>' + element.name + '</strong> <br> vous a été partagé'+
                                         '<div class="item_notif">' +
                                         '<form method="post">' +
-                                        '<input value="' + element + '" name="id_ami" type="hidden">' +
+                                        '<input value="' + element.id + '" name="id_ami" type="hidden">' +
                                         '<i class="material-icons refuser-amis-btn" >clear</i> ' +
                                         '</form>' +
                                         '</div>' +
                                     '</a>'
                              )
-                    ))
+                    
 
         });
     }
