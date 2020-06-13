@@ -112,7 +112,7 @@
                     var data = [];
                     var question = [];
                     var colors = [];
-                    var colorArray = ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed','#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0'];
+                    var colorArray = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'];
                     var nb_data = [];
                     for(var i=0; i <test.length;i++){
                         for (var key in nb_data){
@@ -137,13 +137,14 @@
                         data.push(nb_data[key]);
                     }
                     var labels =[];
+                    var last_random = [];
                     for(var i=0; i <question.length;i++){
                         random = getRandomInt(max_random);
-                        if(random == last_random){
+                        if(last_random.includes(random)){
                             random = getRandomInt(max_random);
                         }
                         colors.push(colorArray[random]);
-                        var last_random = random;
+                        last_random.push(random);
                         };
                     for(var i=0; i <question.length;i++){
                         labels.push(question[i])

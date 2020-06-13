@@ -62,8 +62,7 @@
                 </div>
 
 
-                @foreach($partage as $formulaire)
-                    @foreach($formulaire as $form)
+                @foreach($partage as $form)
                         <div class="card formulaire" id="{{ $form->id }}">
                             <input type="hidden" class="form_token" value="{{ $form->token }}">
                             <img class="card-img-top" alt="Image_Formulaire" src="/Images/Formulaire/{{ $form->image }}">
@@ -82,7 +81,6 @@
 
                             </div>
                         </div>
-                    @endforeach
 
                 @endforeach
 
