@@ -18,6 +18,10 @@
     float: right;
     margin-top: -2.7rem;
     margin-right: 1rem;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: white;
 }
 .info_Formulaire{
     vertical-align: bottom;
@@ -41,4 +45,11 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     padding-left: 10%;
+}
+
+#title{
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }

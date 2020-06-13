@@ -26,6 +26,10 @@
     margin-left: 2.7em;
     margin-top: 0.2em;
     padding-top: 1rem;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }
 
 #dashboard {
@@ -64,7 +68,10 @@
 
 .text_dashboard {
     color: white;
-    margin-left: 0.85em;
+    margin-left: 0.5em;
     position: absolute;
     margin-top: 1.2em;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
 }

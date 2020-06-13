@@ -12,7 +12,7 @@
 
     <div id="DashboardCard_Container" class="container-fluid">
             <div id="header_list">
-                <h2 class="header_title">Vos formulaires</h2>
+                <h2 id="title" class="header_title">Vos formulaires</h2>
                 <button onclick="window.location.href='/formulaires/create'" id="Create_Form" type="button" class="btn btn-success">Créer un formulaire</button>
                 <hr>
             </div>
