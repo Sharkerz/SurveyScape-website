@@ -84,7 +84,6 @@
                                 <select class="form-control select_type" name="typeq1">
                                     <option value="Choix multiples"> Choix multiples</option>
                                     <option value="Texte"> Texte</option>
-                                    <option>Soon</option>
                                 </select>
                             </div>
                             <div class="col-1"></div>

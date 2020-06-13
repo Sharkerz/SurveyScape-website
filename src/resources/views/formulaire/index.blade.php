@@ -50,16 +50,29 @@
         .then(data => {
             var monhtml = "";
             data.data.forEach(formulaire => {
+                var tab_mois=new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
+
+                var updated = new Date(formulaire.updated_at);
+                var created = new Date(formulaire.created_at);
+                var open = new Date(formulaire.open_on);
+                var close = new Date(formulaire.close_on);
+
+                var updated_txt = updated.getDate() + " " + tab_mois[updated.getMonth()] + " " + updated.getFullYear();
+                var created_txt = created.getDate() + " " + tab_mois[created.getMonth()] + " " + created.getFullYear();
+                var open_txt = open.getDate() + " " + tab_mois[open.getMonth()] + " " + open.getFullYear();
+                var close_txt = close.getDate() + " " + tab_mois[close.getMonth()] + " " + close.getFullYear();
+
                 if(formulaire.close_on !=null && formulaire.open_on !=null){
                     monhtml += `<div class="card Formulaire" id="`+formulaire.id+`">
                                     <div class="image_Formulaire">
                                         <img alt="Image_Formulaire" src="/Images/Formulaire/`+formulaire.image+`" class="image">
                                     </div>
                                     <div class=" card-body info_Formulaire">
-                                        <h2 class="card-title">`+ formulaire.name + `</h2>
+                                        <h5 class="card-title">`+ formulaire.name + `</h5>
+<hr>
                                         <div class="card-text">
-                                            <h6>Ouvre le:`+ formulaire.open_on + `</h6>
-                                            <h6>Ferme le:`+ formulaire.close_on + `</h6>
+                                            <h6>Ouvre le `+ open_txt + `</h6>
+                                            <h6>Ferme le `+ close_txt + `</h6>
                                         </div>
                                     </div>
                                 </div>`;
@@ -70,10 +83,11 @@
                                         <img alt="Image_Formulaire" src="/Images/Formulaire/`+formulaire.image+`" class="image">
                                     </div>
                                     <div class=" card-body info_Formulaire">
-                                        <h2 class="card-title">`+ formulaire.name + `</h2>
+                                        <h5 class="card-title">`+ formulaire.name + `</h5>
+<hr>
                                         <div class="card-text">
-                                            <h6>Modifié le:`+ formulaire.updated_at + `</h6>
-                                            <h6>Crée le:`+ formulaire.created_at + `</h6>
+                                            <h6>Modifié le `+ updated_txt + `</h6>
+                                            <h6>Crée le `+ created_txt + `</h6>
                                         </div>
                                     </div>
                                 </div>`;

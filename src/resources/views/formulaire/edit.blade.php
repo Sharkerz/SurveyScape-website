@@ -91,7 +91,6 @@
                                     <select class="form-control select_type" name="typeq{{$nb_question}}">
                                     <option value="Choix multiples"selected> {{$question->type_question}}</option>
                                         <option value="Texte"> Texte</option>
-                                        <option>Soon</option>
                                     </select>
                                 </div>
                                 <div class="col-1">
