@@ -9,7 +9,7 @@
 <div class="container" id="presentation">
 
     <br>
-    <h1 class="titre" id="titre">CONDITIONS GENERALES SURVEY SCAPE </h1>
+    <h1 class="titre" id="titre">CONDITIONS D’UTILISATION SURVEY SCAPE </h1>
     <br>
     <div class="row" id="text1">
 
@@ -40,7 +40,7 @@
             SERVICE(S) : Accès en ligne aux fonctionnalités de L’APPLICATION via le SITE, hébergement des données associées à l’utilisation des fonctionnalités de L’APPLICATION. Certains services sont réservés aux personnes ayant payé le prix de l’abonnement correspondant.
             </p> 
             <p id="text_title">  
-            SITE : Site internet accessible à l’adresse  <a href="http://127.0.0.1:8000">www.surveyscape.com</a>
+            SITE : Site internet accessible à l’adresse  <a href="{{route("home")}}">www.surveyscape.com</a>
             </p> 
             <p id="text_bold">  
             ARTICLE 2- ENTREE EN VIGUEUR ET APPLICATION DES CONDITIONS GENERALES
@@ -209,7 +209,7 @@
             ARTICLE 12 – OBLIGATIONS DE SURVEY SCAPE AGISSANT EN TANT QUE RESPONSABLE DE TRAITEMENT
             </p>
             <p id="text_title">  
-            L‘UTILISATEUR peut consulter la <a href="http://127.0.0.1:8000/politique-de-confidentialite">politique de confidentialité </a> pour s’informer sur les traitements sur ses données personnelles opérés par SURVEY SCAPE en tant que responsable de traitement.
+            L‘UTILISATEUR peut consulter la <a href="{{route("politique_de_confidentialite")}}">politique de confidentialité </a> pour s’informer sur les traitements sur ses données personnelles opérés par SURVEY SCAPE en tant que responsable de traitement.
             </p>
             <br>
 
