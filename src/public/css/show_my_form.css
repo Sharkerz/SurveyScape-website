@@ -20,7 +20,7 @@
 }
 
 #Modify_Form{
-    margin-left: 95%;
+    margin-left: 90%;
     cursor: pointer;
     border-radius: 50%;
     background-color: white;
@@ -149,4 +149,25 @@ Bouton retour
 #back_logo:hover {
     cursor: pointer;
     color: #761b18;
+}
+
+#Delete_Form {
+    border-radius: 50%;
+    background-color: white;
+    margin-left: 50px;
+    height: 3.3rem;
+    width: 3.3rem;
+    text-align: center;
+    float: right;
+    margin-right: 30px;
+}
+
+#Delete_Form > a {
+    text-decoration: none;
+    color: black;
+}
+
+#Delete_Form:hover {
+    cursor: pointer;
+    color: #1b4b72;
 }

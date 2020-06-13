@@ -8,7 +8,9 @@
 @section('content')
 
 <link href="{{ asset('css/repondre.css') }}" rel="stylesheet">
-
+<div id="back">
+    <a href="javascript:window.history.go(-1)"><i id="back_logo" class="material-icons">arrow_back</i></a>
+</div>
     <div class="container">
 
         <!-- Div titre du formulaire -->

@@ -14,6 +14,8 @@ class QuestionController extends Controller
         if ($request->ajax()) {
             $id = $request->get('id');
             if(QuestionChoixMultiple::find($id)){
+                $question = QuestionChoixMultiple::where('id','=',$id)->delete();
+                Reponse::where('response',$question->name)->delete();
                 QuestionChoixMultiple::where('id','=',$id)
                 ->delete();
             }
@@ -32,6 +34,8 @@ class QuestionController extends Controller
                     ->delete();
                 }
                 Question::where('id','=',$id)
+                ->delete();
+                Reponse::where('question_id','=',$id)
                 ->delete();
             }
             return response()->json();

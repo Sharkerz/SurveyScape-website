@@ -8,7 +8,9 @@
 <div id="back">
     <a href="javascript:window.history.go(-1)"><i id="back_logo" class="material-icons">arrow_back</i></a>
 </div>
-
+<div id="Delete_Form">
+    <i class="material-icons"  id="btn-task Delete_Form" id="icon_notif">delete</i>
+</div>
 <div id="Modify_Form">
     <i class="material-icons"  id="btn-task" id="icon_notif">create</i>
 </div>
@@ -43,15 +45,17 @@
                     @if($reponse->question_id == $question->id)
                         @php
                             $temp = $reponse->response;
-                            addslashes($temp);
-                            array_push($table,$temp)
+                            array_push($table,$temp);
+                            
                         @endphp
                     @endif
                 @endforeach
                 @php
-                $data = (json_encode($table,JSON_HEX_QUOT)); 
-                array_push($collect_data,$data);
-                echo($collect_data[0]);
+                echo($table[4]);
+                $data = (json_encode($table,JSON_UNESCAPED_SLASHES)); 
+                echo($data);
+                array_push($collect_data,addslashes($data));
+                
                 
                 @endphp
             <script>
@@ -79,11 +83,9 @@
                         }
                         
                         };
-                    console.log(nb_data);
                     for (var key in nb_data){
                             question.push(key);
                         }
-                        console.log(question);
                     ctx =  document.getElementById("canvas"+nb_question+"").getContext("2d");
                     function getRandomInt(max) {
                         return Math.floor(Math.random() * Math.floor(max));
@@ -102,10 +104,8 @@
                         var last_random = random;
                         };
                     for(var i=0; i <question.length;i++){
-                        console.log(question[i])
                         labels.push(question[i])
                         };
-                        console.log(labels);
                     new Chart(ctx,{
                         type: 'pie',
                         data: {

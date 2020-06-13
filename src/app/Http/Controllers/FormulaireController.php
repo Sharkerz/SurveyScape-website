@@ -335,6 +335,10 @@ class FormulaireController extends Controller
                         QuestionChoixMultiple::where('questions_id', $id_de_la_question)
                         ->delete();
                     }
+                    if($last_question_type != $value){
+                        Reponse::where('question_id', $id_de_la_question)
+                        ->delete();
+                    }
                     Question::where('id', $id_de_la_question)
                         ->where('formulaire_id',$id_form->id)
                         ->update(['type_question' => $value]);
