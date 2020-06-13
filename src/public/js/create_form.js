@@ -66,7 +66,6 @@ $(document).on("change", "select.form-control.select_type", function (e) {
             '                                <select class="form-control select_type" name="typeq' + ordre_question + '">\n' +
             '                                    <option value="Choix multiples"> Choix multiples</option>\n' +
             '                                    <option value="Texte"> Texte</option>\n' +
-            '                                    <option>Soon</option>\n' +
             '                                </select>\n' +
             '                            </div>\n' +
             '                <div class=\"col-1\">\n' +
@@ -104,7 +103,6 @@ $(document).on("change", "select.form-control.select_type", function (e) {
         '                    <select class="form-control select_type" name="typeq' + ordre_question + '">\n' +
         '                        <option value="Texte"> Texte</option>\n' +
         '                        <option value="Choix multiples"> Choix multiples</option>\n' +
-        '                        <option>Soon</option>\n' +
         '                    </select>\n' +
         '                </div>\n' +
         '                <div class=\"col-1\">\n' +
@@ -156,7 +154,6 @@ function addQuestions(nb_question) {
         "                                <select class=\"form-control select_type\" name='typeq" + nb_question + "'>\n" +
         "                                    <option value=\"Choix multiples\"> Choix multiples</option>\n" +
         "                                    <option value=\"Texte\"> Texte</option>\n" +
-        "                                    <option>Soon</option>\n" +
         "                                </select>\n" +
         "                            </div>\n" +
         "                            <div class=\"col-1\">\n" +
