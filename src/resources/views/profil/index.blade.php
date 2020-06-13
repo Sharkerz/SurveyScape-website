@@ -78,40 +78,40 @@
 
                         <!-- Pseudo -->
                         <div class="row">
-                            <div class="col">
+                            <div id="home_cont" class="col">
                                 <p class="profil_bold">Pseudo</p>
                             </div>
-                            <div class="col">
+                            <div id="home_cont" class="col">
                                 <p>{{ $user->name }}</p>
                             </div>
                         </div>
 
                         <!-- Email -->
                         <div class="row">
-                            <div class="col">
+                            <div id="home_cont" class="col">
                                 <p class="profil_bold">Email</p>
                             </div>
-                            <div class="col">
+                            <div id="home_cont" class="col">
                                 <p>{{ $user->email }}</p>
                             </div>
                         </div>
 
                         <!-- Date de creation -->
                         <div class="row">
-                            <div class="col">
+                            <div id="home_cont" class="col">
                                 <p class="profil_bold">Creation du compte</p>
                             </div>
-                            <div class="col">
+                            <div id="home_cont" class="col">
                                 <p>{{ $user->created_at->formatLocalized('%A %d %B %Y') }}</p>
                             </div>
                         </div>
 
                         <!-- Dernières modifications -->
                         <div class="row">
-                            <div class="col">
+                            <div id="home_cont" class="col">
                                 <p class="profil_bold">Dernière modification</p>
                             </div>
-                            <div class="col">
+                            <div id="home_cont" class="col">
                                 <p>{{ $user->updated_at->formatLocalized('%A %d %B %Y') }}</p>
                             </div>
                         </div>

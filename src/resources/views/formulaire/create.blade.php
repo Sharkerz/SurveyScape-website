@@ -20,7 +20,7 @@
         </form>
     </div>
 
-    <h1>Création d'un Formulaire</h1>
+    <h1 id="titre_color">Création d'un Formulaire</h1>
     <form enctype="multipart/form-data" action="{{ route('formulaires.store') }}" method="post">
         @csrf
 
@@ -29,19 +29,19 @@
 
         <div id="div_infos">
             <div class="Name_Form">
-                <input class="NomFormulaire" type="text" maxlength="39" required name="name" data-rows="1" tabindex="0" placeholder="Nom du Formulaire">
+                <input id="name_form" class="NomFormulaire" type="text" maxlength="39" required name="name" data-rows="1" tabindex="0" placeholder="Nom du Formulaire">
             </div>
             <hr>
             <div class="row persoL1">
                 <div class="col">
-                    <label>Mettre une image en bannière: </label>
+                    <label id="text_color">Mettre une image en bannière: </label>
                     <input type="file" name="image">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </div>
                 <div class="col">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="enableDate">
-                        <label class="form-check-label" for="enableDate">
+                        <label id="text_color" class="form-check-label" for="enableDate">
                             Définir une date de début et de fin
                         </label>
                     </div>

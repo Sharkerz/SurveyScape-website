@@ -9,6 +9,13 @@ Div personnalisation du formulaire
     border-right: 1.4px solid #E7E7E7;
 }
 
+#div_Date{
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
+}
+
 .Name_Form{
     width: 100%;
     height: 100px;
@@ -34,6 +41,13 @@ Div personnalisation du formulaire
     padding: 6px;
 }
 
+#name_form {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
+}
+
 /*
 Affichage status formulaire privé/public
 */
@@ -41,10 +55,17 @@ Affichage status formulaire privé/public
 #status_private {
     white-space: nowrap;
     font-size: 1.2rem;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }
 
 #status_private_word {
-    color: red
+    color: red;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
 }
 
 
@@ -155,6 +176,9 @@ Div ajout questions
 
 #submit_form {
     text-align: center;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
 }
 
 #btn-create {
@@ -192,4 +216,17 @@ Bouton retour
     color: #761b18;
 }
 
+#titre_color{
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
+}
+
+#text_color{
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
+}
 

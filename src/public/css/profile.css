@@ -7,6 +7,9 @@
 /* =============== */
 #profil_bar {
     float: right;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
 }
 
 .btn_profil {
@@ -20,6 +23,10 @@
     bottom: 0;
     font-size: 2.6vw;
     margin-bottom: 0;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
 }
 
 /* Photo de profil */
@@ -38,8 +45,11 @@
 }
 
 .profil_bold {
-    font-weight: bold;
+    font-weight: lighter;
     margin-top: 3px;
+    font-family: Rubik;
+    font-style: normal;
+    color: rgba(36,71,77,1);
 }
 
 #form_profil {
@@ -60,6 +70,14 @@
     margin-top: 1vw;
     font-size: 1.1vw;
 }
+
+.nav-item{
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(36,71,77,1);
+}
+
 
 /* ============== */
 /*       API      */
