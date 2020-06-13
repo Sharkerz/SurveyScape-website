@@ -12,17 +12,18 @@ $(document).ready(function () {
             if (response.notif === "yes") {
                 $('#icon_notif').text('notifications_active')
             }
+            else{
+                $('#icon_notif').text('notifications_none')
+            }
         });
     }
     reload_icon();
 
     /* Liste des demandes d'amis reçus */
     function reload_notif() {
-
-        document.getElementById('list_notif').innerHTML = '<h6 class="dropdown-header">Demandes d\'amis</h6>';
         /* Liste demandes d'amis */
         $.get('/notifications', function (response) {
-
+            document.getElementById('list_notif').innerHTML = '<h6 class="dropdown-header">Demandes d\'amis</h6>';
             //Demande d'amis
             $id = response.id;
             $name = response.name;
@@ -61,8 +62,6 @@ $(document).ready(function () {
                                         '</div>' +
                                     '</a>'
                              )
-                    
-
         });
     }
     reload_notif();
@@ -99,11 +98,11 @@ $(document).ready(function () {
 
     /* Bouton suppr notif */
     $('#list_notif').on('click', '.a_item_notif_form', function (e) {
-        var form = $(this).parent();
+        var form_id = $(this)[0].children[2].children[0].children[0].value;
         $.ajax({
             type: 'POST',
             url: '/deleteNotif',
-            data: form.serialize(),
+            data: {'id':form_id},
             success: function (Response) {
                 reload_notif();
                 reload_icon();

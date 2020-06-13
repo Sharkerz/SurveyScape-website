@@ -31,14 +31,14 @@ class Partage_formController extends Controller
 
     public function delete(Request $request) {
         if ($request->ajax()) {
-            $form = $request;
-//            $formulaire_id = Formulaire::where('name', '=', $form)->pluck('id');
-//            $partage = Partage_form::where('formulaire_id', "=", $formulaire_id)
-//                ->where("user_id", "=", Auth::id());
-//            $partage->notif = '0';
-//            $partage->save();
-            response()->json(['delete'=> $form],200);
+            $change_notif = 0;
+            $id_form = $request->get('id');
+            $formulaire = Formulaire::find($id_form);
+            Partage_form::where('formulaire_id', "=", $formulaire->id)
+                ->where("user_id", "=", Auth::id())
+                ->update(['notif'=> $change_notif]);
+            return response()->json();
         }
         abort(404);
-    }
+   }
 }
