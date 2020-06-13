@@ -53,9 +53,9 @@
                 <div class="col-6"></div>
                 <div id="div_Date" class="col" hidden>
                     <label for="NomFormulaire">Début de la publication:</label>
-                    <input type="date" id="start_date" name="open_on" value="null" min="2020-01-01"></br>
+                    <input type="date" id="start_date" name="open_on" value="{{$formulaire->open_on}}" min="2020-01-01"></br>
                     <label for="NomFormulaire">Fin de la publication:</label>
-                    <input type="date" id="end_date" name="close_on" value="null" min="2020-01-01">
+                    <input type="date" id="end_date" name="close_on" value="{{$formulaire->close_on}}" min="2020-01-01">
                 </div>
             </div>
 
