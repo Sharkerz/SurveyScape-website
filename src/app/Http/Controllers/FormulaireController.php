@@ -161,7 +161,10 @@ class FormulaireController extends Controller
                 foreach($reponses as $reponse){
                     $nb_reponses +=1;
                 }
-                $nb_reponses=round($nb_reponses/$nb_questions);
+                if($nb_questions != 0){
+                    $nb_reponses=round($nb_reponses/$nb_questions);
+                }
+               
 
                 /* liste Amis pour partager */
                 $user_id = Auth::id();
