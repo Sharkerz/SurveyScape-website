@@ -28,9 +28,18 @@ class NotificationspushController extends Controller
                 ->get();
             $size_ami = sizeof($list);
 
+            $partages = Partage_form::all() ->where('user_id', '=', Auth::id());
+            $list_partages = [];
+            foreach ($partages as $partage) {
+                $form = Formulaire::find($partage->formulaire_id);
+                if($partage->notif == 1){
+                    array_push($list_partages, $form);
+                }
+            }
+            $size_partage = sizeof($list_partages);
 
             /* Renvoie notif:yes si il y a au moins une demande en attente. */
-            if($size_ami == 0) {
+            if($size_ami == 0 && $size_partage == 0) {
                 return response()->json(['notif'=>'no'],200);
             }
             else {
@@ -67,10 +76,10 @@ class NotificationspushController extends Controller
             $tab_partages = [];
             foreach ($partages as $partage) {
                 $form = Formulaire::find($partage->formulaire_id);
-                array_push($tab_partages, $form);
-                
+                if($partage->notif == 1){
+                    array_push($tab_partages, $form);
+                }
             }
-
                 return response()->json(['id'=>$id_amis, 'name'=>$name, 'forms'=>$tab_partages],200);
 
         }

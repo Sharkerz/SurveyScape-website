@@ -30,7 +30,7 @@
         <div id="div_infos">
             <div class="Name_Form">
                 <input type="hidden" name="id" value="{{$formulaire->id}}">
-                <input class="NomFormulaire" type="text"  required name="name" data-rows="1" tabindex="0" value="{{$formulaire->name}}" placeholder="Nom du Formulaire">
+                <input class="NomFormulaire" type="text"  required name="name" maxlength="39" data-rows="1" tabindex="0" value="{{$formulaire->name}}" placeholder="Nom du Formulaire">
             </div>
             <hr>
             <div class="row persoL1">
@@ -53,9 +53,9 @@
                 <div class="col-6"></div>
                 <div id="div_Date" class="col" hidden>
                     <label for="NomFormulaire">Début de la publication:</label>
-                    <input type="date" id="start_date" name="open_on" value="null" min="2020-01-01"></br>
+                    <input type="date" id="start_date" name="open_on" value="{{$formulaire->open_on}}" min="2020-01-01"></br>
                     <label for="NomFormulaire">Fin de la publication:</label>
-                    <input type="date" id="end_date" name="close_on" value="null" min="2020-01-01">
+                    <input type="date" id="end_date" name="close_on" value="{{$formulaire->close_on}}" min="2020-01-01">
                 </div>
             </div>
 

@@ -40,8 +40,6 @@
     <div id="title">
         <h2>{{ $formulaire->name }}</h2>
 
-        <button id="btn_acceder" type="button" class="btn btn-primary" value="{{ Request::root() }}/repondre/{{ $formulaire->token }}">Accèder</button>
-
         <h3 style="padding-left: 1.5rem">Il y a actuellement  :{{$nb_reponses}} réponses</h3>
 
         <div id="share_link">
@@ -73,12 +71,14 @@
     $collect_data = [];
     @endphp
         @foreach($questions as $question)
+          
             <div class="div_question">
                 <div class="question">
                     <h3>Question n°{{$nb_question}}:{{$question->name}}</h3>
                 </div>
                 @if($question->type_question === "Choix multiples")
                     @if($nb_reponses != 0)
+             
                 <div class ="Resultat_graphique">
                     <canvas id="canvas{{$nb_question}}" height="220" width="610">
                 @php
@@ -98,11 +98,11 @@
                 @endforeach
                 @php
                 $data = (json_encode($table,JSON_UNESCAPED_SLASHES));
-                array_push($collect_data,addslashes($data));
+                $collect_data[$nb_question] =addslashes($data);
                 @endphp
             <script>
             var nb_question = '<?php echo($nb_question)?>';
-             var data_send = '<?php echo($collect_data[$nb_question-1])?>';
+            var data_send = '<?php echo($collect_data[$nb_question])?>';
             ;</script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>
                 <script>
@@ -112,7 +112,7 @@
                     var data = [];
                     var question = [];
                     var colors = [];
-                    var colorArray = ['#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed','#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0'];
+                    var colorArray = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'];
                     var nb_data = [];
                     for(var i=0; i <test.length;i++){
                         for (var key in nb_data){
@@ -137,13 +137,14 @@
                         data.push(nb_data[key]);
                     }
                     var labels =[];
+                    var last_random = [];
                     for(var i=0; i <question.length;i++){
                         random = getRandomInt(max_random);
-                        if(random == last_random){
+                        if(last_random.includes(random)){
                             random = getRandomInt(max_random);
                         }
                         colors.push(colorArray[random]);
-                        var last_random = random;
+                        last_random.push(random);
                         };
                     for(var i=0; i <question.length;i++){
                         labels.push(question[i])

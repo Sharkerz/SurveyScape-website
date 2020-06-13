@@ -57,6 +57,9 @@ Route::group(['middleware' => ['auth']], function () {
     /* Ajax liste notifications demande d'amis */
     Route::get('/notifications', 'NotificationspushController@notifications')->name('notifications');
 
+    /* Ajax liste notifications partage de formulaire */
+    Route::get('/notifications_partage_form', 'NotificationspushController@notifications_partage_form')->name('notifications_partage_form');
+
     /* Delete choice */
     Route::post('/delete_choice', 'QuestionController@delete_choice')->name('delete_choice');
 

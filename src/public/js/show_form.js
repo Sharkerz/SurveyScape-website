@@ -49,8 +49,7 @@ $(document).ready(function () {
 
       //Suppression du Formulaire
       $('#Delete_Form').on("click", function () {
-          
-        var id_form = $(this).parent()[0].children[4].children[0].value;
+        var id_form = $(this).closest('.container')[0].children[0].value;
         delete_form(id_form);
     });
 

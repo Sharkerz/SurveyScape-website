@@ -30,9 +30,19 @@
                     <input type="hidden" class="form_token" value="{{ $formulaire->token }}">
                     <img class="card-img-top" alt="Image_Formulaire" src="/Images/Formulaire/{{ $formulaire->image }}">
                     <div class="card-body">
-                        <h2 class="card-title"> {{ $formulaire->name }} </h2>
+                        <h5 class="card-title titre_form"> {{ $formulaire->name }} </h5>
                         @if ($formulaire->close_on != NULL)
-                            <p class="card-text"> Disponible jusqu'au {{ $formulaire->close_on }} </p>
+                            @php
+                                setlocale(LC_ALL, 'fr');
+                                    $time = $formulaire->close_on;
+                                    $mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+                                    $jour = date("d", strtotime($time));
+                                    $annee = date("Y", strtotime($time));
+                                    $m = date("m", strtotime($time));
+                                    $moi = $mois[$m-1];
+                                    $date = $jour.' '.$moi.' '.$annee;
+                            @endphp
+                            <p class="card-text"> Disponible jusqu'au {{ $date }}</p>
                         @else
                             <p class="card-text"> Pas de <br> date limite </p>
                         @endif
@@ -62,15 +72,24 @@
                 </div>
 
 
-                @foreach($partage as $formulaire)
-                    @foreach($formulaire as $form)
+                @foreach($partage as $form)
                         <div class="card formulaire" id="{{ $form->id }}">
                             <input type="hidden" class="form_token" value="{{ $form->token }}">
                             <img class="card-img-top" alt="Image_Formulaire" src="/Images/Formulaire/{{ $form->image }}">
                             <div class="card-body">
-                                <h2 class="card-title"> {{ $form->name }} </h2>
+                                <h5 class="card-title titre_form"> {{ $form->name }} </h5>
                                 @if ($form->close_on != NULL)
-                                    <p class="card-text"> Disponible jusqu'au {{ $form->close_on }} </p>
+                                    @php
+                                        setlocale(LC_ALL, 'fr');
+                                            $time = $formulaire->close_on;
+                                            $mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+                                            $jour = date("d", strtotime($time));
+                                            $annee = date("Y", strtotime($time));
+                                            $m = date("m", strtotime($time));
+                                            $moi = $mois[$m-1];
+                                            $date = $jour.' '.$moi.' '.$annee;
+                                    @endphp
+                                    <p class="card-text"> Disponible jusqu'au {{ $date }}</p>
                                 @else
                                     <p class="card-text"> Pas de <br> date limite </p>
                                 @endif
@@ -82,7 +101,6 @@
 
                             </div>
                         </div>
-                    @endforeach
 
                 @endforeach
 
