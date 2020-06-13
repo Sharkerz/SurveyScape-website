@@ -13,57 +13,26 @@ main {
 }
 .lfooter {
     margin-top: 15px;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: lighter;
     font-size: 20px;
-    color: rgba(36,71,77,1);
 }
 
 #l4footer {
     margin-top: 5px;
 }
 
-/* #Conditions_dutilisation {
-    left: 0;
-    top: 0;
-    position: absolute;
-    overflow: visible;
-    width: 287px;
-    white-space: nowrap;
-    text-align: center;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 28px;
-    color: rgba(36,71,77,1);
-}
-#Politique_de_confidentialit {
-    left: 1081px;
-    top: 1011px;
-    position: absolute;
-    overflow: visible;
-    width: 335px;
-    white-space: nowrap;
-    text-align: center;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 28px;
-    color: rgba(36,71,77,1);
-}
-#Equipe_de_direction {
-    left: 747px;
-    top: 1010px;
-    position: absolute;
-    overflow: visible;
-    width: 245px;
-    white-space: nowrap;
-    text-align: center;
-    font-family: Rubik;
-    font-style: normal;
-    font-weight: lighter;
-    font-size: 28px;
-    color: rgba(36,71,77,1);
-} */
 
+
+#cond:hover{
+    cursor: pointer;
+    color: #7D9093;
+}
+
+#cond{
+    margin-top: 15px;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
+    color: rgba(36,71,77,1);
+    text-decoration: none;
+}

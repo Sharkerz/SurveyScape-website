@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>equipe de direction</title>
     <link href="{{ asset('css/direction.css') }}" rel="stylesheet">
+    <div id="back">
+    <a href="javascript:window.history.go(-1)"><i id="back_logo" class="material-icons">arrow_back</i></a>
+</div>
 </head>
 <body>
     <div class="container" id="presentation">

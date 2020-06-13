@@ -166,17 +166,17 @@
                 <p></p>
             </div>
             <div class="col lfooter" >
-                <a class="condutilisation" href="{{ route('conditions_utilisations') }}">
+                <a class="condutilisation" id ="cond" href="{{ route('conditions_utilisations') }}">
                     Conditions d'utilisation
                 </a>
             </div>
             <div class="col lfooter">
-                <a class="equipedirection" href="{{ route('equipe_de_direction') }}">
+                <a class="equipedirection" id ="cond" href="{{ route('equipe_de_direction') }}">
                     Equipe de direction
                 </a>
             </div>
             <div class="col lfooter">
-                <a class="confidentialite" href="{{ route('politique_de_confidentialite') }}">
+                <a class="confidentialite" id ="cond" href="{{ route('politique_de_confidentialite') }}">
                     Politique de confidentialité
                 </a>
             </div>
