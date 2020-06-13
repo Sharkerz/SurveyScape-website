@@ -42,7 +42,7 @@
             } else if(localStorage.getItem("text") == "wb_sunny") {
                 DarkReader.enable()
             }
-            
+
         $(document).ready(function() {
             $('#sun').click(function(){
                 if($('#sun').text() == 'brightness_3') {
@@ -109,7 +109,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a class="link_header" href="{{ route('accueil') }}">
+                        <a class="link_header" href="{{ route('home') }}">
                             Accueil
                         </a>
                         <a class="link_header" href="{{ route('listeFormulaire') }}">
