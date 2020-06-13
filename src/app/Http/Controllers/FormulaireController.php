@@ -6,6 +6,7 @@ use App\Amis;
 use App\QuestionChoixMultiple;
 use App\Formulaire;
 use App\Question;
+use App\User;
 use Illuminate\Http\Request;
 use Auth;
 use App\Reponse;
@@ -162,16 +163,41 @@ class FormulaireController extends Controller
                     $nb_reponses +=1;
                 }
                 $nb_reponses=round($nb_reponses/$nb_questions);
+
+                /* liste Amis pour partager */
+                $user_id = Auth::id();
+                $amis_list = Amis::where('user1', '=', $user_id)
+                    ->where('pending', '=', 1)
+                    ->orWhere('user2', '=', $user_id)
+                    ->where('pending', '=', 1)
+                    ->get();
+
+                $amis = [];
+
+                for($i = 0; $i <= count($amis_list)-1; $i++) {
+                    if($user_id == $amis_list[$i]['user1']) {
+                        array_push($amis, $amis_list[$i]['user2']);
+                    }
+                    else if ($user_id == $amis_list[$i]['user2']) {
+                        array_push($amis, $amis_list[$i]['user1']);
+                    }
+                }
+                $amis_name = [];
+
+                foreach ($amis as $id_amis) {
+                    $amis_name[$id_amis] = User::where('id', '=', $id_amis)->first();
+                }
                 return view('formulaire.show', [
                     'formulaire' => $formulaire,
                     'questions'=>$questions,
                     'reponses'=>$reponses,
                     'nb_reponses' =>$nb_reponses,
                     'choix_question_multiples' =>$choix_question,
+                    'amis' => $amis_name,
                 ]);
             }
             else{
-                return view("formulaire.block", ['formulaire_name' => $formulaire->name]); 
+                return view("formulaire.block", ['formulaire_name' => $formulaire->name]);
             }
         }
         else{
@@ -205,12 +231,12 @@ class FormulaireController extends Controller
                 ]);
                 }
                 else{
-                    return view("formulaire.block", ['formulaire_name' => $formulaire->name]); 
-                } 
+                    return view("formulaire.block", ['formulaire_name' => $formulaire->name]);
+                }
         }
         else{
             abort(404);
-        }     
+        }
     }
 
     /**

@@ -8,18 +8,61 @@
 <div id="back">
     <a href="javascript:window.history.go(-1)"><i id="back_logo" class="material-icons">arrow_back</i></a>
 </div>
-<div id="Delete_Form">
-    <i class="material-icons"  id="btn-task Delete_Form" id="icon_notif">delete</i>
-</div>
-<div id="Modify_Form">
-    <i class="material-icons"  id="btn-task" id="icon_notif">create</i>
-</div>
-<div class="container">
 
+<div class="card" id="window_share">
+    <div class="card-header" id="header_share">
+        <p>Partager le formulaire avec ses amis</p>
+        <i class="material-icons" id="close_share">clear</i>
+    </div>
+    <div class="card-body" id="body_share">
+        <div class="list-group" id="amis_list">
+            @foreach($amis as $ami)
+                <a href="#" class="list-group-item list-group-item-action amis-item" data-value="{{$ami->id}}">{{ $ami->name }}</a>
+            @endforeach
+        </div>
+
+        <form id="form_share">
+            <div id="amis_toshare">
+            </div>
+            <div id="btn_share">
+                <button type="submit" class="btn btn-success">Partager</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <input hidden value ="{{$formulaire->id}}">
     <!-- Div titre du formulaire -->
+
     <div id="title">
         <h2>{{ $formulaire->name }}</h2>
-        <h3>Il y a actuellement  :{{$nb_reponses}} réponses</h3>
+
+        <button id="btn_acceder" type="button" class="btn btn-primary" value="{{ Request::root() }}/repondre/{{ $formulaire->token }}">Accèder</button>
+
+        <h3 style="padding-left: 1.5rem">Il y a actuellement  :{{$nb_reponses}} réponses</h3>
+
+        <div id="share_link">
+            <p>Lien du formulaire: </p>
+            <input class="form-control" id="input_sharelink" type="text" value="{{ Request::root() }}/repondre/{{ $formulaire->token }}" readonly>
+            <button id="btn_copy" type="button" class="btn btn-primary">Copier</button>
+        </div>
+
+        <div id="ronds_edit">
+            <div id="Share_Form">
+                <i class="material-icons"  id="btn-task">share</i>
+            </div>
+            <div id="Modify_Form">
+                <i class="material-icons"  id="btn-task">create</i>
+            </div>
+            <div id="Delete_Form">
+                <i class="material-icons"  id="btn-task">delete</i>
+            </div>
+        </div>
+
+        <div class="alert alert-success" id="alert_copy" role="alert">
+            Le lien de partage à bien été copié.
+        </div>
     </div>
 
     <div id="questions">
@@ -31,8 +74,9 @@
             <div class="div_question">
                 <div class="question">
                     <h3>Question n°{{$nb_question}}:{{$question->name}}</h3>
-                </div>  
+                </div>
                 @if($question->type_question === "Choix multiples")
+                    @if($nb_reponses != 0)
                 <div class ="Resultat_graphique">
                     <canvas id="canvas{{$nb_question}}" height="220" width="610">
                 @php
@@ -46,7 +90,7 @@
                         @php
                             $temp = $reponse->response;
                             array_push($table,$temp);
-                            
+
                         @endphp
                     @endif
                 @endforeach
@@ -77,7 +121,7 @@
                         if(nb_data[test[i]]  == null){
                             nb_data[test[i]] = 1;
                         }
-                        
+
                         };
                     for (var key in nb_data){
                             question.push(key);
@@ -116,6 +160,7 @@
                 </script>
                     </canvas>
                 </div>
+                    @endif
                 @elseif($question->type_question === "Texte")
                     <div class="Liste_Reponse">
                     @php

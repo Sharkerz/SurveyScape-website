@@ -64,5 +64,8 @@ Route::group(['middleware' => ['auth']], function () {
     /*ajax upload background */
     Route::post('/formulaire/background', 'FormulaireController@upload_background')->name('form_background');
 
+    /* partage de formulaire avec ses amis */
+    Route::post('/partageform', 'Partage_formController@partage')->name('partageform');
+
 });
 
