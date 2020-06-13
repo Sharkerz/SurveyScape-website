@@ -1,19 +1,30 @@
 main {
-    min-height: 85.5vh;
+    min-height: 83.8vh;
 }
 
 #footer {
   left: 0;
   bottom: 0;
-  height: 4rem;
+  height: 5rem;
   width: 100%;
   background-color: white;
   color: white;
   text-align: center;
 }
+
+#footer > p {
+    margin: 0;
+}
+
+#row_footer {
+    max-height: 4rem;
+}
+
 .lfooter {
-    margin-top: 15px;
+    margin-top: 0;
+    padding-top: 13px;
     font-size: 20px;
+    max-height: 4rem;
 }
 
 #l4footer {
@@ -28,7 +39,8 @@ main {
 }
 
 #cond{
-    margin-top: 15px;
+    margin-top: 0;
+    padding-top: 15px;
     font-family: Rubik;
     font-style: normal;
     font-weight: lighter;

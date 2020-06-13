@@ -30,7 +30,7 @@
         <div id="div_infos">
             <div class="Name_Form">
                 <input type="hidden" name="id" value="{{$formulaire->id}}">
-                <input class="NomFormulaire" type="text"  required name="name" data-rows="1" tabindex="0" value="{{$formulaire->name}}" placeholder="Nom du Formulaire">
+                <input class="NomFormulaire" type="text"  required name="name" maxlength="39" data-rows="1" tabindex="0" value="{{$formulaire->name}}" placeholder="Nom du Formulaire">
             </div>
             <hr>
             <div class="row persoL1">
