@@ -269,7 +269,7 @@ class FormulaireController extends Controller
             Image::make($image)->resize(200, 200)->save(public_path('/Images/Formulaire/' . $filename));
             $image = $filename;
         }
-
+        //dd($request->files());
 
         //background
         if ($request->has('background')){
@@ -317,7 +317,6 @@ class FormulaireController extends Controller
                     if($test_form->formulaire_id == $id_form->id){
                     Question::where('id', '=', $id_de_la_question)
                         ->where('formulaire_id',$id_form->id)
-                        ->where('user_id',$user_id)
                         ->update([
                             "name" =>$value,
                         ]);

@@ -21,7 +21,7 @@
 
     <h1>Edition du formulaire : </h1>
 
-    <form action="{{ route('update_form') }}" method="post">
+    <form  enctype="multipart/form-data" action="{{ route('update_form') }}" method="post">
             @csrf
 
         <!-- Public/privé -->
