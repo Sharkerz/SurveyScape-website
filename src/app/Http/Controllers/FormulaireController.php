@@ -55,7 +55,7 @@ class FormulaireController extends Controller
             $len = strlen($startString);
             return (substr($string, 0, $len) === $startString);
         }
-
+        $user_id = Auth::id();
         // Image banniere
         if ($request->hasFile('image')){
             $image = $request->file('image');
@@ -95,6 +95,7 @@ class FormulaireController extends Controller
         ]);
 
         $id_form = Formulaire::all() ->where('token', '=', $token)
+            ->where('user_id',$user_id)
             ->first();
 
         foreach($inputs as $input=>$value){
@@ -260,7 +261,7 @@ class FormulaireController extends Controller
 
     public function update_form(Request $request){
         //Mise à jour des données en rapport avec le formulaire
-
+        $user_id = Auth::id();
         //image banniere
         if ($request->hasFile('image')){
             $image = $request->file('image');
@@ -268,7 +269,7 @@ class FormulaireController extends Controller
             Image::make($image)->resize(200, 200)->save(public_path('/Images/Formulaire/' . $filename));
             $image = $filename;
         }
-
+        //dd($request->files());
 
         //background
         if ($request->has('background')){
@@ -298,6 +299,7 @@ class FormulaireController extends Controller
             ->update($table_update);
 
         $id_form = Formulaire::where('name', '=', $request->input('name'))
+            ->where('user_id',$user_id)
             ->first();
         foreach($inputs as $input=>$value){
             if(preg_match("/^id_q/", $input )) {
