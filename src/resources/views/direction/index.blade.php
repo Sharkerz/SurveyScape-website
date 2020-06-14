@@ -35,7 +35,7 @@
                     Manager  <br>
                 </p>
                 <p class="text">
-                    Spécialisé dans le management, Léo à rejoint Big Brother après avoir réaliser un stage chez 2CRSI dans le développement. Ses connaissances en language de programmation, en management et en marketing en font un élément essentiel dans l'entreprise.
+                    Spécialisé dans le management, Léo a rejoint Big Brother après avoir réalisé un stage chez 2CRSI dans le développement. Ses connaissances en langages de programmation, en management et en marketing en font un élément essentiel dans l'entreprise.
                 </p>
             </div>
             <div class="col">
@@ -50,7 +50,7 @@
                     Développeur <br>
                 </p>
                 <p class="text">
-                    Tout droit sorti de SUPINFO International University, Maxence à sû redonner un vent nouveau à l'entreprise. Ses connaissances en développement web, suite à son passage au sein du secteur informatique de chez ARTE, nous sont très précieuse au sein de Big Brother. 
+                    Tout droit sorti de SUPINFO International University, Maxence a su redonner un vent nouveau à l'entreprise. Ses connaissances en développement web, suite à son passage au sein du secteur informatique de chez ARTE, nous sont très précieuses au sein de Big Brother. 
                 </p>
             </div>
             <div class="col">
@@ -65,7 +65,7 @@
                     Designer  <br>
                 </p>
                 <p class="text">
-                    En tant que développeur frontend, Sébastien à réussi à donner un vent de fraîcheur au sein du design des différents projets de chez Big Brother. Ses connaissances en language de programmation ainsi qu'en design en font un élément important pour n'importe quel projet.
+                    En tant que développeur front-end, Sébastien a réussi à donner un vent de fraîcheur au sein du design des différents projets de chez Big Brother. Ses connaissances en langages de programmation ainsi qu'en design en font un élément important pour n'importe quel projet.
                 </p>
             </div>
             <div class="col">
@@ -80,21 +80,10 @@
                     Développeur <br>
                 </p>
                 <p class="text">
-                En tant que développeur spécialisé dans le backend, Benoit est un élément important au sein des différentes équipes grâce à ses connaissances en développement Web. Il à sû utilisé au mieux son expérience passé chez DeltaCE afin d'améliorer les différents produits de chez Big Brother.
+                En tant que développeur spécialisé dans le back-end, Benoit est un élément important au sein des différentes équipes grâce à ses connaissances en développement Web. Il a su utiliser au mieux son expérience passée chez DeltaCE afin d'améliorer les différents produits de chez Big Brother.
                 </p>
             </div>
         </div>
-
-        <!-- <div class="row" id="row_comm">
-            <div class="col-2"></div>
-
-
-            <div class="col">
-            </div>
-
-            <div class="col-2">
-            </div>
-        </div> -->
 
 
     </div>
