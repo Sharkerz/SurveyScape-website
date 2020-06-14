@@ -75,6 +75,12 @@ body {
     height: 7rem;
 }
 
+#env{
+    max-width: 60%;
+    height: auto;
+    margin-top: 3.5rem;
+}
+
 .communeaute_text {
     font-size: 2rem;
     font-family: Rubik;

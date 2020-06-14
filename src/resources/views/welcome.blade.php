@@ -357,7 +357,7 @@
             </div>
             <div class="col">
                 <div class="rond_logo">
-                    <img class="img_rond" src="Images/welcome/env.png">
+                    <img id="env" src="Images/welcome/env.png">
                 </div>
                 <p class="rond_text">
                     Diffusez votre sondage en ligne <br>
