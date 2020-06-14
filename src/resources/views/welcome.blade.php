@@ -341,7 +341,7 @@
         <p class="texte-welcome">Créez votre questionnaire en ligne</p>
         <br> <br>
         <p class="texte-welcome">Besoin de l'avis de différentes personnes ?</p>
-        <p class="texte-welcome">Obtenez rapidement et en quelques clics les réponses qu'ils vous faut.</p>
+        <p class="texte-welcome">Obtenez rapidement et en quelques clics les réponses qu'il vous faut.</p>
         <br><br>
 
         <div class="row" id="ronds">
@@ -360,7 +360,7 @@
                     <img class="img_rond" src="Images/welcome/env.png">
                 </div>
                 <p class="rond_text">
-                    Diffuser votre sondage en ligne <br>
+                    Diffusez votre sondage en ligne <br>
                     Partagez avec vos amis
                 </p>
             </div>

@@ -35,7 +35,7 @@
                     @foreach ($name ?? '' as $data)
                         <tr id="friend-{{ User::where('name', $data)->first()->id }}">
                             <td>
-                                <img alt="Amis-avatar" src="/avatar/{{ User::where('name', $data)->first()->avatar }}" class="amis-avatar">
+                                <img alt="Amis-avatar" src="/Images/avatar/{{ User::where('name', $data)->first()->avatar }}" class="amis-avatar">
                             </td>
                             <td>
                                 <h1 id="name_friend"> {{$data}} </h1>

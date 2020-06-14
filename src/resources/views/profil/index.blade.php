@@ -25,7 +25,7 @@
     <div class="row">
         <!-- Photo de profil -->
         <div class="col-sm">
-            <img id="avatar" src="/avatar/{{ $user->avatar }}">
+            <img id="avatar" src="/Images/avatar/{{ Auth::user()->avatar }}">
         </div>
 
         <!-- Nom de l'utilisateur -->

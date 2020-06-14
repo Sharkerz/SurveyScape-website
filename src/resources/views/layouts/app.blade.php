@@ -148,7 +148,7 @@
                         </div>
                     </div>
 
-                    <img id="avatar_header" src="/avatar/{{ Auth::user()->avatar }}" onclick="window.location='{{ route("profil.index") }}'">
+                    <img id="avatar_header" src="/Images/avatar/{{ Auth::user()->avatar }}" onclick="window.location='{{ route("profil.index") }}'">
 
                 @endguest
             </ul>

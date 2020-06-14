@@ -49,7 +49,7 @@
 
                         <div class="auteur">
                             {{ $formulaire->user->name }}
-                            <img class="img_auteur" src="/avatar/{{$formulaire->user->avatar}}">
+                            <img class="img_auteur" src="/Images/avatar/{{$formulaire->user->avatar}}">
                         </div>
 
                     </div>
@@ -97,7 +97,7 @@
 
                                 <div class="auteur">
                                     {{ $form->user->name }}
-                                    <img class="img_auteur" src="/avatar/{{$form->user->avatar}}">
+                                    <img class="img_auteur" src="/Images/avatar/{{$form->user->avatar}}">
                                 </div>
 
                             </div>
