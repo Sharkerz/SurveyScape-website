@@ -8,6 +8,32 @@ body {
     margin-top: 0;
 }
 
+#fuseeanimation{
+    position: absolute;
+    height: 25%;
+    width: 25%;
+    left: 60rem;
+    top: 180rem;
+
+}
+#fusee {
+    animation: slide 3s ease-in-out infinite alternate;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 #main_logo {
     width: max-content;
     margin-left: auto;
