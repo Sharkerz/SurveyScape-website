@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Amis;
 use App\QuestionChoixMultiple;
 use App\Formulaire;
+use App\Partage_form;
 use App\Question;
 use App\User;
 use Illuminate\Http\Request;
@@ -458,6 +459,10 @@ class FormulaireController extends Controller
                     }
                 }
                 Question::where('id',$question->id)->delete();
+            }
+            $partages = Partage_form::all()->where('formulaire_id',$id);
+            foreach($partages as $partage){
+                Partage_form::where('formulaire_id',$id)->delete();
             }
             Formulaire::where('id',$id)->delete();
             return response()->json();
