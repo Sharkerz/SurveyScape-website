@@ -18,6 +18,16 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <style type="text/css">
+        @font-face {
+            font-family: Merriweather;
+            src: url('fonts/Merriweather-Light.ttf');
+        }
+        @font-face {
+            font-family: Rubik;
+            src: url('fonts/Rubik-Light.ttf');
+        }
+    </style>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
