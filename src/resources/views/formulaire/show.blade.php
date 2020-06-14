@@ -100,11 +100,11 @@
                 $data = (json_encode($table,JSON_UNESCAPED_SLASHES));
                 $collect_data[$nb_question] =addslashes($data);
                 @endphp
-            <script>
-            var nb_question = '<?php echo($nb_question)?>';
-            var data_send = '<?php echo($collect_data[$nb_question])?>';
-            ;</script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>
+                <script>
+                var nb_question = '<?php echo($nb_question)?>';
+                var data_send = '<?php echo($collect_data[$nb_question])?>';
+                ;</script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>
                 <script>
                     //Pie Chart
                 if(data_send!=""){
@@ -166,13 +166,12 @@
                     @endif
                 @elseif($question->type_question === "Texte")
                     <div class="Liste_Reponse">
-                    @php
+                        @php
                         $nb_reponses_question = 0
                         @endphp
                         @foreach($reponses as $reponse)
                             @if($nb_reponses_question == 3)
-                                    <button type="button" class="btn btn-light Afficher_Reponses">Afficher toutes les réponses</button>
-                                <div class="test">
+                                <button type="button" class="btn btn-light Afficher_Reponses">Afficher toutes les réponses</button>
                                 @php
                                 $nb_reponses_question+=1
                                 @endphp
@@ -189,7 +188,6 @@
                             @endif
                         @endforeach
                     </div>
-                </div>
                 @endif
 
             </div>
