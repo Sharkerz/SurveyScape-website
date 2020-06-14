@@ -18,7 +18,7 @@
             <h2>{{ $formulaire->name }}</h2>
             <div id="auteur">
                 <p class="float-right">
-                    <img id="img_auteur" src="/avatar/{{$formulaire->user->avatar}}">
+                    <img id="img_auteur" src="/Images/avatar/{{$formulaire->user->avatar}}">
                 </p>
                 <p class="name_auteur">
                     créé par {{ $formulaire->user->name }}
