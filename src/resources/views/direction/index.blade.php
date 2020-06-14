@@ -73,7 +73,7 @@
                     Benoit Diemer
                 </p>
                 <div class="photo">
-                    <img class="img_rond" src="Images/direction/Benoit.jpg">
+                    <img class="img_rond" src="Images/direction/Benoit.png">
                 </div>
                 <br>
                 <p class="text_title">
