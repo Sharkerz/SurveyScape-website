@@ -130,3 +130,24 @@ body {
     margin-right: auto;
     width: 70%;
 }
+
+#btn_inscrire {
+    padding: 1.5rem;
+    width: 13rem;
+    border: 0.3px solid #DCDCDC;
+    background-color: #BAB6B6;
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+#btn_inscrire:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+#div_join {
+    margin-left: 9rem;
+    padding-bottom: 10rem;
+    margin-top: 3.5rem;
+}

@@ -328,8 +328,8 @@
                 </clipPath>
                 </defs>
             </svg>
- 
-        
+
+
         </div>
 
         <div id="arrow_div">
@@ -339,12 +339,12 @@
     </div>
 
     <div id="presentation">
-    <svg 
+    <svg
                 id="fuseeanimation"
-                width="926" 
-                height="771" 
-                viewBox="0 -50 926 771" 
-                fill="none" 
+                width="926"
+                height="771"
+                viewBox="0 -50 926 771"
+                fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <g id="undraw_To_the_stars_qhyy (1) 1">
                 <g id="fusee">
@@ -543,12 +543,10 @@
             <div class="col">
             </div>
 
-            <div class="col">
-            <h2 class="communeaute_titre"> Communauté</h2>
+            <div class="col" id="div_join">
+            <h2 class="communeaute_titre">Rejoignez-nous</h2>
             <p class="communeaute_text">
-                    Evaluez le marché, augmentez votre notoriété
-                    <br> <br>
-                    Partagez vos formulaires avec vos amis
+                <button id="btn_inscrire" onclick="window.location.href='{{route('register')}}'">S'inscrire maintenant </button>
             </div>
 
             <div class="col-2">
