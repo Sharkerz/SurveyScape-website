@@ -12,25 +12,26 @@ $(document).ready(function () {
     }
     $(document).on("click", ".Afficher_Reponses", function () {
         var button = $(this)[0].style.display = 'none';
-        var new_reponses = $(this)[0].closest(".div_question").children[1].children[4].children;
+        var new_reponses = $(this)[0].closest(".div_question");
+        var elements = new_reponses.getElementsByClassName('Reponse_Texte_cacher'); 
         var array =[];
-        for(var i=0; i <new_reponses.length;i++){
-           array.push(new_reponses[i])
+        for(var i=0; i <elements.length;i++){
+           array.push(elements[i])
         };
         array.forEach(element => {
             element.style.display = "block";
         });
-
         var div = $(this)[0].closest(".div_question").children[1];
         div.innerHTML += '<button type="button" class="btn btn-light Masquer_Reponses">Masquer les réponses</button>'
     });
 
     $(document).on("click", ".Masquer_Reponses", function () {
         var button = $(this)[0].style.display = 'none';
-        var new_reponses = $(this)[0].closest(".div_question").children[1].children[4].children;
+        var new_reponses = $(this)[0].closest(".div_question");
+        var elements = new_reponses.getElementsByClassName('Reponse_Texte_cacher'); 
         var array =[];
-        for(var i=0; i <new_reponses.length;i++){
-           array.push(new_reponses[i])
+        for(var i=0; i <elements.length;i++){
+           array.push(elements[i])
         };
         array.forEach(element => {
             element.style.display = 'none';
